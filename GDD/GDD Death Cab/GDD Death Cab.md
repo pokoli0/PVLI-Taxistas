@@ -1,4 +1,4 @@
-﻿***Death Cab***
+﻿# Death Cab
 
 Documento de diseño de videojuego
 
@@ -21,11 +21,11 @@ Plataforma: Navegador Web.
 
 Modos de juego: Un jugador. 
 
-1. ## <a name="_nnffav7lcpae"></a>**Descripción**
+2. ## <a name="_nnffav7lcpae"></a>**Descripción**
 La Muerte no puede permitirse pagar el alquiler en el inframundo, y por ello conseguirá trabajo como taxista. Cada día la radio informará de un crimen. El objetivo de la Muerte es recoger gente por la ciudad ejerciendo su profesión, y hablando con ellos en el trayecto. A medida que fluye la conversación, la Muerte tendrá que decidir si llevar a su cliente al infierno, al cielo, o dejarlo vivir, después de analizar su personalidad y si es una posible víctima o culpable del crimen.
 
 Matándolos conseguirá años de vida de almas, moneda del inframundo, con los cuales podrá pagar su alquiler. Si no acierta en el juicio, la Muerte será penalizada, y habrá posibilidad de que no llegue a pagar el alquiler.
-1. ## <a name="_257ge1a0x7hz"></a>**Jugabilidad**
+3. ## <a name="_257ge1a0x7hz"></a>**Jugabilidad**
 ### <a name="_lholdhpnk4um"></a>**Cámara**
 En la fase de conducción, la cámara sería “Top Down” en el estilo de los juegos 2d de GTA. Seguirá al taxi de modo que esté centrado.
 ### <a name="_1hpunenzyjh1"></a>**Mecánicas de conducción**
@@ -55,7 +55,7 @@ La moneda principal del juego son **años de vida**. Para ganar años de vida, l
 
 El precio del alquiler será de 100 años de vida. Se pagará cada día con el dinero acumulado o con las ganancias.
 
-1. ## <a name="_ll42w48m9i98"></a>**Dinámica**
+4. ## <a name="_ll42w48m9i98"></a>**Dinámica**
 ### <a name="_y563t99uhb5"></a>**Diseño de niveles**
 Es una zona de la ciudad o un distrito en donde conduciremos buscando clientes. En la parte de diseño este tendrá una arquitectura muy realista basada en mapas reales de ciudades. A la hora del diseño en la parte “Visual Novel” el diseño se basará más en el diálogo y cómo estos afectan tus decisiones.
 
@@ -65,17 +65,17 @@ Es una zona de la ciudad o un distrito en donde conduciremos buscando clientes. 
 
 ### <a name="_d13vmrbfgnvt"></a>**Descripción de partida típica**
 1. **Presentación del día.** Se muestra en qué día estamos, y comienzan las noticias en la radio. Se explica un crimen que ha sucedido, qué número de personas hay implicadas y una breve descripción de cada una (física y personalidad).
-1. **Conducción del taxi**. 
+2. **Conducción del taxi**. 
 
 Pasamos la vista desde arriba de la ciudad. Se buscan posibles clientes. Habrá que pararse en un rango cerca de un cliente. Podremos colisionar con elementos de la ciudad (por ejemplo, cubos de basura).
 
-1. Cuando se suba un cliente, entraremos en el **minijuego conversacional**. En él el jugador tendrá que juzgar si su cliente es un posible culpable o víctima del crimen a través del diálogo. Al final de la conversación, el jugador tendrá que decidir si el cliente acabará en el cielo, infierno o lo dejaremos vivir. Dependiendo de nuestra decisión obtendremos más o menos dinero.
-1. Volveremos a la conducción en búsqueda de otros clientes. Se repetirán los pasos 2, 3 y 4 hasta pasar el número definido de personas al principio del día.
-1. Se nos presentará el **resumen del día**. Ganancias que hemos obtenido, pérdidas, y si podemos o no pasar al siguiente día (si podemos pagar el alquiler).
+3. Cuando se suba un cliente, entraremos en el **minijuego conversacional**. En él el jugador tendrá que juzgar si su cliente es un posible culpable o víctima del crimen a través del diálogo. Al final de la conversación, el jugador tendrá que decidir si el cliente acabará en el cielo, infierno o lo dejaremos vivir. Dependiendo de nuestra decisión obtendremos más o menos dinero.
+4. Volveremos a la conducción en búsqueda de otros clientes. Se repetirán los pasos 2, 3 y 4 hasta pasar el número definido de personas al principio del día.
+5. Se nos presentará el **resumen del día**. Ganancias que hemos obtenido, pérdidas, y si podemos o no pasar al siguiente día (si podemos pagar el alquiler).
    1. En el caso de que sea el último día, la Muerte se cansará de las aburridas personalidades de la gente del día a día y por ello, dimitirá para buscarse otro trabajo. Se mostrarán los créditos y se habrá superado el juego.
-   1. En el caso de no poder pagar el alquiler, la Muerte será desterrada del inframundo, y por ende, no se habrá superado el juego. Se tendrá que jugar de nuevo, desde el día 1.
+   2. En el caso de no poder pagar el alquiler, la Muerte será desterrada del inframundo, y por ende, no se habrá superado el juego. Se tendrá que jugar de nuevo, desde el día 1.
 
-1. ## <a name="_7wldekcqvskv"></a>**Estética**
+5. ## <a name="_7wldekcqvskv"></a>**Estética**
 **HUD** 
 
 (Provisional, la localización de los diferentes elementos puede variar dependiendo de las necesidades que se tengan)
@@ -89,7 +89,7 @@ En la parte de conducción se mostrarán el número de almas que tiene el jugado
 En la parte de diálogo se mostrarán también los diferentes cuadros de diálogo que se pueden elegir y las respuestas del pasajero a los mismos. (Hay varias opciones que barajar)
 
 ![](Aspose.Words.5ea32238-1f07-4d27-9bdc-331957897efc.004.png)
-1. ## <a name="_4y6fpevun9op"></a>**Contenido**
+6. ## <a name="_4y6fpevun9op"></a>**Contenido**
 ### <a name="_r4m0xia6pdzu"></a>**Personajes**
 Las personalidades de los clientes estarán basadas en los tipos del [indicador Myers-Briggs o inventario tipológico de Myers-Briggs](https://www.16personalities.com/es/descripcion-de-los-tipos), (también conocido como MBTI), un cuestionario autorreportado que evalúa cómo las personas perciben el entorno y toman decisiones.
 
@@ -126,7 +126,7 @@ En el juego distinguiremos dos tipos de conversaciones.
 - Se definirán algunas **preguntas y respuestas predeterminadas**, que se irán mezclando para que surja una conversación con sentido.
 - Diálogos **acorde al crimen del día**, irán contando una historia a medida que la Muerte pregunte.
 
-1. ## <a name="_tqeutct2x2t7"></a>**Referencias**
+7. ## <a name="_tqeutct2x2t7"></a>**Referencias**
 Para el diseño y desarrollo de Death Cab, se han tomado los siguientes juegos como inspiración y de referencia:
 
 - [Papers Please](https://papersplea.se/). 
