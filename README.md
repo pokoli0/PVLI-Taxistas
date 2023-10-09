@@ -1,8 +1,6 @@
 Este proyecto es un trabajo universitario.
 
-Podéis seguirnos en nuestras redes sociales:
-IG | @YellowRideSt
-X | @YellowRideSt
+Podéis seguirnos en nuestras redes sociales: IG -> @YellowRideSt || X -> @YellowRideSt
 
 Presentamos Death Cab, un juego de plataforma web en desarrollo. En él, seréis la Muerte, que, por crisis económica en el inframundo, tendrá que arreglarselas legalmente como taxista.
 
