@@ -59,9 +59,9 @@ El precio del alquiler será de 100 años de vida. Se pagará cada día con el d
 ### <a name="_y563t99uhb5"></a>**Diseño de niveles**
 Es una zona de la ciudad o un distrito en donde conduciremos buscando clientes. En la parte de diseño este tendrá una arquitectura muy realista basada en mapas reales de ciudades. A la hora del diseño en la parte “Visual Novel” el diseño se basará más en el diálogo y cómo estos afectan tus decisiones.
 
-![](Aspose.Words.5ea32238-1f07-4d27-9bdc-331957897efc.001.jpeg)
+![](mapa3d.jpeg)
 
-![](Aspose.Words.5ea32238-1f07-4d27-9bdc-331957897efc.002.png)
+![](mapa2d.png)
 
 ### <a name="_d13vmrbfgnvt"></a>**Descripción de partida típica**
 1. **Presentación del día.** Se muestra en qué día estamos, y comienzan las noticias en la radio. Se explica un crimen que ha sucedido, qué número de personas hay implicadas y una breve descripción de cada una (física y personalidad).
@@ -84,22 +84,22 @@ Al principio de cada día se indicará el día en el que va a empezar (día 1, d
 
 En la parte de conducción se mostrarán el número de almas que tiene el jugador.
 
-![](Aspose.Words.5ea32238-1f07-4d27-9bdc-331957897efc.003.png)
+![](hud1.png)
 
 En la parte de diálogo se mostrarán también los diferentes cuadros de diálogo que se pueden elegir y las respuestas del pasajero a los mismos. (Hay varias opciones que barajar)
 
-![](Aspose.Words.5ea32238-1f07-4d27-9bdc-331957897efc.004.png)
+![](hud2.png)
 6. ## <a name="_4y6fpevun9op"></a>**Contenido**
 ### <a name="_r4m0xia6pdzu"></a>**Personajes**
 Las personalidades de los clientes estarán basadas en los tipos del [indicador Myers-Briggs o inventario tipológico de Myers-Briggs](https://www.16personalities.com/es/descripcion-de-los-tipos), (también conocido como MBTI), un cuestionario autorreportado que evalúa cómo las personas perciben el entorno y toman decisiones.
 
 
 <table><tr><th colspan="2">Personaje</th><th>Descripción</th><th>Habilidades</th><th>Foto</th></tr>
-<tr><td colspan="2">La Muerte</td><td valign="top">Parado y con apenas dinero para pagar el alquiler del mes, este coge un trabajo como taxista para sobrevivir un poco más. Es el protagonista de nuestro juego, y el único personaje jugable.</td><td valign="top">Tendrá la habilidad de conducir y de decidir quien vive y quien muere</td><td valign="top">![](Aspose.Words.5ea32238-1f07-4d27-9bdc-331957897efc.005.png)</td></tr>
-<tr><td rowspan="4">Clientes</td><td><p>Azul</p><p>(Centinelas)</p></td><td colspan="2" valign="top">Son cooperativos, prácticos y fundamentados. Se sienten cómodos con quienes son y se enorgullecen de su buen carácter y su competencia. Estos tipos de personalidad buscan orden, seguridad y estabilidad. Trabajan duro y aspiran a no defraudar a nadie, y esperan que otras personas también adopten esta misma ética.</td><td valign="top">![](Aspose.Words.5ea32238-1f07-4d27-9bdc-331957897efc.006.png)</td></tr>
-<tr><td><p>Morado</p><p>(Analistas)</p></td><td colspan="2" valign="top">Conocidos por su amor a la racionalidad, tomando decisiones con la cabeza. Caracterizados por idear estrategias creativas y por la motivación para explorar las cosas. Corren el riesgo de ser superados por aquellos que simplemente se sientan y hacen el trabajo. Además de ser lobos solitarios sin preocuparse por hacer amigos. </td><td valign="top">![](Aspose.Words.5ea32238-1f07-4d27-9bdc-331957897efc.007.png)</td></tr>
-<tr><td><p>Verde</p><p>(Diplomáticos)</p></td><td colspan="2" valign="top">Se preocupan por ayudar y conectarse con los demás. Priorizan ser amables y generosos y, en general, prefieren cooperar que competir. Son sensibles a los sentimientos de otras personas y quieren empujar a las personas que los rodean en direcciones positivas. Sin embargo, si no se controla, este rasgo de personalidad puede desencadenar superioridad moral o determinación.</td><td valign="top">![](Aspose.Words.5ea32238-1f07-4d27-9bdc-331957897efc.008.png)</td></tr>
-<tr><td><p>Amarillo</p><p>(Exploradores)</p></td><td colspan="2" valign="top">Tienden a ser autosuficientes y de pensamiento rápido. Viven de manejar situaciones inciertas. Su flexibilidad les ayuda a adaptarse al momento. Generalmente prefieren la trabajabilidad y la utilidad a la perfección. Sin embargo no les gusta la monotonía y pueden desviarse de sus obligaciones para probar cosas nuevas.</td><td valign="top">![](Aspose.Words.5ea32238-1f07-4d27-9bdc-331957897efc.009.png)</td></tr>
+<tr><td colspan="2">La Muerte</td><td valign="top">Parado y con apenas dinero para pagar el alquiler del mes, este coge un trabajo como taxista para sobrevivir un poco más. Es el protagonista de nuestro juego, y el único personaje jugable.</td><td valign="top">Tendrá la habilidad de conducir y de decidir quien vive y quien muere</td><td valign="top">![](muerte.png)</td></tr>
+<tr><td rowspan="4">Clientes</td><td><p>Azul</p><p>(Centinelas)</p></td><td colspan="2" valign="top">Son cooperativos, prácticos y fundamentados. Se sienten cómodos con quienes son y se enorgullecen de su buen carácter y su competencia. Estos tipos de personalidad buscan orden, seguridad y estabilidad. Trabajan duro y aspiran a no defraudar a nadie, y esperan que otras personas también adopten esta misma ética.</td><td valign="top">![](azul.png)</td></tr>
+<tr><td><p>Morado</p><p>(Analistas)</p></td><td colspan="2" valign="top">Conocidos por su amor a la racionalidad, tomando decisiones con la cabeza. Caracterizados por idear estrategias creativas y por la motivación para explorar las cosas. Corren el riesgo de ser superados por aquellos que simplemente se sientan y hacen el trabajo. Además de ser lobos solitarios sin preocuparse por hacer amigos. </td><td valign="top">![](morado.png)</td></tr>
+<tr><td><p>Verde</p><p>(Diplomáticos)</p></td><td colspan="2" valign="top">Se preocupan por ayudar y conectarse con los demás. Priorizan ser amables y generosos y, en general, prefieren cooperar que competir. Son sensibles a los sentimientos de otras personas y quieren empujar a las personas que los rodean en direcciones positivas. Sin embargo, si no se controla, este rasgo de personalidad puede desencadenar superioridad moral o determinación.</td><td valign="top">![](verde.png)</td></tr>
+<tr><td><p>Amarillo</p><p>(Exploradores)</p></td><td colspan="2" valign="top">Tienden a ser autosuficientes y de pensamiento rápido. Viven de manejar situaciones inciertas. Su flexibilidad les ayuda a adaptarse al momento. Generalmente prefieren la trabajabilidad y la utilidad a la perfección. Sin embargo no les gusta la monotonía y pueden desviarse de sus obligaciones para probar cosas nuevas.</td><td valign="top">![](amarillo.png)</td></tr>
 </table>
 
 ### <a name="_z3xmqup0f7zp"></a>**Elementos del minijuego de conducción**
@@ -108,13 +108,13 @@ En el minijuego de conducción, nos encontraremos distintos elementos repartidos
 
 
 <table><tr><th>Nombre del elemento</th><th>Utilidad</th><th>Descripción</th><th>Foto</th></tr>
-<tr><td>Carreteras</td><td>Zona por donde será posible la conducción.</td><td>Carriles de color gris oscuro, con líneas blancas que lo delimitan.</td><td>![](Aspose.Words.5ea32238-1f07-4d27-9bdc-331957897efc.010.png)</td></tr>
-<tr><td>Aceras</td><td><p>Zona donde aparecerán los clientes (spawners aleatorios?).</p><p>No se puede conducir por aquí (evitamos atropellos digo yo??)</p></td><td><p>De un color más claro que la carretera para que sea distinguible.</p><p>Cuando haya un cliente parado en la acera, aparecerá un círculo, donde tendremos que parar el taxi para que se suba.</p></td><td>![](Aspose.Words.5ea32238-1f07-4d27-9bdc-331957897efc.011.png)</td></tr>
-<tr><td>Edificios</td><td>Zona no transitable delimitada por un colisionador que no se podrá atravesar</td><td>Edificios vistos desde arriba.</td><td>![](Aspose.Words.5ea32238-1f07-4d27-9bdc-331957897efc.012.png)</td></tr>
-<tr><td>Cubos de basura</td><td rowspan="4"><p>Obstáculo en la carretera con el que el taxi podrá colisionar, y que producirá una fuerza opuesta a la dirección del taxi.</p><p>Si se colisiona con alguno explota.</p><p></p></td><td>De color más oscuro que la carretera.</td><td>![](Aspose.Words.5ea32238-1f07-4d27-9bdc-331957897efc.013.png)</td></tr>
-<tr><td>Farolas</td><td>De color blanco.</td><td>![](Aspose.Words.5ea32238-1f07-4d27-9bdc-331957897efc.014.png)</td></tr>
-<tr><td>Semáforos</td><td>De color verde.</td><td>![](Aspose.Words.5ea32238-1f07-4d27-9bdc-331957897efc.015.png)</td></tr>
-<tr><td>Coches</td><td>De diferentes colores, no representan nada, solo cumpliran las normas de tráfico. </td><td>![](Aspose.Words.5ea32238-1f07-4d27-9bdc-331957897efc.016.png)</td></tr>
+<tr><td>Carreteras</td><td>Zona por donde será posible la conducción.</td><td>Carriles de color gris oscuro, con líneas blancas que lo delimitan.</td><td>![](coches.png)</td></tr>
+<tr><td>Aceras</td><td><p>Zona donde aparecerán los clientes (spawners aleatorios?).</p><p>No se puede conducir por aquí (evitamos atropellos digo yo??)</p></td><td><p>De un color más claro que la carretera para que sea distinguible.</p><p>Cuando haya un cliente parado en la acera, aparecerá un círculo, donde tendremos que parar el taxi para que se suba.</p></td><td>![](acera.png)</td></tr>
+<tr><td>Edificios</td><td>Zona no transitable delimitada por un colisionador que no se podrá atravesar</td><td>Edificios vistos desde arriba.</td><td>![](edificios.png)</td></tr>
+<tr><td>Cubos de basura</td><td rowspan="4"><p>Obstáculo en la carretera con el que el taxi podrá colisionar, y que producirá una fuerza opuesta a la dirección del taxi.</p><p>Si se colisiona con alguno explota.</p><p></p></td><td>De color más oscuro que la carretera.</td><td>![](papelera.png)</td></tr>
+<tr><td>Farolas</td><td>De color blanco.</td><td>![](farola.png)</td></tr>
+<tr><td>Semáforos</td><td>De color verde.</td><td>![](semaforo.png)</td></tr>
+<tr><td>Coches</td><td>De diferentes colores, no representan nada, solo cumpliran las normas de tráfico. </td><td>![](coche.png)</td></tr>
 </table>
 
 
