@@ -21,3 +21,36 @@ body {
 .navbar .brand {
     margin-top: 10px;
 }
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #333; /* Cambia el color de fondo si lo deseas */
+    color: #fff;
+    text-align: center;
+    padding: 20px 0; /* Espaciado interior en la parte superior e inferior */
+    z-index: 102; /* Asegura que el pie de página esté encima del contenido, pero debajo del encabezado */
+}
+/* footer a{
+    color: #fffe00;
+            text-decoration: none;
+            margin: 0 10px;
+} */
+.social-links {
+    display: flex;
+    justify-content: center;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 0 20px;
+    border-radius: 50%; /* Hace que los enlaces sean circulares */
+    overflow: hidden;
+}
+
+.social-links img {
+    width: 70px; /* Ajusta el tamaño de los logotipos según tus necesidades */
+    height: 70px;
+    border: 2px solid #fffe00; /* Estilo de borde opcional */
+}
