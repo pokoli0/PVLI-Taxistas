@@ -45,12 +45,10 @@ footer {
 .social-links a {
     display: inline-block;
     margin: 0 20px;
-    border-radius: 50%; /* Hace que los enlaces sean circulares */
     overflow: hidden;
 }
 
 .social-links img {
-    width: 70px; /* Ajusta el tamaño de los logotipos según tus necesidades */
-    height: 70px;
-    border: 2px solid #fffe00; /* Estilo de borde opcional */
+    width: 200px; /* Ajusta el tamaño de los logotipos según tus necesidades */
+    height: 50px;
 }
