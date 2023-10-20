@@ -2,8 +2,6 @@ html {
     min-height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
-
-
 body {
     margin: 0px;
     background-color: rgb(47 47 30);
@@ -25,8 +23,8 @@ header {
 }
 header nav {
     display: flex;
-    justify-content: center; /* Alinear el contenido horizontalmente al centro */
-    align-items: center; /* Alinear el contenido verticalmente al centro */
+    justify-content: center; 
+    align-items: center; 
 }
 header nav ul {
     list-style: none;
@@ -39,12 +37,11 @@ header nav ul {
 
 header nav ul li {
     display: inline;
-    font-size: 2vw; /* Utiliza unidades vw para un tamaño de fuente escalable */
+    font-size: 2vw; 
     font-family: "Goudy Stout", sans-serif;
-    margin-right: 2vw; /* Espacio entre elementos de navegación */
+    margin-right: 2vw; 
 }
 
-/* Opcional: ajusta los márgenes en torno a los elementos de navegación */
 header nav ul li:first-child {
     margin-left: 2vw;
 }
@@ -54,7 +51,6 @@ header nav ul li a {
     text-decoration: none;
 }
 
-/* Agrega un estilo para cambiar el color cuando se pasa el mouse */
 header nav ul li a:hover {
     color: #c0c078;
 }
@@ -67,17 +63,13 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #333; /* Cambia el color de fondo si lo deseas */
+    background-color: #333; 
     color: #fff;
     text-align: center;
-    padding: 20px 0; /* Espaciado interior en la parte superior e inferior */
-    z-index: 102; /* Asegura que el pie de página esté encima del contenido, pero debajo del encabezado */
+    padding: 20px 0;
+    z-index: 102; 
 }
-/* footer a{
-    color: #fffe00;
-            text-decoration: none;
-            margin: 0 10px;
-} */
+
 .social-links {
     display: flex;
     justify-content: center;
@@ -90,37 +82,7 @@ footer {
 }
 
 .social-links img {
-    width: 200px; /* Ajusta el tamaño de los logotipos según tus necesidades */
+    width: 200px; 
     height: 50px;
 }
 
-header nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-}
-
-header nav ul li {
-    display: inline;
-    font-size: 2vw; /* Utiliza unidades vw para un tamaño de fuente escalable */
-    font-family: "Goudy Stout", sans-serif;
-    margin-right: 2vw; /* Espacio entre elementos de navegación */
-}
-
-/* Opcional: ajusta los márgenes en torno a los elementos de navegación */
-header nav ul li:first-child {
-    margin-left: 2vw;
-}
-
-header nav ul li a {
-    color: black;
-    text-decoration: none;
-}
-
-/* Agrega un estilo para cambiar el color cuando se pasa el mouse */
-header nav ul li a:hover {
-    color: #c0c078;
-}
