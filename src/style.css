@@ -2,6 +2,13 @@ html {
     min-height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
+
+
+body {
+    margin: 0px;
+    background-color: rgb(47 47 30);
+    font-weight: 500;
+}
 header {
     overflow: hidden;
     margin: auto;
@@ -11,15 +18,35 @@ header {
     z-index: 101;
     background: rgb(244 247 165);
     border-bottom: 4px solid #fffe00;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
 }
-
-body {
-    margin: 0px;
-    background-color: rgb(47 47 30);
-    font-weight: 500;
+header nav {
+    display: flex;
+    justify-content: center; /* Alinear el contenido horizontalmente al centro */
+    align-items: center; /* Alinear el contenido verticalmente al centro */
 }
-.navbar .brand {
+header nav div {
     margin-top: 10px;
+    margin-right: 100px;
+}
+header nav ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+header nav ul li{
+    display: inline;
+    margin-right: 100px;
+    font-size: 30px;
+    font-family: "Goudy Stout", sans-serif;
+}
+header nav ul li a {
+    color: black;
+    text-decoration: none;
 }
 footer {
     position: fixed;
