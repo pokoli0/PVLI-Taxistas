@@ -28,25 +28,35 @@ header nav {
     justify-content: center; /* Alinear el contenido horizontalmente al centro */
     align-items: center; /* Alinear el contenido verticalmente al centro */
 }
-header nav div {
-    margin-top: 10px;
-    margin-right: 100px;
-}
-header nav ul{
+header nav ul {
     list-style: none;
     padding: 0;
-    margin: 0;
     display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
 }
-header nav ul li{
+
+header nav ul li {
     display: inline;
-    margin-right: 100px;
-    font-size: 30px;
+    font-size: 2vw; /* Utiliza unidades vw para un tamaño de fuente escalable */
     font-family: "Goudy Stout", sans-serif;
+    margin-right: 2vw; /* Espacio entre elementos de navegación */
 }
+
+/* Opcional: ajusta los márgenes en torno a los elementos de navegación */
+header nav ul li:first-child {
+    margin-left: 2vw;
+}
+
 header nav ul li a {
     color: black;
     text-decoration: none;
+}
+
+/* Agrega un estilo para cambiar el color cuando se pasa el mouse */
+header nav ul li a:hover {
+    color: #c0c078;
 }
 .contenido{
     display: none;
@@ -82,4 +92,35 @@ footer {
 .social-links img {
     width: 200px; /* Ajusta el tamaño de los logotipos según tus necesidades */
     height: 50px;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+header nav ul li {
+    display: inline;
+    font-size: 2vw; /* Utiliza unidades vw para un tamaño de fuente escalable */
+    font-family: "Goudy Stout", sans-serif;
+    margin-right: 2vw; /* Espacio entre elementos de navegación */
+}
+
+/* Opcional: ajusta los márgenes en torno a los elementos de navegación */
+header nav ul li:first-child {
+    margin-left: 2vw;
+}
+
+header nav ul li a {
+    color: black;
+    text-decoration: none;
+}
+
+/* Agrega un estilo para cambiar el color cuando se pasa el mouse */
+header nav ul li a:hover {
+    color: #c0c078;
 }
