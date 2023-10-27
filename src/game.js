@@ -11,9 +11,7 @@
         width:1000,
         height: 500,
 
-        scale: {
-            autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
-        },
+        
         pixelArt: true,
         physics: {
             default: 'arcade',
