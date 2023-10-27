@@ -2,11 +2,9 @@ html {
     min-height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
-
-
 body {
     margin: 0px;
-    background-color: rgb(47 47 30);
+    background-color: rgb(92, 92, 59);
     font-weight: 500;
 }
 header {
@@ -25,49 +23,84 @@ header {
 }
 header nav {
     display: flex;
-    justify-content: center; /* Alinear el contenido horizontalmente al centro */
-    align-items: center; /* Alinear el contenido verticalmente al centro */
+    justify-content: center; 
+    align-items: center; 
 }
-header nav div {
-    margin-top: 10px;
-    margin-right: 100px;
-}
-header nav ul{
+header nav ul {
     list-style: none;
     padding: 0;
-    margin: 0;
     display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
 }
-header nav ul li{
+
+header nav ul li {
     display: inline;
-    margin-right: 100px;
-    font-size: 30px;
+    font-size: 2vw; 
     font-family: "Goudy Stout", sans-serif;
+    margin-right: 2vw; 
 }
+
+header nav ul li:first-child {
+    margin-left: 2vw;
+}
+
 header nav ul li a {
     color: black;
     text-decoration: none;
 }
+
+header nav ul li a:hover {
+    color: #c0c078;
+}
+h2{
+    color: #000000;
+    text-transform: uppercase;
+}
 .contenido{
     display: none;
     padding: 20px;
+    font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 8%;
+    color: #ffffffad;
 }
+.autores{
+    display: flex;
+    margin-right: 8%;
+    justify-content: space-between;
+    align-items: center;
+    text-align: justify;
+    padding-bottom: 3%;
+}
+.inspiracion-imagen {
+    display: flex;
+    justify-content: space-between;
+    text-align: justify;
+    align-items: center;
+    margin-left: 8%;
+    padding-bottom: 3%;
+}
+.inspiracion p a{
+    color: #ffff009c;
+}
+
 footer {
+    clear: both;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #333; /* Cambia el color de fondo si lo deseas */
+    background-color: #333; 
     color: #fff;
     text-align: center;
-    padding: 20px 0; /* Espaciado interior en la parte superior e inferior */
-    z-index: 102; /* Asegura que el pie de página esté encima del contenido, pero debajo del encabezado */
+    padding: 20px 0;
+    z-index: 102; 
 }
-/* footer a{
-    color: #fffe00;
-            text-decoration: none;
-            margin: 0 10px;
-} */
+
 .social-links {
     display: flex;
     justify-content: center;
@@ -80,6 +113,8 @@ footer {
 }
 
 .social-links img {
-    width: 200px; /* Ajusta el tamaño de los logotipos según tus necesidades */
+    width: 200px; 
     height: 50px;
 }
+
+
