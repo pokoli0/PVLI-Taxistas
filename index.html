@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <link rel="logo" href="GDD/teamlogo.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/style.css"> <!-- Esto cargaria un archivo de estilo, pero no es necesario en Fiddle porque lo hace autom�ticamente -->
-    <script src="src/script.js"></script> <!--Aqu� podriamos cargar los scripts, tambi�n se puede en el <body>, y pasa lo mismo que con el css de antes, en verdad aqu� no estamos cargando nada-->
+    <link rel="stylesheet" href="css/style.css"> <!-- Esto cargaria un archivo de estilo, pero no es necesario en Fiddle porque lo hace autom�ticamente -->
+    <script src="./lib/phaser.min.js"></script> <!--Aqu� podriamos cargar los scripts, tambi�n se puede en el <body>, y pasa lo mismo que con el css de antes, en verdad aqu� no estamos cargando nada-->
+    <script src="./src/script.js"></script>
     <title class="name">Death Cab</title>
 </head>
     <body>
@@ -26,7 +27,9 @@
         </header>
         
         <div id="juego" class="contenido">
-            <h2>YellowRideSt</h2>            
+            <h2>YellowRideSt</h2>
+            <script src="src/game.js" type="module"></script>
+            
         </div>
 
         <div id="información" class="contenido">

@@ -9,4 +9,4 @@ IG -> [@YellowRideSt](https://www.instagram.com/yellowridest/) || X -> [@YellowR
 
 ## Falta añadir:
 -Capturas del juego
--Un enlace a la página web pública con la versión de publicación del juego
+-Un enlace a la página web pública con la versión de publicación del juego: http://127.0.0.1:8080 (servidor)
