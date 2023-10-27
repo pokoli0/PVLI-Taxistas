@@ -7,9 +7,10 @@
 
     // Configuración del juego
     let config = {
-        type: Phaser.AUTO,
-        width: 1000,
+        type: Phaser.CANVAS,
+        width:1000,
         height: 500,
+
         scale: {
             autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
         },
@@ -20,16 +21,11 @@
                 gravity: { y: 400 },
                 debug: false
             }
-        }
+        },
+        parent: "juego"
     };
 
     // Inicializa el juego con la configuración.
     new Phaser.Game(config);
 
 
-// // Función para detener el juego.
-// function detenerJuego() {
-//     if (game) {
-//         game.destroy(true); // Detén y destruye el juego.
-//     }
-// }
