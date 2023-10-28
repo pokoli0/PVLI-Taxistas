@@ -6,9 +6,7 @@ import Menu from './menuInicial.js';
     let config = {
         type: Phaser.CANVAS,
         width:1000,
-        height: 500,
-
-        
+        height: 500,      
         pixelArt: true,
         scene:[Menu],
         physics: {
