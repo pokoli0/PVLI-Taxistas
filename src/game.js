@@ -1,3 +1,4 @@
+import Level1 from './level1.js';
 import Menu from './menuInicial.js';
 
 
@@ -8,7 +9,7 @@ import Menu from './menuInicial.js';
         width:1000,
         height: 500,      
         pixelArt: true,
-        scene:[Menu],
+        scene:[Menu, Level1],
         physics: {
             default: 'arcade',
             arcade: {

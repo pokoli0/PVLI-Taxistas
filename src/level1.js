@@ -11,7 +11,7 @@ export default class Level1 extends Phaser.Scene {
   
     }
     preload(){
-      this.load.tilemapTiledJSON('tilemap', 'assets/Mapas/map.json');
+      this.load.tilemapTiledJSON('tilemap', 'assets/Mapas/mapa.json');
       this.load.image('patronesTilemap', 'assets/CP_V1.1.0_nyknck/tileset/CP_V1.0.4.png');
     }
     create(){
@@ -20,12 +20,21 @@ export default class Level1 extends Phaser.Scene {
         tileWidth: 64, 
         tileHeight: 64 
       });
-      const tileset1 = this.map.addTilesetImage('assets/Mapas/map.json', 'assets/CP_V1.1.0_nyknck/tileset/CP_V1.0.4.png')
-      this.hierba = this.map.createLayer('hierba', tileset1);
-      this.casas = this.map.createLayer('casas', tileset1);
-      this.cesped = this.map.createLayer('cesped', tileset1);
-      this.asfalto = this.map.createLayer('asfalto', tileset1);
+      const tileset1 = this.map.addTilesetImage('level1', 'patronesTilemap');
       this.carretera = this.map.createLayer('carretera', tileset1);
+      this.asfalto = this.map.createLayer('asfalto', tileset1);
+      this.cesped = this.map.createLayer('cesped', tileset1);
+      this.casas = this.map.createLayer('casas', tileset1);
+      this.hierba = this.map.createLayer('hierba', tileset1);
+      // Establece los límites de la cámara para que se ajusten al tamaño del mapa
+      this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
+
+      // Ajusta la cámara para que muestre todo el mapa
+      this.cameras.main.scrollX = 0;  // Desplazamiento horizontal
+      this.cameras.main.scrollY = 0;  // Desplazamiento vertical
+      
+      
+      
     }
     
 }
