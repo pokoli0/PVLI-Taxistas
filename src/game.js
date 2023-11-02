@@ -1,11 +1,11 @@
 import Level1 from './level1.js';
 import Menu from './menuInicial.js';
-import Level1 from './level1.js';
+
 
 
     // Configuración del juego
     let config = {
-        type: Phaser.AUTO,
+        type: Phaser.CANVAS,
         width:1000,
         height: 500,      
         pixelArt: true,
