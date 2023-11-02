@@ -1,14 +1,14 @@
 import Menu from './menuInicial.js';
-
+import Level1 from './level1.js';
 
 
     // Configuración del juego
     let config = {
-        type: Phaser.CANVAS,
+        type: Phaser.AUTO,
         width:1000,
         height: 500,      
         pixelArt: true,
-        scene:[Menu],
+        scene:[Menu, Level1],
         physics: {
             default: 'arcade',
             arcade: {
