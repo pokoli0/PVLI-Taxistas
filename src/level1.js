@@ -31,11 +31,9 @@ export default class Level1 extends Phaser.Scene {
       // Establece los límites de la cámara para que se ajusten al tamaño del mapa
       this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
 
-      // Ajusta la cámara para que muestre todo el mapa
-      this.cameras.main.scrollX = 0;  // Desplazamiento horizontal
-      this.cameras.main.scrollY = 0;  // Desplazamiento vertical    
-
       this.car = new Car(this, 450, 120, 'Coche');
+
+      this.cameras.main.startFollow(this.car, true, 0.1, 0.1);
 
     }
 
