@@ -160,6 +160,33 @@ clientes basados en cada uno de los cuatro grupos principales de personalidad
 malos serán mucho más inesperados ya que algunas personalidades son naturalmente
 relacionadas con gente buena.
 
+| Personaje | Descripción |
+|-------------|-------------|
+| La Muerte   | Parado y con apenas dinero para pagar el alquiler del mes, este coge un trabajo como taxista para sobrevivir un poco más. Es el protagonista de nuestro juego, y el único personaje jugable. Tendrá la habilidad de conducir y de decidir quien vive y quien muere.   |
+| Cliente Centinela   | Son cooperativos, prácticos y fundamentados. Se sienten cómodos con quienes son y se enorgullecen de su buen carácter y su competencia. Estos tipos de personalidad buscan orden, seguridad y estabilidad. Trabajan duro y aspiran a no defraudar a nadie, y esperan que otras personas también adopten esta misma ética.   |
+| Cliente Analista   | Conocidos por su amor a la racionalidad, tomando decisiones con la cabeza. Caracterizados por idear estrategias creativas y por la motivación para explorar las cosas. Corren el riesgo de ser superados por aquellos que simplemente se sientan y hacen el trabajo. Además de ser lobos solitarios sin preocuparse por hacer amigos.   |
+| Cliente Diplomático   | Se preocupan por ayudar y conectarse con los demás. Priorizan ser amables y generosos y, en general, prefieren cooperar que competir. Son sensibles a los sentimientos de otras personas y quieren empujar a las personas que los rodean en direcciones positivas. Sin embargo, si no se controla, este rasgo de personalidad puede desencadenar superioridad moral o determinación.   |
+| Cliente Explorador   | Tienden a ser autosuficientes y de pensamiento rápido. Viven de manejar situaciones inciertas. Su flexibilidad les ayuda a adaptarse al momento. Generalmente prefieren la trabajabilidad y la utilidad a la perfección. Sin embargo no les gusta la monotonía y pueden desviarse de sus obligaciones para probar cosas nuevas.   |
+
+### Elementos del minijuego de conducción
+En el minijuego de conducción, nos encontraremos distintos elementos repartidos por la ciudad que tendrán físicas propias.
+| Nombre del elemento | Utilidad | Descripción |
+|-------------|-------------|-------------|
+| Carreteras   | Zona por donde será posible la conducción.   | Carriles de color gris oscuro, con líneas blancas que lo delimitan.   |
+| Aceras   | Zona donde aparecerán los clientes.   | De un color más claro que la carretera para que sea distinguible. Cuando haya un cliente parado en la acera, aparecerá un círculo, donde tendremos que parar el taxi para que se suba.   |
+| Edificios   | Zona no transitable delimitada por un colisionador que no se podrá atravesar   | Edificios vistos desde arriba.   |
+| Obstáculos   | Obstáculo en la carretera con el que el taxi podrá colisionar, y que producirá una fuerza opuesta a la dirección del taxi. Si se colisiona con alguno, explota y causará daños al taxi. Son farolas, postes, cubos de basura, semáforos y otros coches.   | De distintos colores.   |
+
+### Diálogos
+Al ser una aventura conversacional, destacarán los diálogos entre la Muerte y sus clientes.
+Se adjunta un enlace al documento con el guión del juego. (cuando esté en pdf pondremos
+el enlace bueno)
+En el juego distinguiremos dos tipos de conversaciones.
+- Se definirán algunas preguntas y respuestas predeterminadas, que se irán
+mezclando para que surja una conversación con sentido.
+- Diálogos acorde al crimen del día, irán contando una historia a medida que la
+Muerte pregunte.
+
 ## 7. Referencias
 Para el diseño y desarrollo de Death Cab, se han tomado los siguientes juegos como
 inspiración y de referencia:
