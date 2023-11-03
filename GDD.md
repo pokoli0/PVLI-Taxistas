@@ -106,6 +106,7 @@ acabados).
 3. Creación de una plaga de chinches.
 4. Crimen falso.
 5. Asesino en serie.
+
 En el guión se encontrará una descripción detallada de cada crimen, para ayudar a
 desarrollar cada nivel, donde se informa de quién es el culpable y la víctima, o si hay alguna
 persona no implicada. Se enseña también el guión de la radio, con datos que sí que
@@ -135,11 +136,13 @@ respectivamente.
 5. Al final de cada día, se nos presentará el resumen del día. En este el jugador
 conocerá las ganancias que ha obtenido, pérdidas, y si puede o no pasar al
 siguiente día (si podemos pagar el alquiler).
-  5.1. En el caso de que sea el quinto y último día, la Muerte se cansará de las
+
+    5.1. En el caso de que sea el quinto y último día, la Muerte se cansará de las
 aburridas personalidades de la gente del día a día y por ello, dimitirá para
 buscarse otro trabajo. Se mostrarán los créditos y se habrá superado el
 juego.
-  5.2. En el caso de no poder pagar el alquiler, la Muerte será desterrada del
+
+    5.2. En el caso de no poder pagar el alquiler, la Muerte será desterrada del
 inframundo, y por ende, no se habrá superado el juego. Se tendrá que jugar
 de nuevo, desde el día 1.
 
