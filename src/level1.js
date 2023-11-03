@@ -1,4 +1,4 @@
-import Car from './car.js'; 
+import Car from './Coche.js'
 export default class Level1 extends Phaser.Scene {
     constructor() {
       super({ key: 'level1' });
