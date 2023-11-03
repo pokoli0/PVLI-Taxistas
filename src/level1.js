@@ -35,7 +35,7 @@ export default class Level1 extends Phaser.Scene {
       this.cameras.main.scrollX = 0;  // Desplazamiento horizontal
       this.cameras.main.scrollY = 0;  // Desplazamiento vertical    
 
-      this.car = new Car(this, 100, 100, 'Coche');
+      this.car = new Car(this, 450, 120, 'Coche');
 
     }
 
