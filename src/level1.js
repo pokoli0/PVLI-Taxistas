@@ -1,3 +1,4 @@
+import Car from './Coche.js'
 export default class Level1 extends Phaser.Scene {
     constructor() {
       super({ key: 'level1' });
@@ -13,6 +14,7 @@ export default class Level1 extends Phaser.Scene {
     preload(){
       this.load.tilemapTiledJSON('tilemap', 'assets/Mapas/mapa.json');
       this.load.image('patronesTilemap', 'assets/CP_V1.1.0_nyknck/tileset/CP_V1.0.4.png');
+      this.load.image('Coche', 'assets/Imagenes/Coche.png');
     }
     create(){
       this.map = this.make.tilemap({
@@ -31,10 +33,14 @@ export default class Level1 extends Phaser.Scene {
 
       // Ajusta la cámara para que muestre todo el mapa
       this.cameras.main.scrollX = 0;  // Desplazamiento horizontal
-      this.cameras.main.scrollY = 0;  // Desplazamiento vertical
-      
-      
-      
+      this.cameras.main.scrollY = 0;  // Desplazamiento vertical    
+
+      this.car = new Car(this, 100, 100, 'Coche');
+
+    }
+
+    update(){
+      this.car.update();
     }
     
 }
