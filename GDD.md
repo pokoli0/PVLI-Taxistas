@@ -145,8 +145,13 @@ de nuevo, desde el día 1.
 ### HUD
 (Provisional, la localización de los diferentes elementos puede variar dependiendo
 de las necesidades que se tengan)
+
+![HUDConducción](/assets/Imagenes/HUDConduccion.jpg)
+
 Al principio de cada día se indicará el día en el que va a empezar (día 1, día 2...)
 En la parte de conducción se mostrarán el número de almas que tiene el jugador.
+
+![HUDDialogo](/assets/Imagenes/HUDDialogo.png)
 
 ## 6. Contenido
 ### Personajes
