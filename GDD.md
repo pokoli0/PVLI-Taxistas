@@ -1,13 +1,16 @@
 # Death Cab
 > Documento de diseño de videojuego.
-Jiale He, Paula Sierra Luque, Adrián Castellanos Ormeño,
-Daniel Moreno Álvarez, Nicolás Besteiro Martín.
-Versión 2 – 3 de Noviembre, 2023
+> Versión 2 – 3 de Noviembre, 2023.
+> - Adrián Castellanos Ormeño.
+> - Daniel Moreno Álvarez.
+> - Jiale He.
+> - Nicolás Besteiro Martín.
+> - Paula Sierra Luque.
 
 ## 1. Ficha técnica
 - Título: Death Cab.
-- Género: Conducción, Narrativa, Aventura conversacional.
-- Target: Público amplio
+- Género: Conducción, Aventura conversacional.
+- Target: Público amplio.
 - Rating: Pegi 16+.
 - Plataforma: Navegador Web.
 - Modos de juego: Un jugador.
@@ -23,7 +26,6 @@ El jugador tendrá que decidir el destino de cada pasajero para ser recompensado
 perdurar en el juego.
 
 ## 3. Jugabilidad
-
 ### Cámara
 En la fase de conducción, la cámara sería “Top Down” en el estilo de los juegos 2D de GTA.
 Seguirá al taxi de modo que esté centrado.
@@ -53,6 +55,7 @@ Cada vez que el cliente cuente algo, aparecerán dos recuadros con las opciones 
 contestarle. Según lo que el jugador elija, la conversación fluirá de una manera u otra,
 especificada en el guión del juego. Para elegir la opción, se usará el ratón y el click
 izquierdo. (IA?)
+
 ### Sistema monetario
 La moneda principal del juego son años de vida. Para ganar años de vida, la Muerte tendrá
 que llevar a un cliente al infierno o al cielo. En este apartado hay que describir las distintas
@@ -86,7 +89,6 @@ En las zonas de reparación habrá que pagar para reparar el taxi. Costará 10 a
 (por ejemplo).
 
 ## 4. Dinámica
-
 ### Diseño de niveles: el mapa.
 Es una zona del pueblo de Alcázar de San Juan donde conduciremos buscando clientes. Se
 podrán distinguir las carreteras fácilmente. Habrá zonas de colisión (edificadas), elementos
