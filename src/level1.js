@@ -12,7 +12,7 @@ export default class Level1 extends Phaser.Scene {
   
     }
     preload(){
-      this.load.tilemapTiledJSON('tilemap', 'assets/Mapas/mapa.json');
+      this.load.tilemapTiledJSON('tilemap', 'assets/Mapas/mapa1.json');
       this.load.image('patronesTilemap', 'assets/CP_V1.1.0_nyknck/tileset/CP_V1.0.4.png');
       this.load.image('TaxiUp', 'assets/sprites/taxi4.png');
       this.load.image('TaxiDown', 'assets/sprites/taxi.png');
@@ -31,10 +31,21 @@ export default class Level1 extends Phaser.Scene {
       this.cesped = this.map.createLayer('cesped', tileset1);
       this.casas = this.map.createLayer('casas', tileset1);
       this.hierba = this.map.createLayer('hierba', tileset1);
+      this.colisiones = this.map.createLayer('colisiones', tileset1);
       // Establece los límites de la cámara para que se ajusten al tamaño del mapa
+    
+      this.colisiones.setCollisionByProperty({ colisiona: true });
+      
+
       this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
+      this.physics.world.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
+      this.physics.world.gravity.y = 0; // Esto desactiva la gravedad en el eje Y, puedes ajustarlo según tus necesidades
 
       this.car = new Car(this, 450, 120, 'TaxiUp', 'TaxiDown', 'TaxiRight','TaxiLeft');
+      this.physics.world.enable(this.car);
+      
+      this.physics.add.collider(this.car, this.colisiones);
+      this.colisiones.setCollisionBetween(131,133);
 
       this.cameras.main.startFollow(this.car, true, 0.1, 0.1);
 
