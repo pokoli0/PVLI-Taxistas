@@ -14,7 +14,10 @@ export default class Level1 extends Phaser.Scene {
     preload(){
       this.load.tilemapTiledJSON('tilemap', 'assets/Mapas/mapa.json');
       this.load.image('patronesTilemap', 'assets/CP_V1.1.0_nyknck/tileset/CP_V1.0.4.png');
-      this.load.image('Coche', 'assets/Imagenes/Coche.png');
+      this.load.image('TaxiUp', 'assets/sprites/taxi4.png');
+      this.load.image('TaxiDown', 'assets/sprites/taxi.png');
+      this.load.image('TaxiLeft', 'assets/sprites/taxi2.png');
+      this.load.image('TaxiRight', 'assets/sprites/taxi3.png');
     }
     create(){
       this.map = this.make.tilemap({
@@ -31,7 +34,7 @@ export default class Level1 extends Phaser.Scene {
       // Establece los límites de la cámara para que se ajusten al tamaño del mapa
       this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
 
-      this.car = new Car(this, 450, 120, 'Coche');
+      this.car = new Car(this, 450, 120, 'TaxiUp', 'TaxiDown', 'TaxiRight','TaxiLeft');
 
       this.cameras.main.startFollow(this.car, true, 0.1, 0.1);
 
