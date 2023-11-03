@@ -7,6 +7,7 @@ Presentamos Death Cab, un juego de plataforma web en desarrollo. En él, serás 
 ## Redes sociales
 IG -> [@YellowRideSt](https://www.instagram.com/yellowridest/) || X -> [@YellowRideSt](https://twitter.com/YellowRideSt)
 
-## Falta añadir:
--Capturas del juego
--Un enlace a la página web pública con la versión de publicación del juego: http://127.0.0.1:8080 (servidor)
+## Capturas del juego:
+
+
+## [Enlace](https://pokoli0.github.io/PVLI-Taxistas/)
