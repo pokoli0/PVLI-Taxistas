@@ -1,4 +1,5 @@
 import Car from './Coche.js'
+import Person from './Person.js'
 export default class Level1 extends Phaser.Scene {
     constructor() {
       super({ key: 'level1' });
@@ -22,6 +23,7 @@ export default class Level1 extends Phaser.Scene {
       this.load.image('TaxiDown', 'assets/sprites/taxi.png');
       this.load.image('TaxiLeft', 'assets/sprites/taxi2.png');
       this.load.image('TaxiRight', 'assets/sprites/taxi3.png');
+      this.load.image('person', 'assets/Imagenes/playButton.png');
     }
     create(){
       this.createTileMap();
@@ -32,6 +34,8 @@ export default class Level1 extends Phaser.Scene {
 
       this.car = new Car(this, 450, 120, 'TaxiUp', 'TaxiDown', 'TaxiRight','TaxiLeft');
       
+      this.person = new Person(this, 600, 200, 'person');
+
       this.physics.add.collider(this.car, this.colisiones);
       this.colisiones.setCollisionBetween(131,133);
 
@@ -41,7 +45,6 @@ export default class Level1 extends Phaser.Scene {
 
     update(){
       this.car.update();
-
     }
     
 
