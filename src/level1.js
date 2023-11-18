@@ -21,7 +21,6 @@ export default class Level1 extends Phaser.Scene {
       this.load.image('patronesTilemap', 'assets/CP_V1.1.0_nyknck/tileset/CP_V1.0.4.png');
 
       this.load.image('person', 'assets/Imagenes/playButton.png');
-
       this.load.image('TaxiVertical', 'assets/sprites/taxi2.png');
       this.load.image('TaxiHorizontal', 'assets/sprites/taxi.png');
 
@@ -35,11 +34,7 @@ export default class Level1 extends Phaser.Scene {
       this.physics.world.gravity.y = 0; // Esto desactiva la gravedad en el eje Y, puedes ajustarlo según tus necesidades
 
       this.car = new Car(this, 450, 120,'TaxiVertical','TaxiHorizontal');
-       
-      
-
       this.person = new Person(this, 600, 200, 'person');
-
       this.colisiones.setCollision(132);
       this.physics.add.collider(this.car, this.colisiones);
      
