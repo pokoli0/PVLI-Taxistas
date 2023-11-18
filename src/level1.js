@@ -16,7 +16,7 @@ export default class Level1 extends Phaser.Scene {
     //   car.setVelocity(0,0);
     // }
     preload(){
-      this.load.tilemapTiledJSON('tilemap', 'assets/Mapas/mapa1.json');
+      this.load.tilemapTiledJSON('tilemap', 'assets/Mapas/mapa2.json');
       this.load.image('patronesTilemap', 'assets/CP_V1.1.0_nyknck/tileset/CP_V1.0.4.png');
       this.load.image('TaxiUp', 'assets/sprites/taxi4.png');
       this.load.image('TaxiDown', 'assets/sprites/taxi.png');
@@ -34,6 +34,10 @@ export default class Level1 extends Phaser.Scene {
       
       this.physics.add.collider(this.car, this.colisiones);
       this.colisiones.setCollisionBetween(131,133);
+      
+      
+      this.explosiones.setCollision(3270);
+      this.physics.add.collider(this.car, this.explosiones, ()=>{console.log("HOLA")});
 
       this.cameras.main.startFollow(this.car, true, 0.1, 0.1);
 
@@ -41,7 +45,6 @@ export default class Level1 extends Phaser.Scene {
 
     update(){
       this.car.update();
-
     }
     
 
@@ -60,6 +63,7 @@ export default class Level1 extends Phaser.Scene {
       this.hierba = this.map.createLayer('hierba', tileset1);
       this.hierba.setDepth(3);
       this.colisiones = this.map.createLayer('colisiones', tileset1);
+      this.explosiones = this.map.createLayer('explosiones', tileset1);
     }
     
 }
