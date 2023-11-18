@@ -1,6 +1,6 @@
 export default class Car extends Phaser.GameObjects.Sprite {
-    constructor(scene, x, y, textureUp, textureDown, textureRight, textureLeft) {
-      super(scene, x, y, textureRight);
+    constructor(scene, x, y, textureVertical, textureHorizontal) {
+      super(scene, x, y, textureHorizontal);
       scene.add.existing(this);
       scene.physics.world.enable(this);
       this.keys = scene.input.keyboard.addKeys({
@@ -10,10 +10,8 @@ export default class Car extends Phaser.GameObjects.Sprite {
         right: Phaser.Input.Keyboard.KeyCodes.D,
         shift:  Phaser.Input.Keyboard.KeyCodes.SHIFT,
       });
-      this.textureUp = textureUp;
-      this.textureDown = textureDown;
-      this.textureRight = textureRight;
-      this.textureLeft = textureLeft;
+      this.textureUp = textureVertical;
+      this.textureLeft = textureHorizontal;
       
       // Ancho y alto del collider general, ajusta estos valores según tu vehículo
       const colliderWidth = 50;
@@ -33,39 +31,39 @@ export default class Car extends Phaser.GameObjects.Sprite {
       }
     
       let textureSet = false; // Variable para controlar si se ha configurado una textura
-    
+
       if (this.keys.up.isDown) {
-        if (this.keys.left.isDown) {
-          this.setTexture(this.textureUp);
-        } else if (this.keys.right.isDown) {
-          this.setTexture(this.textureUp);
-        } else {
-          this.setTexture(this.textureUp);
-        }
+        this.flipY = false;
+        this.setTexture(this.textureUp);
         this.body.setVelocityY(-100 * accel);
         textureSet = true;
+
       } else if (this.keys.down.isDown) {
-        if (this.keys.left.isDown) {
-          this.setTexture(this.textureDown);
-        } else if (this.keys.right.isDown) {
-          this.setTexture(this.textureDown);
-        } else {
-          this.setTexture(this.textureDown);
-        }
+        this.flipY = true;
+        this.setTexture(this.textureUp);
         this.body.setVelocityY(100 * accel);
         textureSet = true;
+
       } else {
         this.body.setVelocityY(0);
       }
-    
+
       if (this.keys.left.isDown) {
+        if (!this.keys.down.isDown)
+          this.flipY = false;
+
+        this.flipX = false;
         if (!textureSet) {
           this.setTexture(this.textureLeft);
         }
         this.body.setVelocityX(-100 * accel);
       } else if (this.keys.right.isDown) {
+        if (!this.keys.down.isDown)
+          this.flipY = false;
+
+        this.flipX = true;
         if (!textureSet) {
-          this.setTexture(this.textureRight);
+          this.setTexture(this.textureLeft);
         }
         this.body.setVelocityX(100 * accel);
       } else {
