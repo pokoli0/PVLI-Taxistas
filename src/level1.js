@@ -18,10 +18,9 @@ export default class Level1 extends Phaser.Scene {
     preload(){
       this.load.tilemapTiledJSON('tilemap', 'assets/Mapas/mapa2.json');
       this.load.image('patronesTilemap', 'assets/CP_V1.1.0_nyknck/tileset/CP_V1.0.4.png');
-      this.load.image('TaxiUp', 'assets/sprites/taxi4.png');
-      this.load.image('TaxiDown', 'assets/sprites/taxi.png');
-      this.load.image('TaxiLeft', 'assets/sprites/taxi2.png');
-      this.load.image('TaxiRight', 'assets/sprites/taxi3.png');
+      this.load.image('TaxiVertical', 'assets/sprites/taxi2.png');
+      this.load.image('TaxiHorizontal', 'assets/sprites/taxi.png');
+
     }
     create(){
       this.createTileMap();
@@ -30,14 +29,16 @@ export default class Level1 extends Phaser.Scene {
       this.physics.world.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
       this.physics.world.gravity.y = 0; // Esto desactiva la gravedad en el eje Y, puedes ajustarlo según tus necesidades
 
-      this.car = new Car(this, 450, 120, 'TaxiUp', 'TaxiDown', 'TaxiRight','TaxiLeft');
+      this.car = new Car(this, 450, 120,'TaxiVertical','TaxiHorizontal');
+       
       
+      this.colisiones.setCollision(132);
       this.physics.add.collider(this.car, this.colisiones);
-      this.colisiones.setCollisionBetween(131,133);
+     
       
       
       this.explosiones.setCollision(3270);
-      this.physics.add.collider(this.car, this.explosiones, ()=>{console.log("HOLA")});
+      this.physics.add.collider(this.car, this.explosiones, ()=>{this.debug()});
 
       this.cameras.main.startFollow(this.car, true, 0.1, 0.1);
 
@@ -47,6 +48,10 @@ export default class Level1 extends Phaser.Scene {
       this.car.update();
     }
     
+    debug()
+    {
+      console.log("hola");
+    }
 
     createTileMap(){
       this.map = this.make.tilemap({
