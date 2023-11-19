@@ -1,5 +1,5 @@
 export default class Car extends Phaser.GameObjects.Sprite {
-    constructor(scene, x, y, textureVertical, textureHorizontal) {
+    constructor(scene, x, y, textureVertical, textureHorizontal, Explosion) {
       super(scene, x, y, textureHorizontal);
       scene.add.existing(this);
       scene.physics.world.enable(this);
@@ -12,6 +12,7 @@ export default class Car extends Phaser.GameObjects.Sprite {
       });
       this.textureUp = textureVertical;
       this.textureLeft = textureHorizontal;
+      this.explosion = Explosion;
       
       // Ancho y alto del collider general, ajusta estos valores según tu vehículo
       const colliderWidth = 50;
@@ -19,7 +20,7 @@ export default class Car extends Phaser.GameObjects.Sprite {
 
       // Crea el collider general como un rectángulo alrededor del vehículo
       this.collider = scene.physics.add.sprite(x, y).setSize(colliderWidth, colliderHeight);
-      this.collider.visible = false; // Haz que el collider no sea visible en el juego
+      this.collider.visible = true; // Haz que el collider no sea visible en el juego
     }  
     update() {
       this.collider.setPosition(this.x, this.y);
@@ -69,6 +70,11 @@ export default class Car extends Phaser.GameObjects.Sprite {
       } else {
         this.body.setVelocityX(0);
       }
+    }
+
+    cocheExplota()
+    {
+      this.setTexture(this.explosion);
     }
 
   }

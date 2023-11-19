@@ -12,7 +12,7 @@ import Menu from './menuInicial.js';
         physics: {
             default: 'arcade',
             arcade: {
-                debug: false
+                debug: true
             }
         },
         parent: "juego"
