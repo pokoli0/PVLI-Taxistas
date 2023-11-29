@@ -23,6 +23,7 @@ export default class Level1 extends Phaser.Scene {
       this.load.image('person', 'assets/Imagenes/playButton.png');
       this.load.image('TaxiVertical', 'assets/sprites/taxi2.png');
       this.load.image('TaxiHorizontal', 'assets/sprites/taxi.png');
+      this.load.image('Explosion', 'assets/sprites/explosion.png');
 
 
     }
@@ -33,7 +34,7 @@ export default class Level1 extends Phaser.Scene {
       this.physics.world.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
       this.physics.world.gravity.y = 0; // Esto desactiva la gravedad en el eje Y, puedes ajustarlo según tus necesidades
 
-      this.car = new Car(this, 450, 120,'TaxiVertical','TaxiHorizontal');
+      this.car = new Car(this, 450, 120,'TaxiVertical','TaxiHorizontal','Explosion');
       this.person = new Person(this, 600, 200, 'person');
       this.colisiones.setCollision(132);
       this.physics.add.collider(this.car, this.colisiones);
@@ -41,7 +42,7 @@ export default class Level1 extends Phaser.Scene {
       
       
       this.explosiones.setCollision(3270);
-      this.physics.add.collider(this.car, this.explosiones, ()=>{this.debug()});
+      this.physics.add.collider(this.car, this.explosiones, ()=>{this.car.cocheExplota()});
 
       this.cameras.main.startFollow(this.car, true, 0.1, 0.1);
 
