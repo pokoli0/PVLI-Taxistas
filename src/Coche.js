@@ -20,7 +20,6 @@ export default class Car extends Phaser.GameObjects.Sprite {
 
       // Crea el collider general como un rectángulo alrededor del vehículo
       this.collider = scene.physics.add.sprite(x, y).setSize(colliderWidth, colliderHeight);
-      this.collider.visible = true; // Haz que el collider no sea visible en el juego
     }  
     update() {
       this.collider.setPosition(this.x, this.y);
@@ -29,8 +28,7 @@ export default class Car extends Phaser.GameObjects.Sprite {
         accel = 2;
       } else {
         accel = 1;
-      }
-    
+      }    
       let textureSet = false; // Variable para controlar si se ha configurado una textura
 
       if (this.keys.up.isDown) {

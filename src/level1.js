@@ -38,9 +38,7 @@ export default class Level1 extends Phaser.Scene {
       this.person = new Person(this, 600, 200, 'person');
       this.colisiones.setCollision(132);
       this.physics.add.collider(this.car, this.colisiones);
-     
-      
-      
+           
       this.explosiones.setCollision(3270);
       this.physics.add.collider(this.car, this.explosiones, ()=>{this.car.cocheExplota()});
 
@@ -65,6 +63,7 @@ export default class Level1 extends Phaser.Scene {
       });
       const tileset1 = this.map.addTilesetImage('level1', 'patronesTilemap');
       this.carretera = this.map.createLayer('carretera', tileset1);
+      this.parque = this.map.createLayer('parque',tileset1);
       this.asfalto = this.map.createLayer('asfalto', tileset1);
       this.cesped = this.map.createLayer('cesped', tileset1);
       this.casas = this.map.createLayer('casas', tileset1);
