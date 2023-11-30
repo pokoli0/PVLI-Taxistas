@@ -1,3 +1,4 @@
+import conversacionLvl1 from './conversacionLvl1.js';
 import Level1 from './level1.js';
 import Menu from './menuInicial.js';
 // import Car from './Coche.js'
@@ -8,7 +9,7 @@ import Menu from './menuInicial.js';
         width:1000,
         height: 500,      
         pixelArt: true,
-        scene:[Menu, Level1],
+        scene:[Menu, Level1, conversacionLvl1],
         physics: {
             default: 'arcade',
             arcade: {
