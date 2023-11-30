@@ -3,6 +3,7 @@ export default class conversacionLvl1 extends Phaser.Scene{
         super({key: 'conversacionLvl1'});
 
         this.dialogoActual = null;
+        this.indice = 0;
     }
     preload(){
         this.load.image('fondo', 'assets/Imagenes/fondoConversacion.jpg')
@@ -23,32 +24,25 @@ export default class conversacionLvl1 extends Phaser.Scene{
         this.dialogoActual = this.textoOpciones(opcion);
 
     }
-    textoOpciones(opcion){
-        if(opcion == 'pregunta2'){
-            const res1 = this.add.zone(340, 170, 300, 30);
-            res1.setOrigin(0);
-            res1.setInteractive();
-            res1.once('pointerdown', () => this.opcionPulsada('pregunta2'));
-            this.add.graphics().lineStyle(2, 0xfff000).strokeRectShape(res1);
-           
-            const res2 = this.add.zone(680, 170, 300, 30);
-            res2.setOrigin(0);
-            res2.setInteractive();
-            res2.once('pointerdown', () => this.opcionPulsada('pregunta2'));
-            this.add.graphics().lineStyle(2, 0xfff000).strokeRectShape(res2);
+    textoOpciones(opcion){ 
+        const opciones = ['pregunta1', 'pregunta2'];
+
+    if (opciones.includes(opcion)) {
+        const colores = (opcion === 'pregunta1') ? 0xfff000 : 0xff0000;
+        for (let i = 0; i < 2; i++) {
+            for (let j = 0; j < 2; j++) {
+                const x = 340 + 340 * j;
+                const y = 170 + 100 * i;
+
+                const res = this.add.zone(x, y, 300, 30);
+                res.setOrigin(0);
+                res.setInteractive();
+                const opcionSeleccionada = opciones[this.indice];
+                res.once('pointerdown', () => this.opcionPulsada(opcionSeleccionada));
+                this.add.graphics().lineStyle(2, colores).strokeRectShape(res);
+            }
         }
-        else if (opcion == 'pregunta1'){
-            const res1 = this.add.zone(340, 170, 300, 30);
-            res1.setOrigin(0);
-            res1.setInteractive();
-            res1.once('pointerdown', () => this.opcionPulsada('pregunta2'));
-            this.add.graphics().lineStyle(2, 0xff0000).strokeRectShape(res1);
-           
-            const res2 = this.add.zone(680, 170, 300, 30);
-            res2.setOrigin(0);
-            res2.setInteractive();
-            res2.once('pointerdown', () => this.opcionPulsada('pregunta2'));
-            this.add.graphics().lineStyle(2, 0xff0000).strokeRectShape(res2);
-        }
+    }
+    this.indice++;
     }
 }
