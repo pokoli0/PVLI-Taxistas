@@ -71,6 +71,7 @@ export default class Level1 extends Phaser.Scene {
       this.casas.setDepth(2);
       this.hierba = this.map.createLayer('hierba', tileset1);
       this.hierba.setDepth(3);
+      this.puentes = this.map.createLayer('Puentes', tileset1);
       this.colisiones = this.map.createLayer('colisiones', tileset1);
       this.explosiones = this.map.createLayer('explosiones', tileset1);
     }
