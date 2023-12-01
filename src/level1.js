@@ -23,6 +23,7 @@ export default class Level1 extends Phaser.Scene {
       this.load.spritesheet('person', 'assets/Imagenes/Azul Día 1.png', { frameWidth: 16, frameHeight: 26 });
       this.load.image('TaxiVertical', 'assets/sprites/taxi2.png');
       this.load.image('TaxiHorizontal', 'assets/sprites/taxi.png');
+      this.load.image('BocadilloPerson', 'assets/sprites/Taxi Puntero1.png');
       this.load.image('Explosion', 'assets/sprites/explosion.png');
     }
     create(){
@@ -33,7 +34,7 @@ export default class Level1 extends Phaser.Scene {
       this.physics.world.gravity.y = 0; // Esto desactiva la gravedad en el eje Y, puedes ajustarlo según tus necesidades
 
       this.car = new Car(this, 450, 120,'TaxiVertical','TaxiHorizontal','Explosion');
-      this.person = new Person(this, 575, 230, 'person');
+      this.person = new Person(this, 575, 230, 'person', 'BocadilloPerson');
       this.colisiones.setCollision(132);
       this.physics.add.collider(this.car, this.colisiones);
      
