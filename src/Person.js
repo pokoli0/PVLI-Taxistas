@@ -6,6 +6,10 @@ export default class Person extends Phaser.GameObjects.Sprite {
         this.texture = texture
         scene.add.existing(this);
         scene.physics.world.enable(this);
-        this.scene.physics.add.overlap(this, this.scene.car,()=>{console.log("pasa")} );
+        scene.physics.add.overlap(this, scene.car, this.handleCollision, null, this);
+    }
+
+    handleCollision(person, car) {
+        this.scene.events.emit('cambiarEscena', 'conversacionLvl1');
     }
 }

@@ -39,7 +39,9 @@ export default class Level1 extends Phaser.Scene {
       this.colisiones.setCollision(132);
       this.physics.add.collider(this.car, this.colisiones);
      
-      
+      this.events.on('cambiarEscena', (nuevaEscena) => {
+        this.scene.start(nuevaEscena);
+    });
       
       this.explosiones.setCollision(3270);
       this.physics.add.collider(this.car, this.explosiones, ()=>{this.car.cocheExplota()});
