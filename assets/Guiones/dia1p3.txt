@@ -1,0 +1,13 @@
+Hola.
+1¿A dónde vás?
+3A Tomelloso.
+2¿Cómo te va?
+4Digamos que podría ir mejor, jeje.
+1¿Quieres que ponga música?
+3Vale, los cuarenta porfa.
+2¿Tienes frío?
+4Si. Si pones la calefa te lo agradezco.
+1¿Has oído lo que ha ocurrido?
+3Em… si, quería irme a un sitio más seguro.
+2¿No te da miedo salir a la calle?
+4Bastante… tú conduce.

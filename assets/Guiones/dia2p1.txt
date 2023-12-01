@@ -1,0 +1,13 @@
+Buenas!
+1¿A dónde vás?
+3Madrid. Quiero nuevos aires, aquí ya no pinto nada.
+2¿Cómo te va?
+4No sé, iré viendo lo que me propone la vida.
+1¿Quieres que ponga música?
+3Pues no, me da dolor de cabeza.
+2¿Tienes frío?
+4No, no.
+1¿Has oído lo que ha ocurrido?
+3Bueno. Cosas que pasan, la gente hoy en día se ofende por todo.
+2¿No te da miedo salir a la calle?
+4De qué voy a tener miedo yo.
