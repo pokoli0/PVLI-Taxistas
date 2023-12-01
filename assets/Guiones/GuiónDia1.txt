@@ -1,0 +1,14 @@
+1¿A dónde vás?
+3Pues mira, tengo que ver a mi abuela, que me tiene que enseñar a coser estos pantalones.
+2¿Cómo te va?
+4Bastante bien la verdad, últimamente estoy de muy buen humor, la suerte por fin me está sonriendo.
+1¿Quieres que ponga música?
+3No me importaría aunque también depende mucho de que vas a poner, jaja.
+2¿Tienes frío?
+4Un poco, pero ya estaré pronto bajo un techo así que no me importa mucho la verdad.
+1¿Has oído lo que ha ocurrido?
+3Ah sí, que pena lo que ha ocurrido pero en una ciudad tan grande, va a ocurrir esta clase de cosas inevitablemente.
+2¿No te da miedo salir a la calle?
+4Las noticias siempre exageran las cosas, si me preocupo nunca podré salir, jaja.
+1¿Te ha ocurrido algo últimamente?
+3Lo mejor que me ha pasado en la vida entera.

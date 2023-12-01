@@ -44,7 +44,7 @@ export default class conversacionLvl1 extends Phaser.Scene{
         this.indice++;
         // Agregar opciones al grupo
         if (this.texto.includes(texto)) {
-            for (let j = 0; j < 3; j++) {
+            for (let j = 0; j < 2; j++) {
                 const x = 102;
                 const y = 205 + 70 * j;
 
