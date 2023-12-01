@@ -1,14 +1,13 @@
+Buenas!
 1¿A dónde vás?
-3Pues mira, tengo que ver a mi abuela, que me tiene que enseñar a coser estos pantalones.
+3Quería ir a Tomelloso, el pueblo de al lado, si quieres te guío.
 2¿Cómo te va?
-4Bastante bien la verdad, últimamente estoy de muy buen humor, la suerte por fin me está sonriendo.
+4Bueno, la verdad que hoy no ha sido mi mejor día.
 1¿Quieres que ponga música?
-3No me importaría aunque también depende mucho de que vas a poner, jaja.
+3Pon tú la que quieras, que estás trabajando todo el día!
 2¿Tienes frío?
-4Un poco, pero ya estaré pronto bajo un techo así que no me importa mucho la verdad.
+4No, tranqui. Llevo más ropa de la que suelo llevar.
 1¿Has oído lo que ha ocurrido?
-3Ah sí, que pena lo que ha ocurrido pero en una ciudad tan grande, va a ocurrir esta clase de cosas inevitablemente.
+3Ehh… Si bueno, vaya lío de robos… No entiendo nada jaja..
 2¿No te da miedo salir a la calle?
-4Las noticias siempre exageran las cosas, si me preocupo nunca podré salir, jaja.
-1¿Te ha ocurrido algo últimamente?
-3Lo mejor que me ha pasado en la vida entera.
+4Justo por eso quería ir al pueblo de al lado…
