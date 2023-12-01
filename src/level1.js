@@ -24,8 +24,6 @@ export default class Level1 extends Phaser.Scene {
       this.load.image('TaxiVertical', 'assets/sprites/taxi2.png');
       this.load.image('TaxiHorizontal', 'assets/sprites/taxi.png');
       this.load.image('Explosion', 'assets/sprites/explosion.png');
-
-
     }
     create(){
       this.createTileMap();
@@ -40,7 +38,7 @@ export default class Level1 extends Phaser.Scene {
       this.physics.add.collider(this.car, this.colisiones);
      
       this.events.on('cambiarEscena', (nuevaEscena) => {
-        this.scene.start(nuevaEscena);
+        this.scene.start('LoadConversacionScene');
     });
       
       this.explosiones.setCollision(3270);
@@ -76,5 +74,4 @@ export default class Level1 extends Phaser.Scene {
       this.colisiones = this.map.createLayer('colisiones', tileset1);
       this.explosiones = this.map.createLayer('explosiones', tileset1);
     }
-    
 }
