@@ -1,0 +1,13 @@
+Buenas!
+1¿A dónde vás?
+3Al mercadona, que tengo un hambre y no hay ni huevos.
+2¿Cómo te va?
+4Pues tengo un hambre…
+1¿Quieres que ponga música?
+3Ay si porfa, ponme megastar.
+2¿Tienes frío?
+4Que vaa, si hace 35º hoy.
+1¿Has oído lo que ha ocurrido?
+3No sé de qué me hablas.
+2¿No te da miedo salir a la calle?
+4¿Pero por qué dices eso?

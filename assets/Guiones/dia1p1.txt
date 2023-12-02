@@ -1,0 +1,13 @@
+0 Buenas!
+1 ¿A dónde vás?
+3 Quería ir a Tomelloso, el pueblo de al lado, si quieres te guío.
+2 ¿Cómo te va?
+4 Bueno, la verdad que hoy no ha sido mi mejor día.
+1 ¿Quieres que ponga música?
+3 Pon tú la que quieras, que estás trabajando todo el día!
+2 ¿Tienes frío?
+4 No, tranqui. Llevo más ropa de la que suelo llevar.
+1 ¿Has oído lo que ha ocurrido?
+3 Ehh… Si bueno, vaya lío de robos… No entiendo nada jaja..
+2 ¿No te da miedo salir a la calle?
+4 Justo por eso quería ir al pueblo de al lado…

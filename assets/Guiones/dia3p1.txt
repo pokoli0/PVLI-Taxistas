@@ -1,0 +1,13 @@
+Buenas!
+1¿A dónde vás?
+3Tengo que llevar esta caja al parque Alces. Gracias.
+2¿Cómo te va?
+4Mi plan va a la perfección, tal y como he planeado.
+1¿Quieres que ponga música?
+3No, ¿tú sabes el daño que causa la contaminación acústica a nivel microscópico?
+2¿Tienes frío?
+4Yo no pero lo que tengo aquí tiene que mantenerse a una buena temperatura.
+1¿Has oído lo que ha ocurrido?
+3Qué pesados. Seguro que es por el bien de la especie.
+2¿No te da miedo salir a la calle?
+4A mí me encanta la calle, me encuentro todo tipo de seres vivos.

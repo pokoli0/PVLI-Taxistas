@@ -1,0 +1,13 @@
+Buenas!
+1¿A dónde vás?
+3
+2¿Cómo te va?
+4
+1¿Quieres que ponga música?
+3
+2¿Tienes frío?
+4
+1¿Has oído lo que ha ocurrido?
+3
+2¿No te da miedo salir a la calle?
+4

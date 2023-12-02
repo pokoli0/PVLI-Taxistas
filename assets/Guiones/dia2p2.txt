@@ -1,0 +1,13 @@
+Hola, ¿qué tal?
+1Bien, ¿a dónde vás?
+3Al centro de salud.
+2¿Cómo te va?
+4Hasta hace poco estaba algo mal, pero ya voy mejor.
+1¿Quieres que ponga música?
+3Si. Algo tranquilito, por favor.
+2¿Tienes frío?
+4Nunca me he sentido tan abrigada en todos los sentidos.
+1¿Has oído lo que ha ocurrido?
+3Ay, si tú supieras.
+2¿No te da miedo salir a la calle?
+4Lo que ya no me da miedo es pedir ayuda. Mucha más gente de la que crees puede ayudar.
