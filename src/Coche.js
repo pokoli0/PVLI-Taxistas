@@ -13,34 +13,42 @@ export default class Car extends Phaser.GameObjects.Sprite {
       this.textureUp = textureVertical;
       this.textureLeft = textureHorizontal;
       this.explosion = Explosion;
-      
+      this.accel = 1;
       // Ancho y alto del collider general, ajusta estos valores según tu vehículo
       const colliderWidth = 50;
       const colliderHeight = 50;
-
       // Crea el collider general como un rectángulo alrededor del vehículo
       this.collider = scene.physics.add.sprite(x, y).setSize(colliderWidth, colliderHeight);
+     
     }  
+
     update() {
+      //this.setAcceleration(0);
+
       this.collider.setPosition(this.x, this.y);
-      var accel;
       if (this.keys.shift.isDown) {
-        accel = 2;
+        if (this.accel < 4)
+          this.accel += 0.01;
+        else
+          this.accel = 4;
       } else {
-        accel = 1;
+        if (this.accel>1)
+        this.accel -= 0.1;
+      else
+      this.accel=1;
       }    
       let textureSet = false; // Variable para controlar si se ha configurado una textura
 
       if (this.keys.up.isDown) {
         this.flipY = false;
         this.setTexture(this.textureUp);
-        this.body.setVelocityY(-100 * accel);
+        this.body.setVelocityY(-100 * this.accel);
         textureSet = true;
 
       } else if (this.keys.down.isDown) {
         this.flipY = true;
         this.setTexture(this.textureUp);
-        this.body.setVelocityY(100 * accel);
+        this.body.setVelocityY(100 * this.accel);
         textureSet = true;
 
       } else {
@@ -55,7 +63,7 @@ export default class Car extends Phaser.GameObjects.Sprite {
         if (!textureSet) {
           this.setTexture(this.textureLeft);
         }
-        this.body.setVelocityX(-100 * accel);
+        this.body.setVelocityX(-100 * this.accel);
       } else if (this.keys.right.isDown) {
         if (!this.keys.down.isDown)
           this.flipY = false;
@@ -64,7 +72,7 @@ export default class Car extends Phaser.GameObjects.Sprite {
         if (!textureSet) {
           this.setTexture(this.textureLeft);
         }
-        this.body.setVelocityX(100 * accel);
+        this.body.setVelocityX(100 * this.accel);
       } else {
         this.body.setVelocityX(0);
       }
