@@ -64,10 +64,10 @@ export default class Car extends Phaser.GameObjects.Sprite {
           this.setTexture(this.textureLeft);
         }
         this.body.setVelocityX(-100 * this.accel);
-      } else if (this.keys.right.isDown) {
+      } 
+      else if (this.keys.right.isDown) {
         if (!this.keys.down.isDown)
           this.flipY = false;
-
         this.flipX = true;
         if (!textureSet) {
           this.setTexture(this.textureLeft);
@@ -76,8 +76,11 @@ export default class Car extends Phaser.GameObjects.Sprite {
       } else {
         this.body.setVelocityX(0);
       }
+      if (!this.keys.up.isDown&&!this.keys.down.isDown&&!this.keys.left.isDown&&!this.keys.right.isDown)
+      {
+        this.accel=1;
+      }
     }
-
     cocheExplota()
     {
       this.setTexture(this.explosion);
