@@ -75,7 +75,7 @@ export default class conversacionLvl1 extends Phaser.Scene{
         this.scene.start('level1');
     }
     mostrarDialogo(texto){
-        const colores = [0xfff000, 0xff0000, 0xffff00, 0xfffff0];
+        // const colores = [0xfff000, 0xff0000, 0xffff00, 0xfffff0];
         const grupoDialogo = this.add.group();
 
         // Agregar texto al grupo
@@ -92,7 +92,7 @@ export default class conversacionLvl1 extends Phaser.Scene{
             const botonCont= this.add.sprite(325, 400, 'botonCont').setInteractive();;
             botonCont.setScale(0.3);
             botonCont.on("pointerdown", () => {
-                this.scene.start('level1');
+                this.scene.start('escenaDecision');
                //  { mapName: 'finalMap1',dash:false, click:false, middle:'one' });
               });
         }
