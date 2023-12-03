@@ -16,6 +16,7 @@ export default class conversacionLvl1 extends Phaser.Scene{
     preload(){
         this.load.image('fondo', 'assets/Imagenes/fondoConver.png');
         this.load.text('dia1p1', 'assets/Guiones/dia1p1.txt');
+        this.load.image('botonCont', 'assets/Imagenes/Botones/Continuar.png');
     }
 
     create(){
@@ -28,7 +29,6 @@ export default class conversacionLvl1 extends Phaser.Scene{
         console.log(textoDelDialogoActual);
         
         this.mostrarDialogo(textoDelDialogoActual);
-       
     }
     
     lecturaArchivoText(){
@@ -71,7 +71,9 @@ export default class conversacionLvl1 extends Phaser.Scene{
         texto = this.siguientePregunta(texto);
         this.dialogoActual = this.mostrarDialogo(texto);
     }
-   
+    cambiarEscena(){
+        this.scene.start('level1');
+    }
     mostrarDialogo(texto){
         const colores = [0xfff000, 0xff0000, 0xffff00, 0xfffff0];
         const grupoDialogo = this.add.group();
@@ -79,15 +81,22 @@ export default class conversacionLvl1 extends Phaser.Scene{
         // Agregar texto al grupo
         const cuadrado = this.add.zone(145, 133, 395, 47);
         cuadrado.setOrigin(0);
-        this.add.graphics().lineStyle(2, '#000000').strokeRectShape(cuadrado);
+        // this.add.graphics().lineStyle(2, '#000000').strokeRectShape(cuadrado);
         const textoDialogo = this.add.text(145 + cuadrado.width / 2, 133 + cuadrado.height / 2,texto, { fill: '#000000',  wordWrap: { width: cuadrado.width, useAdvancedWrap: true },
         wordWrapWidth: cuadrado.width });
         // Ajusta el origen del texto al centro
         textoDialogo.setOrigin(0.5, 0.5);
         grupoDialogo.add(textoDialogo);
         this.color++;
-        // Agregar opciones al grupo
-        let i = 1;
+        if(this.indice == this.dialogosText.dialogos.length - 1){
+            const botonCont= this.add.sprite(325, 400, 'botonCont').setInteractive();;
+            botonCont.setScale(0.3);
+            botonCont.on("pointerdown", () => {
+                this.scene.start('level1');
+               //  { mapName: 'finalMap1',dash:false, click:false, middle:'one' });
+              });
+        }
+        else{
         if (this.jsonDialogo.includes(texto)) {
             for (let j = 0; j < 2; j++) {
                 this.indice++;
@@ -109,7 +118,7 @@ export default class conversacionLvl1 extends Phaser.Scene{
                 
                 
                 res.once('pointerdown', () => this.opcionPulsada(respuesta));
-                this.add.graphics().lineStyle(2, colores[this.color]).strokeRectShape(res);
+                // this.add.graphics().lineStyle(2, colores[this.color]).strokeRectShape(res);
                 
                 grupoDialogo.add(res);
             }
@@ -118,6 +127,7 @@ export default class conversacionLvl1 extends Phaser.Scene{
         // Asignar el grupo actual al dialogoActual
         this.dialogoActual = grupoDialogo;
         return grupoDialogo; // Importante devolver el grupo para que puedas utilizarlo fuera de la función
+    }
     }
     getRespuesta(pregunta) {
         // Buscar la respuesta correspondiente a la pregunta en tu array de diálogos
@@ -128,8 +138,13 @@ export default class conversacionLvl1 extends Phaser.Scene{
         // Obtener el índice del diálogo actual
         const indiceActual = this.dialogosText.dialogos.findIndex(dialogo => dialogo.texto === pregunta);
     
-        // Obtener el texto de la próxima pregunta
-        const siguienteIndice = (indiceActual + 1) % this.dialogosText.dialogos.length;
-        return this.dialogosText.dialogos[siguienteIndice].texto;
+         // Verificar si se encontró el diálogo y si tiene un siguiente índice
+        if (indiceActual !== -1) {
+            const siguienteIndice = (indiceActual + 1) % this.dialogosText.dialogos.length;
+            return this.dialogosText.dialogos[siguienteIndice].texto;
+        }
+
+        // Si no se encontró el diálogo, devolver una cadena vacía
+        return '';
     }
 }

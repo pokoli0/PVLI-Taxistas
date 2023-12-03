@@ -6,7 +6,7 @@ export default class Menu extends Phaser.Scene {
     }
     preload(){
         this.load.image('fondoMenu','assets/Imagenes/fondo.jpg' );
-        this.load.image('playButton','assets/Imagenes/playButton.png' )
+        this.load.image('playButton','assets/Imagenes/Botones/playButton.png' )
     }
     create() {
   
@@ -26,7 +26,7 @@ export default class Menu extends Phaser.Scene {
   
     //   //conexion con escena level
      play.on("pointerdown", () => {
-         this.scene.start('level1');
+         this.scene.start('conversacionLvl1');
         //  { mapName: 'finalMap1',dash:false, click:false, middle:'one' });
        });
   
