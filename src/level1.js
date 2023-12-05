@@ -36,15 +36,12 @@ export default class Level1 extends Phaser.Scene {
       this.car = new Car(this, 450, 120,'TaxiVertical','TaxiHorizontal','Explosion');
       this.person = new Person(this, 575, 230, 'person', 'BocadilloPerson');
       this.colisiones.setCollision(132);
-      this.physics.add.collider(this.car, this.colisiones);
+      this.physics.add.collider(this.car, this.colisiones,()=>this.car.cocheExplota());
      
       this.events.on('cambiarEscena', (nuevaEscena) => {
         this.scene.start('LoadConversacionScene');
     });
-      
-      this.explosiones.setCollision(3270);
-      this.physics.add.collider(this.car, this.explosiones, ()=>{this.car.cocheExplota()});
-
+     
       this.cameras.main.startFollow(this.car, true, 0.1, 0.1);
 
     }

@@ -14,6 +14,7 @@ export default class Car extends Phaser.GameObjects.Sprite {
       this.textureLeft = textureHorizontal;
       this.explosion = Explosion;
       this.accel = 1;
+      this.muerto = false;
       // Ancho y alto del collider general, ajusta estos valores según tu vehículo
       const colliderWidth = 50;
       const colliderHeight = 50;
@@ -24,7 +25,8 @@ export default class Car extends Phaser.GameObjects.Sprite {
 
     update() {
       //this.setAcceleration(0);
-
+    if(!this.muerto)
+    {
       this.collider.setPosition(this.x, this.y);
       if (this.keys.shift.isDown) {
         if (this.accel < 4)
@@ -81,9 +83,16 @@ export default class Car extends Phaser.GameObjects.Sprite {
         this.accel=1;
       }
     }
+    }
     cocheExplota()
-    {
+    { 
+      if (this.accel==4)
+      {
+      this.muerto=true;
+      this.body.setVelocityX(0);
+      this.body.setVelocityY(0);
       this.setTexture(this.explosion);
+      }
     }
 
   }
