@@ -2,8 +2,9 @@ export default class escenaDecision extends Phaser.Scene{
     constructor(){
         super({key: 'escenaDecision'});
         this.asesino;
-        this.puntos = 0; // Inicializa los puntos
+        this.puntos; // Inicializa los puntos
         this.textoPuntos; // Variable para almacenar el objeto de texto de los puntos
+        this.time = 0;
     }
     preload(){
         this.load.image('botonCielo', 'assets/Imagenes/Botones/Cielo.png');
@@ -12,11 +13,13 @@ export default class escenaDecision extends Phaser.Scene{
     }
     create(){
         this.asesino = this.sys.settings.data.asesino;
-        
+        this.puntos = this.sys.settings.data.puntos;
 
-        // Crear objeto de texto para los puntos
-        this.textoPuntos = this.add.text(10, 10, '0', { fontSize: '64px', fill: '#fff' });
-
+        const moneda = this.add.sprite(40, 40, 'moneda');
+        moneda.setScale(0.15);
+        this.textoPuntos = this.add.text(moneda.x,
+            moneda.y, '0', { fontSize: '48px', fill: '#000' , align: 'center',});
+        this.textoPuntos.setOrigin(0.5);
         this.botonCielo();
         this.botonInfierno();
         this.botonVivir();
@@ -35,6 +38,11 @@ export default class escenaDecision extends Phaser.Scene{
                 this.puntos -= 15; // Incrementa los puntos en 50
                 this.actualizarPuntos(); // Actualiza el objeto de texto
             }
+            botonCielo.disableInteractive();
+            // Mueve el cambio de escena aquí después de actualizar los puntos
+            this.time.delayedCall(1000, () => {
+                this.scene.start('level1', { puntos: this.puntos });
+            });
         });
         
     }

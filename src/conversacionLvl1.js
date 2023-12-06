@@ -8,16 +8,26 @@ export default class conversacionLvl1 extends Phaser.Scene{
         this.jsonDialogo;
         this.dialogosText;
         this.asesino;
+        this.puntos;
+        this.textoPuntos;
     }
     preload(){
         this.load.image('fondo', 'assets/Imagenes/fondoConver.png');
         this.load.text('dia1p1', 'assets/Guiones/dia1p1.txt');
         this.load.image('botonCont', 'assets/Imagenes/Botones/Continuar.png');
+        this.load.image('moneda', 'assets/Imagenes/imagenesPrueba/moneda.png');
     }
 
-    create(data){
+    create(){
         this.asesino = this.sys.settings.data.asesino;
+        this.puntos = this.sys.settings.data.puntos;
+        
         this.add.sprite(500, 250, 'fondo');
+
+        const moneda = this.add.sprite(40, 40, 'moneda');
+        moneda.setScale(0.15);
+        this.textoPuntos = this.add.text(26, 20, '0', { fontSize: '48px', fill: '#000' });
+
         // Cargar el archivo de texto
         this.lecturaArchivoText();
         
@@ -87,7 +97,7 @@ export default class conversacionLvl1 extends Phaser.Scene{
             const botonCont= this.add.sprite(325, 400, 'botonCont').setInteractive();;
             botonCont.setScale(0.3);
             botonCont.on("pointerdown", () => {
-                this.scene.start('escenaDecision',{asesino: this.asesino} );
+                this.scene.start('escenaDecision',{asesino: this.asesino, puntos: this.puntos} );
                //  { mapName: 'finalMap1',dash:false, click:false, middle:'one' });
               });
         }

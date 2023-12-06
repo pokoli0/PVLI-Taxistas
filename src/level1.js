@@ -10,7 +10,8 @@ export default class Level1 extends Phaser.Scene {
     //   this.maxVol = 0.7;
     //   this.muteVol = 0;
     //   this.isMute = false;
-    
+      this.puntos = 0; // Inicializa los puntos
+      this.textoPuntos; // Variable para almacenar el objeto de texto de los puntos
   
     }
     // handleCollision(car, colisiones){
@@ -20,6 +21,8 @@ export default class Level1 extends Phaser.Scene {
       this.load.tilemapTiledJSON('tilemap', 'assets/Mapas/mapa2.json');
       this.load.image('patronesTilemap', 'assets/CP_V1.1.0_nyknck/tileset/CP_V1.0.4.png');
 
+      this.load.image('moneda', 'assets/Imagenes/imagenesPrueba/moneda.png');
+
       this.load.spritesheet('person', 'assets/Imagenes/Azul Día 1.png', { frameWidth: 16, frameHeight: 26 });
       this.load.image('TaxiVertical', 'assets/sprites/taxi2.png');
       this.load.image('TaxiHorizontal', 'assets/sprites/taxi.png');
@@ -28,6 +31,16 @@ export default class Level1 extends Phaser.Scene {
     }
     create(){
       this.createTileMap();
+
+      const moneda = this.add.sprite(40, 40, 'moneda');
+      moneda.setScale(0.15);
+      moneda.setScrollFactor(0);
+      moneda.setDepth(4);
+      // Crear objeto de texto para los puntos
+      this.textoPuntos = this.add.text(26, 20, '0', { fontSize: '48px', fill: '#000' });
+      this.textoPuntos.setScrollFactor(0);
+      this.textoPuntos.setDepth(5);
+
       // Establece los límites de la cámara para que se ajusten al tamaño del mapa
       this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
       this.physics.world.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
@@ -39,7 +52,7 @@ export default class Level1 extends Phaser.Scene {
       this.physics.add.collider(this.car, this.colisiones,()=>this.car.cocheExplota());
      
       this.events.on('cambiarEscena', (nuevaEscena, asesino) => {
-        this.scene.start('LoadConversacionScene', {asesino: asesino});
+        this.scene.start('LoadConversacionScene', {asesino: asesino, puntos: this.puntos});
     });
      
       this.cameras.main.startFollow(this.car, true, 0.1, 0.1);
