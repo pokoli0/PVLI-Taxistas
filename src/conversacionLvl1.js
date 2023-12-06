@@ -5,13 +5,9 @@ export default class conversacionLvl1 extends Phaser.Scene{
         this.dialogoActual = null;
         this.indice = 0;
         this.color = 0;
-        this.texto = ['Muy buenas, señor conduuctoor...',
-        'Pues mira, tengo que ver a mi abuela que me tiene que enseñar a coser estos pantalones',
-        'No me importaría aunque también depende mucho de que vas a poner, jaja', 
-        'Ah sí, que pena lo que ha ocurrido pero en una ciudad tan grande, va a ocurrir esta clase de cosas inevitablemente', 
-        'Lo mejor que me ha pasado en la vida entera'];
         this.jsonDialogo;
-        this.dialogosText
+        this.dialogosText;
+        this.asesino;
     }
     preload(){
         this.load.image('fondo', 'assets/Imagenes/fondoConver.png');
@@ -19,7 +15,8 @@ export default class conversacionLvl1 extends Phaser.Scene{
         this.load.image('botonCont', 'assets/Imagenes/Botones/Continuar.png');
     }
 
-    create(){
+    create(data){
+        this.asesino = this.sys.settings.data.asesino;
         this.add.sprite(500, 250, 'fondo');
         // Cargar el archivo de texto
         this.lecturaArchivoText();
@@ -71,9 +68,7 @@ export default class conversacionLvl1 extends Phaser.Scene{
         texto = this.siguientePregunta(texto);
         this.dialogoActual = this.mostrarDialogo(texto);
     }
-    cambiarEscena(){
-        this.scene.start('level1');
-    }
+    
     mostrarDialogo(texto){
         // const colores = [0xfff000, 0xff0000, 0xffff00, 0xfffff0];
         const grupoDialogo = this.add.group();
@@ -92,7 +87,7 @@ export default class conversacionLvl1 extends Phaser.Scene{
             const botonCont= this.add.sprite(325, 400, 'botonCont').setInteractive();;
             botonCont.setScale(0.3);
             botonCont.on("pointerdown", () => {
-                this.scene.start('escenaDecision');
+                this.scene.start('escenaDecision',{asesino: this.asesino} );
                //  { mapName: 'finalMap1',dash:false, click:false, middle:'one' });
               });
         }

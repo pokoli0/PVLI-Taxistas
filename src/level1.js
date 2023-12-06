@@ -34,12 +34,12 @@ export default class Level1 extends Phaser.Scene {
       this.physics.world.gravity.y = 0; // Esto desactiva la gravedad en el eje Y, puedes ajustarlo según tus necesidades
 
       this.car = new Car(this, 450, 120,'TaxiVertical','TaxiHorizontal','Explosion');
-      this.person = new Person(this, 575, 230, 'person', 'BocadilloPerson');
+      this.person = new Person(this, 575, 230, 'person', 'BocadilloPerson', false);
       this.colisiones.setCollision(132);
       this.physics.add.collider(this.car, this.colisiones,()=>this.car.cocheExplota());
      
-      this.events.on('cambiarEscena', (nuevaEscena) => {
-        this.scene.start('LoadConversacionScene');
+      this.events.on('cambiarEscena', (nuevaEscena, asesino) => {
+        this.scene.start('LoadConversacionScene', {asesino: asesino});
     });
      
       this.cameras.main.startFollow(this.car, true, 0.1, 0.1);

@@ -1,7 +1,6 @@
 export default class Person extends Phaser.GameObjects.Container {
-    constructor(scene, x, y, texture1, texture2) {
+    constructor(scene, x, y, texture1, texture2, asesino) {
         super(scene, x, y);
-        
         this.texture1 = new Phaser.GameObjects.Sprite(scene, 0, 0, texture1);
         this.texture2 = new Phaser.GameObjects.Sprite(scene, 0, -40, texture2);
 
@@ -19,9 +18,10 @@ export default class Person extends Phaser.GameObjects.Container {
             repeat: -1
         });
         this.texture1.play('standing');
+        this.asesino = asesino;
     }
 
     handleCollision(person, car) {
-        this.scene.events.emit('cambiarEscena', 'conversacionLvl1');
+        this.scene.events.emit('cambiarEscena', 'conversacionLvl1', this.asesino);
     }
 }
