@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "VT323";
+    src: url('../assets/fonts/VT323-Regular.ttf');
+}
+
 html {
     min-height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
@@ -38,7 +43,7 @@ header nav ul {
 header nav ul li {
     display: inline;
     font-size: 2vw; 
-    font-family: "Goudy Stout", sans-serif;
+    font-family: 'VT323', monospace;
     margin-right: 2vw; 
 }
 
