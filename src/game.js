@@ -3,7 +3,6 @@ import Level1 from './level1.js';
 import Menu from './menuInicial.js';
 import LoadConversacionScene from './LoadConversacionScene.js';
 import escenaDecision from './escenaDecision.js';
-// import Car from './Coche.js'
 
     // Configuración del juego
     let config = {
