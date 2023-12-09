@@ -9,7 +9,7 @@ html {
 }
 body {
     margin: 0px;
-    background-color: #223A8C;              /*Color del fondo fondo*/
+    background-color: #545454;          /*Color del fondo fondo*/
 }
 header {
     overflow: hidden;
@@ -18,8 +18,9 @@ header {
     height: 170px;
     position: relative;
     z-index: 101;
-    background: rgb(244 247 165);          /*Color de fondo del header*/
-    border-bottom: 4px solid #fffe00;
+
+    background: #FFDE59;
+    border-bottom: 4px solid #000000;
     display: flex;
     justify-content: space-between;
     align-items: center;
