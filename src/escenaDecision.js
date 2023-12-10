@@ -14,11 +14,11 @@ export default class escenaDecision extends Phaser.Scene{
     create(){
         this.asesino = this.sys.settings.data.asesino;
         this.puntos = this.sys.settings.data.puntos;
-
+        
         const moneda = this.add.sprite(40, 40, 'moneda');
         moneda.setScale(0.15);
         this.textoPuntos = this.add.text(moneda.x,
-            moneda.y, '0', { fontSize: '48px', fill: '#000' , align: 'center',});
+            moneda.y, this.puntos, { fontSize: '48px', fill: '#000' , align: 'center',});
         this.textoPuntos.setOrigin(0.5);
         this.botonCielo();
         this.botonInfierno();
@@ -38,11 +38,18 @@ export default class escenaDecision extends Phaser.Scene{
                 this.puntos -= 15; // Incrementa los puntos en 50
                 this.actualizarPuntos(); // Actualiza el objeto de texto
             }
-            botonCielo.disableInteractive();
-            // Mueve el cambio de escena aquí después de actualizar los puntos
             this.time.delayedCall(1000, () => {
-                this.scene.start('level1', { puntos: this.puntos });
+                botonCielo.disableInteractive();
+            // Obtener referencia a la escena de controlLevels
+            const controlLevelsScene = this.scene.get('controlLevels');
+            // Llamar al método avanzarAlSiguienteNivel() de la escena de controlLevels
+            controlLevelsScene.avanzarAlSiguienteNivel(this.puntos);
+            // Detener la escena actual
+            this.scene.stop('escenaDecision');
+            // Pasar los puntos a la escena de controlLevels
             });
+            
+            
         });
         
     }

@@ -1,13 +1,13 @@
-Hola. Puedes darte prisa?
-1¿A dónde vás?
-3Tú ve donde pone en el GPS.
-2¿Cómo te va?
-4No estoy de humor, pero gracias por preguntar.
-1¿Quieres que ponga música?
-3No, no.
-2¿Tienes frío?
-4(…)
-1¿Has oído lo que ha ocurrido?
-3Me vuelves a preguntar algo y me bajo sin pagarte.
-2¿No te da miedo salir a la calle?
-4Miedo deberías tener tú, no sabes quién soy.
+0 Hola. Puedes darte prisa?
+1 ¿A dónde vás?
+3 Tú ve donde pone en el GPS.
+2 ¿Cómo te va?
+4 No estoy de humor, pero gracias por preguntar.
+1 ¿Quieres que ponga música?
+3 No, no.
+2 ¿Tienes frío?
+4 (…)
+1 ¿Has oído lo que ha ocurrido?
+3 Me vuelves a preguntar algo y me bajo sin pagarte.
+2 ¿No te da miedo salir a la calle?
+4 Miedo deberías tener tú, no sabes quién soy.

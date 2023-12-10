@@ -26,7 +26,7 @@ export default class Menu extends Phaser.Scene {
   
     //   //conexion con escena level
      play.on("pointerdown", () => {
-         this.scene.start('level1');
+         this.scene.start('controlLevels');
         //  { mapName: 'finalMap1',dash:false, click:false, middle:'one' });
        });
   
