@@ -1,3 +1,5 @@
+
+
 export default class conversacionLvl1 extends Phaser.Scene{
     constructor(){
         super({key: 'conversacionLvl1'});
@@ -13,8 +15,9 @@ export default class conversacionLvl1 extends Phaser.Scene{
         this.nivelActual;
     }
     preload(){
-        this.cache.text.remove('dialogoActual');
 
+        this.cache.text.remove('dialogoActual');
+        
         this.load.image('fondo', 'assets/Imagenes/fondoConver.png');
         this.nivel = this.sys.settings.data.nivel;
         if (!this.cache.text.has('dialogoActual')) {

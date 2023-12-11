@@ -2,7 +2,8 @@
 
 const niveles = [
   { key: 'level1', mapa: 'mapa2.json', dialogo: 'dia1p1.txt' },
-  { key: 'level1', mapa: 'mapa2.json', dialogo: 'dia1p2.txt' }
+  { key: 'level1', mapa: 'mapa2.json', dialogo: 'dia1p2.txt' },
+  { key: 'level1', mapa: 'mapa2.json', dialogo: 'dia1p3.txt' },
 ];
 
 export default class ControlLevels extends Phaser.Scene{
