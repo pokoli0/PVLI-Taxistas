@@ -66,7 +66,7 @@ export default class Level1 extends Phaser.Scene {
       // Establece los límites de la cámara para que se ajusten al tamaño del mapa
       this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
       this.physics.world.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
-      this.physics.world.gravity.y = 0; // Esto desactiva la gravedad en el eje Y, puedes ajustarlo según tus necesidades
+      this.physics.world.gravity.y = 0; // Esto desactiva la gravedad en el eje Y
 
       this.car = new Car(this, 450, 120,'TaxiVertical','TaxiHorizontal','Explosion');
       
@@ -76,6 +76,7 @@ export default class Level1 extends Phaser.Scene {
       
       this.colisiones.setCollision(132);
       this.physics.add.collider(this.car, this.colisiones,()=>this.car.cocheExplota());
+      this.physics.add.collider(this.PersonExtras, this.colisiones, ()=>this.onCollisionPersonExtras());
      
       this.events.on('cambiarEscena', (nuevaEscena, asesino) => {
         this.scene.start('LoadConversacionScene', {asesino: asesino, puntos: this.puntos, nivel: this.nivel});
@@ -101,8 +102,13 @@ createPerson() {
     this.scene.get('controlLevels').avanzarAlSiguienteNivel();
   }
 
+  onCollisionPersonExtras() {
+    this.PersonExtras.Colission();
+  }
+
     update(){
       this.car.update();
+      this.PersonExtras.update();
     }
     
     debug()
