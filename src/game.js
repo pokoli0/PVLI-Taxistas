@@ -20,8 +20,6 @@ import ControlLevels from './ControlLevels.js';
         },
         parent: "juego"
     };
-
-    // Inicializa el juego con la configuración.
     new Phaser.Game(config);
 
 

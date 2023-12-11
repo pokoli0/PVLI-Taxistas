@@ -1,5 +1,6 @@
 import Car from './Coche.js'
 import Person from './Person.js'
+import PersonExtras from './PersonExtras.js'
 
 export default class Level1 extends Phaser.Scene {
     constructor() {
@@ -55,6 +56,7 @@ export default class Level1 extends Phaser.Scene {
 
       this.car = new Car(this, 450, 120,'TaxiVertical','TaxiHorizontal','Explosion');
       this.person = new Person(this, 575, 230, 'person', 'BocadilloPerson', false);
+      this.PersonExtras = new PersonExtras(this, 400, 300, 'person');
       this.colisiones.setCollision(132);
       this.physics.add.collider(this.car, this.colisiones,()=>this.car.cocheExplota());
      
@@ -67,9 +69,9 @@ export default class Level1 extends Phaser.Scene {
     }
     
 
-    cargarNivelSiguiente() {
-      // Llama al control de niveles para avanzar al siguiente nivel
-      this.scene.get('controlLevels').avanzarAlSiguienteNivel();
+  cargarNivelSiguiente() {
+    // Llama al control de niveles para avanzar al siguiente nivel
+    this.scene.get('controlLevels').avanzarAlSiguienteNivel();
   }
 
     update(){

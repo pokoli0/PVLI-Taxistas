@@ -25,10 +25,8 @@ export default class LoadConversacionScene extends Phaser.Scene {
             encendidoMotorAudio.on('complete', () => {
                 const conversacionScene = this.scene.get('conversacionLvl1');
                 if (conversacionScene) {
-                    // Detén la escena antes de iniciarla
                     this.scene.stop('conversacionLvl1');
                 }
-                // Inicia la escena de conversación
                 this.scene.start('conversacionLvl1', { asesino: this.asesino, puntos: this.puntos, nivel: this.nivel });
             });
         });
