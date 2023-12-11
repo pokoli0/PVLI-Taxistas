@@ -15,16 +15,11 @@ export default class conversacionLvl1 extends Phaser.Scene{
         this.nivelActual;
     }
     preload(){
-
-        this.cache.text.remove('dialogoActual');
-        
-        this.load.image('fondo', 'assets/Imagenes/fondoConver.png');
         this.nivel = this.sys.settings.data.nivel;
+        this.cache.text.remove('dialogoActual');
         if (!this.cache.text.has('dialogoActual')) {
             this.load.text('dialogoActual', 'assets/Guiones/' + this.nivel.dialogo);
         }
-        this.load.image('botonCont', 'assets/Imagenes/Botones/Continuar.png');
-        this.load.image('moneda', 'assets/Imagenes/imagenesPrueba/moneda.png');
     }
 
     create(){

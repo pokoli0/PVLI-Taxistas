@@ -14,8 +14,6 @@ export default class ControlLevels extends Phaser.Scene{
     }
     
     preload(){
-        this.load.tilemapTiledJSON('level1', 'assets/Mapas/mapa2.json');
-        this.load.tilemapTiledJSON('level2', 'assets/Mapas/mapa2.json');
     }
 
     create(){

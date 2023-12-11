@@ -21,27 +21,13 @@ export default class Level1 extends Phaser.Scene {
     //   this.isMute = false;
       this.puntos; // Inicializa los puntos
       this.textoPuntos; // Variable para almacenar el objeto de texto de los puntos
-      this.nivel
+      this.nivel;
     }
     // handleCollision(car, colisiones){
     //   car.setVelocity(0,0);
     // }
     preload(){
-      
-      this.nivelActual = this.sys.settings.data.nivelActual;
-      this.load.spritesheet(
-        'person',
-        'assets/Imagenes/Personajes/' + personajesData.personas[this.nivelActual].textura,
-        { frameWidth: 16, frameHeight: 26 }
-      );
-      this.load.image('patronesTilemap', 'assets/CP_V1.1.0_nyknck/tileset/CP_V1.0.4.png');
-
-      this.load.image('moneda', 'assets/Imagenes/imagenesPrueba/moneda.png');
-      
-      this.load.image('TaxiVertical', 'assets/sprites/taxi2.png');
-      this.load.image('TaxiHorizontal', 'assets/sprites/taxi.png');
-      this.load.image('BocadilloPerson', 'assets/sprites/Taxi Puntero1.png');
-      this.load.image('Explosion', 'assets/sprites/explosion.png');
+      this.load.tilemapTiledJSON('level1', 'assets/Mapas/mapa2.json');
     }
     create(data){
       // Recibe datos del control de niveles
@@ -85,19 +71,46 @@ export default class Level1 extends Phaser.Scene {
 
     }
     
-createPerson() {
+createPerson() {  
+  if(this.nivelActual == 0){
     this.person = new Person(
       this,
       575,
       230,
-      'person',
+      'personVer',
+      'personIdleVer',
       'BocadilloPerson',
-      personajesData.personas[this.nivelActual].asesino
+      personajesData.personas[this.nivelActual].asesino,
     );
-    this.PersonExtras = new PersonExtras(this, 400, 300, 'person');
+  }
+  else if(this.nivelActual == 1){
+    this.person = new Person(
+      this,
+      575,
+      230,
+      'personMor',
+      'personIdleMor',
+      'BocadilloPerson',
+      personajesData.personas[this.nivelActual].asesino,
+    );
+  }
+  else if(this.nivelActual == 2){
+    this.person = new Person(
+      this,
+      575,
+      230,
+      'personAz',
+      'personIdleAz',
+      'BocadilloPerson',
+      personajesData.personas[this.nivelActual].asesino,
+    );
+  }
+  
+    // this.PersonExtras = new PersonExtras(this, 400, 300, 'person');
   }
   cargarNivelSiguiente() {
     // Llama al control de niveles para avanzar al siguiente nivel
+
     this.scene.get('controlLevels').avanzarAlSiguienteNivel();
   }
 
@@ -113,9 +126,8 @@ createPerson() {
     createTileMap(){
       // Carga el tilemap según el nivel actual
       this.nivel = this.scene.get('controlLevels').getNivelActual();
-        const tilemapKey = this.nivel.key;
         this.map = this.make.tilemap({
-            key: tilemapKey,
+            key: 'level1',
             tileWidth: 64,
             tileHeight: 64
         });

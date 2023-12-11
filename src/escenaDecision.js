@@ -7,9 +7,6 @@ export default class escenaDecision extends Phaser.Scene{
         this.time = 0;
     }
     preload(){
-        this.load.image('botonCielo', 'assets/Imagenes/Botones/Cielo.png');
-        this.load.image('botonInf', 'assets/Imagenes/Botones/Infierno.png');
-        this.load.image('dejarVivo', 'assets/Imagenes/Botones/Vivo.png');
     }
     create(){
         this.asesino = this.sys.settings.data.asesino;
@@ -64,7 +61,18 @@ export default class escenaDecision extends Phaser.Scene{
                 this.puntos -= 15; // Incrementa los puntos en 50
                 this.actualizarPuntos(); // Actualiza el objeto de texto
             }
+            this.time.delayedCall(1000, () => {
+                botonInf.disableInteractive();
+            // Obtener referencia a la escena de controlLevels
+            const controlLevelsScene = this.scene.get('controlLevels');
+            // Llamar al método avanzarAlSiguienteNivel() de la escena de controlLevels
+            controlLevelsScene.avanzarAlSiguienteNivel(this.puntos);
+            // Detener la escena actual
+            this.scene.stop('escenaDecision');
+            // Pasar los puntos a la escena de controlLevels
+            });
         });
+
     }
     botonVivir(){
         const dejarVivo= this.add.sprite(500, 400, 'dejarVivo').setInteractive();
