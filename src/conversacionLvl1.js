@@ -1,3 +1,5 @@
+
+
 export default class conversacionLvl1 extends Phaser.Scene{
     constructor(){
         super({key: 'conversacionLvl1'});
@@ -10,36 +12,47 @@ export default class conversacionLvl1 extends Phaser.Scene{
         this.asesino;
         this.puntos;
         this.textoPuntos;
+        this.nivelActual;
     }
     preload(){
+
+        this.cache.text.remove('dialogoActual');
+        
         this.load.image('fondo', 'assets/Imagenes/fondoConver.png');
-        this.load.text('dia1p1', 'assets/Guiones/dia1p1.txt');
+        this.nivel = this.sys.settings.data.nivel;
+        if (!this.cache.text.has('dialogoActual')) {
+            this.load.text('dialogoActual', 'assets/Guiones/' + this.nivel.dialogo);
+        }
         this.load.image('botonCont', 'assets/Imagenes/Botones/Continuar.png');
         this.load.image('moneda', 'assets/Imagenes/imagenesPrueba/moneda.png');
     }
 
     create(){
+        if (!this.dialogoActual){
         this.asesino = this.sys.settings.data.asesino;
         this.puntos = this.sys.settings.data.puntos;
+        
         
         this.add.sprite(500, 250, 'fondo');
 
         const moneda = this.add.sprite(40, 40, 'moneda');
         moneda.setScale(0.15);
-        this.textoPuntos = this.add.text(26, 20, '0', { fontSize: '48px', fill: '#000' });
+        this.textoPuntos = this.add.text(moneda.x,
+            moneda.y, this.puntos, { fontSize: '48px', fill: '#000' , align: 'center',});
+        this.textoPuntos.setOrigin(0.5);
 
         // Cargar el archivo de texto
         this.lecturaArchivoText();
-        
         this.dialogosText = JSON.parse(this.jsonDialogo);
         var textoDelDialogoActual = this.dialogosText.dialogos[0].texto;
         console.log(textoDelDialogoActual);
         
         this.mostrarDialogo(textoDelDialogoActual);
+        }
     }
     
     lecturaArchivoText(){
-        var contenido = this.cache.text.get('dia1p1');
+        var contenido = this.cache.text.get('dialogoActual');
 
         // Dividir el contenido en líneas
         var lineas = contenido.split('\n');
@@ -69,7 +82,7 @@ export default class conversacionLvl1 extends Phaser.Scene{
 
         // Mostrar el JSON en la consola (puedes guardarlo en un archivo si lo prefieres)
         console.log(this.jsonDialogo);
-
+        contenido = null;
     }
     opcionPulsada(texto){
         if (this.dialogoActual) {
@@ -97,6 +110,7 @@ export default class conversacionLvl1 extends Phaser.Scene{
             const botonCont= this.add.sprite(325, 400, 'botonCont').setInteractive();;
             botonCont.setScale(0.3);
             botonCont.on("pointerdown", () => {
+                this.indice = 0;
                 this.scene.start('escenaDecision',{asesino: this.asesino, puntos: this.puntos} );
                //  { mapName: 'finalMap1',dash:false, click:false, middle:'one' });
               });

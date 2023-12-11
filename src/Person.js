@@ -10,7 +10,7 @@ export default class Person extends Phaser.GameObjects.Container {
         scene.add.existing(this);
         scene.physics.world.enable(this.texture1);
         scene.physics.add.overlap(this.texture1, scene.car, this.handleCollision, null, this);
-
+        console.log(texture1);
         scene.anims.create({
             key: 'standing',
             frames: scene.anims.generateFrameNumbers(texture1, { start: 0, end: 3 }),

@@ -1,0 +1,3 @@
+dia1p1 VerdeDia1.png true
+dia1p2 MoradoDia1.png true
+dia1p3 AzulDia1.png false

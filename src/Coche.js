@@ -15,10 +15,10 @@ export default class Car extends Phaser.GameObjects.Sprite {
       this.explosion = Explosion;
       this.accel = 1;
       this.muerto = false;
-      // Ancho y alto del collider general, ajusta estos valores según tu vehículo
+      // Ancho y alto del collider general
       const colliderWidth = 50;
       const colliderHeight = 50;
-      // Crea el collider general como un rectángulo alrededor del vehículo
+      // Creacion del collider general como un rectángulo alrededor del vehículo
       this.collider = scene.physics.add.sprite(x, y).setSize(colliderWidth, colliderHeight);
      
     }  

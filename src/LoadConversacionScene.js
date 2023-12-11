@@ -11,6 +11,7 @@ export default class LoadConversacionScene extends Phaser.Scene {
     create() {
         this.asesino = this.sys.settings.data.asesino;
         this.puntos = this.sys.settings.data.puntos;
+        this.nivel = this.sys.settings.data.nivel;
         console.log(this.puntos);
         this.cameras.main.setBackgroundColor(0x000000); 
 
@@ -22,8 +23,13 @@ export default class LoadConversacionScene extends Phaser.Scene {
             encendidoMotorAudio.play();
 
             encendidoMotorAudio.on('complete', () => {
-                this.scene.start('conversacionLvl1',{asesino: this.asesino, puntos: this.puntos});
+                const conversacionScene = this.scene.get('conversacionLvl1');
+                if (conversacionScene) {
+                    this.scene.stop('conversacionLvl1');
+                }
+                this.scene.start('conversacionLvl1', { asesino: this.asesino, puntos: this.puntos, nivel: this.nivel });
             });
         });
     }
+   
 }
