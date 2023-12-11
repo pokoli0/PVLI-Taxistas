@@ -13,7 +13,7 @@ export default class Person extends Phaser.GameObjects.Container {
         console.log(texture1);
         scene.anims.create({
             key: 'standing',
-            frames: scene.anims.generateFrameNumbers(texture1, { start: 0, end: 1 }),
+            frames: scene.anims.generateFrameNumbers(texture1, { start: 0, end: 3 }),
             frameRate: 2,
             repeat: -1
         });
