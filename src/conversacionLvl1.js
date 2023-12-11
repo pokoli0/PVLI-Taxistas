@@ -97,15 +97,24 @@ export default class conversacionLvl1 extends Phaser.Scene{
         const grupoDialogo = this.add.group();
 
         // Agregar texto al grupo
-        const cuadrado = this.add.zone(145, 133, 395, 47);
+        const cuadrado = this.add.zone(145, 133, 395, 47); // Cuadrado de la conversacion
         cuadrado.setOrigin(0);
-        // this.add.graphics().lineStyle(2, '#000000').strokeRectShape(cuadrado);
-        const textoDialogo = this.add.text(145 + cuadrado.width / 2, 133 + cuadrado.height / 2,texto, { fill: '#000000',  wordWrap: { width: cuadrado.width, useAdvancedWrap: true },
-        wordWrapWidth: cuadrado.width });
+        this.add.graphics().lineStyle(2, '#FFFFFF').strokeRectShape(cuadrado);
+
+        // DIALOGO
+        const textoDialogo = this.add.text(145 + cuadrado.width / 2, 133 + cuadrado.height / 2, // Pos del diálogo (CAMBIAR ESTO)
+        texto, 
+        { 
+            fill: '#000000',  
+            wordWrap: { width: cuadrado.width, useAdvancedWrap: true },
+            wordWrapWidth: cuadrado.width 
+        });
+
         // Ajusta el origen del texto al centro
         textoDialogo.setOrigin(0.5, 0.5);
         grupoDialogo.add(textoDialogo);
         this.color++;
+        
         if(this.indice == this.dialogosText.dialogos.length - 1){
             const botonCont= this.add.sprite(325, 400, 'botonCont').setInteractive();;
             botonCont.setScale(0.3);
@@ -116,43 +125,53 @@ export default class conversacionLvl1 extends Phaser.Scene{
               });
         }
         else{
-        if (this.jsonDialogo.includes(texto)) {
-            for (let j = 0; j < 2; j++) {
-                this.indice++;
-                const x = 102;
-                const y = 205 + 70 * j;
+            if (this.jsonDialogo.includes(texto)) {
+                for (let j = 0; j < 2; j++) {
+                    this.indice++;
+                    const x = 102;
+                    const y = 205 + 70 * j;
 
-                const res = this.add.zone(x, y, 440, 47);
-                res.setOrigin(0);
-                res.setInteractive();
-                // Obtener la respuesta correspondiente a la pregunta
-                let respuesta = this.getRespuesta(texto);
-                this.indice++;
-                const preguntas = this.add.text(x + res.width / 2, y + res.height / 2, respuesta, { fill: '#000000',  wordWrap: { width: res.width, useAdvancedWrap: true },
-                wordWrapWidth: res.width });
-                grupoDialogo.add(preguntas);
-                
-                // Ajusta el origen del texto al centro
-                preguntas.setOrigin(0.5, 0.5);
-                
-                
-                res.once('pointerdown', () => this.opcionPulsada(respuesta));
-                // this.add.graphics().lineStyle(2, colores[this.color]).strokeRectShape(res);
-                
-                grupoDialogo.add(res);
+                    const res = this.add.zone(x, y, 440, 47);
+                    res.setOrigin(0);
+                    res.setInteractive();
+                    // Obtener la respuesta correspondiente a la pregunta
+                    let respuesta = this.getRespuesta(texto);
+                    this.indice++;
+
+                    // PREGUNTAS
+                    const preguntas = this.add.text(x + res.width / 2, y + res.height / 2, //Posicion de las preguntas (CAMBIAR ESTO)
+                    respuesta, 
+                    { 
+                        fill: '#000000',  //Color del texto de las preguntas
+                        wordWrap: { width: res.width, useAdvancedWrap: true },
+                        wordWrapWidth: res.width 
+                    });
+                    
+                    grupoDialogo.add(preguntas);
+                    
+                    // Ajusta el origen del texto al centro
+                    preguntas.setOrigin(0.5, 0.5);
+                    
+                    
+                    res.once('pointerdown', () => this.opcionPulsada(respuesta));
+                    //this.add.graphics().lineStyle(2, colores[this.color]).strokeRectShape(res);
+                    
+                    grupoDialogo.add(res);
+                }
             }
-        }
         
         // Asignar el grupo actual al dialogoActual
         this.dialogoActual = grupoDialogo;
         return grupoDialogo; // Importante devolver el grupo para que puedas utilizarlo fuera de la función
     }
     }
+
     getRespuesta(pregunta) {
         // Buscar la respuesta correspondiente a la pregunta en tu array de diálogos
         const dialogo = this.dialogosText.dialogos.find(dialogo => dialogo.texto === pregunta);
         return dialogo ? this.dialogosText.dialogos[this,this.indice].texto : '';
     }
+
     siguientePregunta(pregunta) {
         // Obtener el índice del diálogo actual
         const indiceActual = this.dialogosText.dialogos.findIndex(dialogo => dialogo.texto === pregunta);
