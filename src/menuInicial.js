@@ -23,23 +23,13 @@ export default class Menu extends Phaser.Scene {
         //Ponemos sonido a la escena:
         var musica = this.sound.add('menuSong');
         musica.play({
-            loop: true, //para que est� en bucle
-            mute: false
+            loop: true //para que este en bucle
         })
 
-        //Conexion con escena level (al pulsar bot�n)
+        //Conexion con escena level (al pulsar boton)
         button.on("pointerdown", () => {
             this.sound.stopAll(); //que pare la musica del menu de inicio
-            this.scene.start('level1');
+            this.scene.start('controlLevels');
         });
-  
-  
-      this.add.image(500, 250, 'fondoMenu');
-      const play = this.add.image(this.scale.width / 2, this.scale.height / 1.2, 'playButton').setInteractive();
-
-      //conexion con escena level
-     play.on("pointerdown", () => {
-         this.scene.start('controlLevels');
-       });
     }
   }
