@@ -114,14 +114,14 @@ export default class Level1 extends Phaser.Scene {
   }
 
   createExtras() {
-    const textures = ['personIdleVer', 'personIdleMor', 'personIdleAz'];
+    const textures = ['personIdleVer', 'personIdleMor', 'personIdleAz', 'personIdleAma'];
     let animsKey = '';
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < 50; i++) {
         const x = Phaser.Math.Between(0, this.map.widthInPixels);
         const y = Phaser.Math.Between(0, this.map.heightInPixels);
         const randomTexture = Phaser.Math.RND.pick(textures);
         switch(randomTexture){
-          case "personIdleVer":
+            case "personIdleVer":
             this.animsKey = 'personVer';
             break;
             case "personIdleMor":
@@ -129,6 +129,9 @@ export default class Level1 extends Phaser.Scene {
             break;
             case "personIdleAz":
             this.animsKey = 'personAz';
+            break;
+            case "personIdleAma":
+            this.animsKey = 'personAma';
             break;
         }
         const personExtra = new PersonExtras(this, x, y, randomTexture, this.animsKey);
