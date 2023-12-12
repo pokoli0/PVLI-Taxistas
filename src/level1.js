@@ -22,6 +22,7 @@ export default class Level1 extends Phaser.Scene {
     this.puntos; // Inicializa los puntos
     this.textoPuntos; // Variable para almacenar el objeto de texto de los puntos
     this.nivel;
+    this.personExtrasArray = [];
   }
   // handleCollision(car, colisiones){
   //   car.setVelocity(0,0);
@@ -59,6 +60,7 @@ export default class Level1 extends Phaser.Scene {
     // Cambiar la textura del personaje aquí
 
     this.createPerson();
+    this.createExtras();
 
     this.explosiones.setTileIndexCallback(666, this.tileExplosion, this.car);
     this.colisiones.setCollision(132);
@@ -71,7 +73,6 @@ export default class Level1 extends Phaser.Scene {
     });
 
     this.cameras.main.startFollow(this.car, true, 0.1, 0.1);
-
   }
 
   createPerson() {
@@ -108,9 +109,17 @@ export default class Level1 extends Phaser.Scene {
         personajesData.personas[this.nivelActual].asesino,
       );
     }
-
-    // this.PersonExtras = new PersonExtras(this, 400, 300, 'person');
   }
+
+  createExtras(){
+    for (let i = 0; i < 5; i++) {
+      const x = Phaser.Math.Between(0, this.map.widthInPixels);
+      const y = Phaser.Math.Between(0, this.map.heightInPixels);
+      const personExtra = new PersonExtras(this, x, y, 'tpersonIdleMor');
+      this.personExtrasArray.push(personExtra);
+  }
+  }
+
   cargarNivelSiguiente() {
     // Llama al control de niveles para avanzar al siguiente nivel
 
@@ -119,7 +128,12 @@ export default class Level1 extends Phaser.Scene {
 
   update() {
     this.car.update();
+    for (let i = 0; i < this.personExtrasArray.length; i++) {
+      const personExtra = this.personExtrasArray[i];
+      personExtra.update();
   }
+  }
+
   createTileMap() {
     // Carga el tilemap según el nivel actual
     this.nivel = this.scene.get('controlLevels').getNivelActual();
@@ -140,7 +154,9 @@ export default class Level1 extends Phaser.Scene {
     this.colisiones = this.map.createLayer('colisiones', tileset1);
     this.explosiones = this.map.createLayer('explosiones', tileset1);
   }
-tileExplosion(car, tile) {
+
+  tileExplosion(car, tile) {
     //this.explosiones.removeTileAt(tile.x, tile.y);
   }
+
 }
