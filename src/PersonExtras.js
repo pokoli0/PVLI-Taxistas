@@ -4,6 +4,11 @@ export default class PersonExtras extends Phaser.GameObjects.Sprite {
         scene.add.existing(this);
         scene.physics.world.enable(this);
 
+        this.MuerteChico = scene.sound.add('MuerteChico');
+        this.MuerteChica = scene.sound.add('MuerteChica');
+
+        this.collided = false;
+
         scene.physics.add.collider(this, scene.colisiones, this.handleCollisionMap, null, this);
 
         this.speed = 10;
@@ -21,9 +26,20 @@ export default class PersonExtras extends Phaser.GameObjects.Sprite {
     }
 
     handleCollisionCar(car, personExtrasArray) {
-        this.setAngle(90);
-        this.body.velocity.x = 0; 
-        this.body.velocity.y = 0;         
+        if(!this.collided){
+            this.collided = true;
+            this.setAngle(90);
+            this.body.velocity.x = 0; 
+            this.body.velocity.y = 0;
+            const randomsound = Phaser.Math.Between(0,1);     
+            if(randomsound == 0){
+             this.MuerteChico.play();
+            }   
+            else{
+             this.MuerteChica.play();
+            }
+        }
+       
     }
 
     randomizeDirection() {

@@ -26,6 +26,8 @@ export default class Boot extends Phaser.Scene{
         //AUDIOS
         this.load.audio('PuertaCoche', 'assets/Sonido_Musica/Puerta de coche.mp3'); 
         this.load.audio('EncendidoMotor', 'assets/Sonido_Musica/Encendido motor.mp3');
+        this.load.audio('MuerteChico', 'assets/Sonido_Musica/Lego yoda death sound.mp3');
+        this.load.audio('MuerteChica', 'assets/Sonido_Musica/Sound effect- screaming girl.mp3');
 
 
         //ANIMACIONS
