@@ -63,10 +63,11 @@ export default class Level1 extends Phaser.Scene {
     this.createPerson();
     this.createExtras();
 
-    this.explosiones.setTileIndexCallback(666, this.tileExplosion, this.car);
+    
     this.colisiones.setCollision(132);
 
     this.physics.add.collider(this.car, this.explosiones);
+    this.explosiones.setTileIndexCallback(666, this.tileExplosion, this);
     this.physics.add.collider(this.car, this.colisiones, () => this.car.cocheExplota());
 
     this.events.on('cambiarEscena', (nuevaEscena, asesino) => {
@@ -160,8 +161,8 @@ export default class Level1 extends Phaser.Scene {
     this.explosiones = this.map.createLayer('explosiones', tileset1);
   }
 
-  tileExplosion(car, tile) {
-    //this.explosiones.removeTileAt(tile.x, tile.y);
+  tileExplosion(sprite, tile) {
+    this.explosiones.removeTileAt(tile.x, tile.y);
   }
 
 }
