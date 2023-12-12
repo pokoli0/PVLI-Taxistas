@@ -118,6 +118,11 @@ export default class Level1 extends Phaser.Scene {
         const y = Phaser.Math.Between(0, this.map.heightInPixels);
         const randomTexture = Phaser.Math.RND.pick(textures);
         const personExtra = new PersonExtras(this, x, y, randomTexture);
+
+        this.physics.add.collider(this.car, personExtra, () => {
+          personExtra.handleCollisionCar(this.car, this.personExtrasArray);
+      });
+
         this.personExtrasArray.push(personExtra);
     }
 }

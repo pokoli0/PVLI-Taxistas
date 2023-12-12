@@ -4,7 +4,7 @@ export default class PersonExtras extends Phaser.GameObjects.Sprite {
         scene.add.existing(this);
         scene.physics.world.enable(this);
 
-        scene.physics.add.collider(this, scene.colisiones, this.handleCollision, null, this);
+        scene.physics.add.collider(this, scene.colisiones, this.handleCollisionMap, null, this);
 
         this.speed = 10;
         this.randomizeDirection(); 
@@ -16,13 +16,17 @@ export default class PersonExtras extends Phaser.GameObjects.Sprite {
         }
     }
 
-    handleCollision(person, colisiones) {
+    handleCollisionMap() {
         this.randomizeDirection();
     }
 
+    handleCollisionCar(car, personExtrasArray) {
+        this.setAngle(90);
+        this.body.velocity.x = 0; 
+        this.body.velocity.y = 0;         
+    }
+
     randomizeDirection() {
-       // this.speed = Phaser.Math.Between(5, 20);
-        
         const randomDirectionX = Phaser.Math.RND.sign();
         const randomDirectionY = Phaser.Math.RND.sign();
         
