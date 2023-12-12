@@ -1,5 +1,3 @@
-
-
 export default class conversacionLvl1 extends Phaser.Scene{
     constructor(){
         super({key: 'conversacionLvl1'});
@@ -14,6 +12,7 @@ export default class conversacionLvl1 extends Phaser.Scene{
         this.textoPuntos;
         this.nivelActual;
     }
+
     preload(){
         this.nivel = this.sys.settings.data.nivel;
         this.cache.text.remove('dialogoActual');
@@ -24,25 +23,24 @@ export default class conversacionLvl1 extends Phaser.Scene{
 
     create(){
         if (!this.dialogoActual){
-        this.asesino = this.sys.settings.data.asesino;
-        this.puntos = this.sys.settings.data.puntos;
+            this.asesino = this.sys.settings.data.asesino;
+            this.puntos = this.sys.settings.data.puntos;
         
-        
-        this.add.sprite(500, 250, 'fondo');
+            this.add.sprite(500, 250, 'fondo');
 
-        const moneda = this.add.sprite(40, 40, 'moneda');
-        moneda.setScale(0.15);
-        this.textoPuntos = this.add.text(moneda.x,
-            moneda.y, this.puntos, { fontSize: '48px', fill: '#000' , align: 'center',});
-        this.textoPuntos.setOrigin(0.5);
+            const moneda = this.add.sprite(40, 40, 'moneda');
+            moneda.setScale(0.15);
 
-        // Cargar el archivo de texto
-        this.lecturaArchivoText();
-        this.dialogosText = JSON.parse(this.jsonDialogo);
-        var textoDelDialogoActual = this.dialogosText.dialogos[0].texto;
-        console.log(textoDelDialogoActual);
+            this.textoPuntos = this.add.text(moneda.x, moneda.y, this.puntos, { fontSize: '48px', fill: '#000' , align: 'center',});
+            this.textoPuntos.setOrigin(0.5);
+
+            // Cargar el archivo de texto
+            this.lecturaArchivoText();
+            this.dialogosText = JSON.parse(this.jsonDialogo);
+            var textoDelDialogoActual = this.dialogosText.dialogos[0].texto;
+            console.log(textoDelDialogoActual);
         
-        this.mostrarDialogo(textoDelDialogoActual);
+            this.mostrarDialogo(textoDelDialogoActual);
         }
     }
     
@@ -62,7 +60,6 @@ export default class conversacionLvl1 extends Phaser.Scene{
             if (matches && matches.length === 3) {
             var numero = parseInt(matches[1], 10);
             var texto = matches[2].trim();
-            // Agregar cada línea al array de diálogos
             // Agregar cada línea al array de diálogos con número y texto
             dialogoData.dialogos.push({
                 indice: i,
@@ -91,18 +88,30 @@ export default class conversacionLvl1 extends Phaser.Scene{
         // const colores = [0xfff000, 0xff0000, 0xffff00, 0xfffff0];
         const grupoDialogo = this.add.group();
 
-        // Agregar texto al grupo
-        const cuadrado = this.add.zone(145, 133, 395, 47); // Cuadrado de la conversacion
-        cuadrado.setOrigin(0);
-        this.add.graphics().lineStyle(2, '#FFFFFF').strokeRectShape(cuadrado);
+        const posX = 500;
+        const posY = 70;
 
-        // DIALOGO
-        const textoDialogo = this.add.text(145 + cuadrado.width / 2, 133 + cuadrado.height / 2, // Pos del diálogo (CAMBIAR ESTO)
+        // Agregar texto al grupo
+        const cuadrado = this.add.zone(posX, posY, 395, 100); // Cuadrado de la conversacion
+        cuadrado.setOrigin(0);
+
+        // Relleno del cuadrado
+        const graphics = this.add.graphics();
+        graphics.fillStyle(0xFFFFFF, 0.5); // Fondo del cuadrado: blanco, con opacidad al 50%
+        graphics.fillRectShape(cuadrado);
+
+        // Crear el borde del cuadrado, blanco con opacidad 50%
+        this.add.graphics().lineStyle(2, 0xFFFFFF, 0.5).strokeRectShape(cuadrado);
+
+        // ------ DIALOGO -------
+        const textoDialogo = this.add.text(posX + cuadrado.width / 2, posY + cuadrado.height / 2, // Pos del diálogo en el cuadrado
         texto, 
         { 
             fill: '#000000',  
             wordWrap: { width: cuadrado.width, useAdvancedWrap: true },
-            wordWrapWidth: cuadrado.width 
+            wordWrapWidth: cuadrado.width,
+            fontFamily: "VT323",
+            fontSize: '35px'
         });
 
         // Ajusta el origen del texto al centro
@@ -123,12 +132,19 @@ export default class conversacionLvl1 extends Phaser.Scene{
             if (this.jsonDialogo.includes(texto)) {
                 for (let j = 0; j < 2; j++) {
                     this.indice++;
-                    const x = 102;
+                    const x = 550;
                     const y = 205 + 70 * j;
 
-                    const res = this.add.zone(x, y, 440, 47);
+                    const res = this.add.zone(x, y, 500, 47); // Cuadrados de respuestas
                     res.setOrigin(0);
                     res.setInteractive();
+
+                    // Relleno del cuadrado
+                    const graphics = this.add.graphics();
+                    const borderRadius = 10;                                                              // Para que las esquinas salgan redondeadas, creamos un radio
+                    graphics.fillStyle(0xFFFFFF, 0.5);                                                    // Fondo del cuadrado: blanco, con opacidad al 50%
+                    graphics.fillRoundedRect(res.x, res.y, res.width / 1.5, res.height, borderRadius);    // Lo rellenamos
+
                     // Obtener la respuesta correspondiente a la pregunta
                     let respuesta = this.getRespuesta(texto);
                     this.indice++;
@@ -139,14 +155,16 @@ export default class conversacionLvl1 extends Phaser.Scene{
                     { 
                         fill: '#000000',  //Color del texto de las preguntas
                         wordWrap: { width: res.width, useAdvancedWrap: true },
-                        wordWrapWidth: res.width 
+                        wordWrapWidth: res.width,
+                        fontFamily: "VT323",
+                        fontSize: '30px'
+
                     });
                     
                     grupoDialogo.add(preguntas);
                     
                     // Ajusta el origen del texto al centro
                     preguntas.setOrigin(0.5, 0.5);
-                    
                     
                     res.once('pointerdown', () => this.opcionPulsada(respuesta));
                     //this.add.graphics().lineStyle(2, colores[this.color]).strokeRectShape(res);
