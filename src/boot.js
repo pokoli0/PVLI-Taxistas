@@ -31,38 +31,26 @@ export default class Boot extends Phaser.Scene{
 
 
         //ANIMACIONS
-        this.load.spritesheet(
-            'personIdleVer',
-            'assets/Imagenes/Personajes/VerdeDia1.png',
-            { frameWidth: 16, frameHeight: 26 }
-          );
-        this.load.spritesheet(
-            'personIdleMor',
-            'assets/Imagenes/Personajes/MoradoDia1.png',
-            { frameWidth: 16, frameHeight: 26 }
-          );  
-          this.load.spritesheet(
-            'personIdleAz',
-            'assets/Imagenes/Personajes/AzulDia1.png',
-            { frameWidth: 16, frameHeight: 26 }
-          );
+        this.load.spritesheet( 'personIdleVer', 'assets/Imagenes/Personajes/VerdeDia1.png',{ frameWidth: 16, frameHeight: 26 });
+        this.load.spritesheet( 'personIdleMor','assets/Imagenes/Personajes/MoradoDia1.png',{ frameWidth: 16, frameHeight: 25 });  
+        this.load.spritesheet('personIdleAz','assets/Imagenes/Personajes/AzulDia1.png',{ frameWidth: 16, frameHeight: 26 });
     }
     create(){
         this.anims.create({
             key: 'personVer',
-            frames:  this.anims.generateFrameNames('personIdleVer', { start: 0, end: 3}),
+            frames:  this.anims.generateFrameNames('personIdleVer', { start: 0, end: 1}),
             frameRate: 2,
             repeat: -1
         });
         this.anims.create({
             key: 'personMor',
-            frames:  this.anims.generateFrameNames('personIdleMor', { start: 0, end: 3}),
+            frames:  this.anims.generateFrameNames('personIdleMor', { start: 0, end: 1}),
             frameRate: 2,
             repeat: -1
         });
         this.anims.create({
             key: 'personAz',
-            frames:  this.anims.generateFrameNames('personIdleAz', { start: 0, end: 3}),
+            frames:  this.anims.generateFrameNames('personIdleAz', { start: 0, end: 1}),
             frameRate: 2,
             repeat: -1
         });

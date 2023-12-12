@@ -1,5 +1,5 @@
 export default class PersonExtras extends Phaser.GameObjects.Sprite {
-    constructor(scene, x, y, texture) {
+    constructor(scene, x, y, texture, animsKey) {
         super(scene, x, y, texture);
         scene.add.existing(this);
         scene.physics.world.enable(this);
@@ -13,6 +13,8 @@ export default class PersonExtras extends Phaser.GameObjects.Sprite {
 
         this.speed = 10;
         this.randomizeDirection(); 
+
+        this.play(animsKey);
     }
 
     handleCollisionMap() {
@@ -33,6 +35,7 @@ export default class PersonExtras extends Phaser.GameObjects.Sprite {
              this.MuerteChica.play();
             }
         }
+        this.stop(this.animsKey);
         this.scene.physics.world.disable(this);
     }
 
