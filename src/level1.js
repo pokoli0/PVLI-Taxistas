@@ -111,14 +111,17 @@ export default class Level1 extends Phaser.Scene {
     }
   }
 
-  createExtras(){
+  createExtras() {
+    const textures = ['personIdleVer', 'personIdleMor', 'personIdleAz'];
     for (let i = 0; i < 15; i++) {
-      const x = Phaser.Math.Between(0, this.map.widthInPixels);
-      const y = Phaser.Math.Between(0, this.map.heightInPixels);
-      const personExtra = new PersonExtras(this, x, y, 'personVer');
-      this.personExtrasArray.push(personExtra);
-  }
-  }
+        const x = Phaser.Math.Between(0, this.map.widthInPixels);
+        const y = Phaser.Math.Between(0, this.map.heightInPixels);
+        const randomTexture = Phaser.Math.RND.pick(textures);
+        const personExtra = new PersonExtras(this, x, y, randomTexture);
+        this.personExtrasArray.push(personExtra);
+    }
+}
+
 
   cargarNivelSiguiente() {
     // Llama al control de niveles para avanzar al siguiente nivel
