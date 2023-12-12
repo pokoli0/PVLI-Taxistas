@@ -112,10 +112,10 @@ export default class Level1 extends Phaser.Scene {
   }
 
   createExtras(){
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 15; i++) {
       const x = Phaser.Math.Between(0, this.map.widthInPixels);
       const y = Phaser.Math.Between(0, this.map.heightInPixels);
-      const personExtra = new PersonExtras(this, x, y, 'tpersonIdleMor');
+      const personExtra = new PersonExtras(this, x, y, 'personVer');
       this.personExtrasArray.push(personExtra);
   }
   }

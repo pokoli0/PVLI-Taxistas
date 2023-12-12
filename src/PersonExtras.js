@@ -7,18 +7,27 @@ export default class PersonExtras extends Phaser.GameObjects.Sprite {
         scene.physics.add.collider(this, scene.colisiones, this.handleCollision, null, this);
 
         this.speed = 10;
-        this.body.velocity.x = this.speed; // Velocidad inicial en el eje X
+        this.randomizeDirection(); 
     }
 
     update() {
         if (this.x <= 0 || this.x >= this.scene.map.widthInPixels) {
-            this.speed *= -1;
-            this.body.velocity.x = this.speed;
+            this.randomizeDirection();
         }
     }
 
     handleCollision(person, colisiones) {
-        this.speed *= -1;
-        this.body.velocity.x = this.speed;
+        this.randomizeDirection();
     }
+
+    randomizeDirection() {
+       // this.speed = Phaser.Math.Between(5, 20);
+        
+        const randomDirectionX = Phaser.Math.RND.sign();
+        const randomDirectionY = Phaser.Math.RND.sign();
+        
+        this.body.velocity.x = this.speed * randomDirectionX;
+        this.body.velocity.y = this.speed * randomDirectionY;
+    }
+    
 }
