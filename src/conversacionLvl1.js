@@ -132,8 +132,8 @@ export default class conversacionLvl1 extends Phaser.Scene{
             if (this.jsonDialogo.includes(texto)) {
                 for (let j = 0; j < 2; j++) {
                     this.indice++;
-                    const x = 550;
-                    const y = 205 + 70 * j;
+                    const x = 535;
+                    const y = 205 + 70 * j; //poli no entiende la j aqui
 
                     const res = this.add.zone(x, y, 500, 47); // Cuadrados de respuestas
                     res.setOrigin(0);
@@ -150,7 +150,7 @@ export default class conversacionLvl1 extends Phaser.Scene{
                     this.indice++;
 
                     // PREGUNTAS
-                    const preguntas = this.add.text(x + res.width / 2, y + res.height / 2, //Posicion de las preguntas (CAMBIAR ESTO)
+                    const preguntas = this.add.text(x + res.width / 3, y + res.height / 2, //Posicion de las preguntas (CAMBIAR ESTO)
                     respuesta, 
                     { 
                         fill: '#000000',  //Color del texto de las preguntas
@@ -173,10 +173,10 @@ export default class conversacionLvl1 extends Phaser.Scene{
                 }
             }
         
-        // Asignar el grupo actual al dialogoActual
-        this.dialogoActual = grupoDialogo;
-        return grupoDialogo; // Importante devolver el grupo para que puedas utilizarlo fuera de la función
-    }
+            // Asignar el grupo actual al dialogoActual
+            this.dialogoActual = grupoDialogo;
+            return grupoDialogo; // Importante devolver el grupo para que puedas utilizarlo fuera de la función
+        }
     }
 
     getRespuesta(pregunta) {
