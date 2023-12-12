@@ -7,8 +7,7 @@ export default class Menu extends Phaser.Scene {
     preload() {
 
         //Imagenes
-        this.load.image('fondoMenu', 'assets/Imagenes/fondo.jpg');
-        this.load.image('Portada', 'assets/Imagenes/Portada.png');
+        this.load.image('fondoMenu', 'assets/Imagenes/fondo.png');
         this.load.image('playButton', 'assets/Imagenes/Botones/playButton.png');
 
         //Sonido
@@ -17,8 +16,8 @@ export default class Menu extends Phaser.Scene {
     create() {
 
         //Ponemos imagenes:
-        this.add.image(500, 250, 'Portada'); //Fondo
-        const button = this.add.image(this.scale.width / 2, this.scale.height / 1.2, 'playButton').setInteractive(); //Boton
+        this.add.image(500, 250, 'fondoMenu'); //Fondo
+        const button = this.add.image(this.scale.width / 2, this.scale.height / 1.6, 'playButton').setInteractive(); //Boton
 
         //Ponemos sonido a la escena:
         var musica = this.sound.add('menuSong');
