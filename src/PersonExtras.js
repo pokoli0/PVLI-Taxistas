@@ -15,12 +15,6 @@ export default class PersonExtras extends Phaser.GameObjects.Sprite {
         this.randomizeDirection(); 
     }
 
-    update() {
-        if (this.x <= 0 || this.x >= this.scene.map.widthInPixels) {
-            this.randomizeDirection();
-        }
-    }
-
     handleCollisionMap() {
         this.randomizeDirection();
     }

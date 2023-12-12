@@ -137,10 +137,6 @@ export default class Level1 extends Phaser.Scene {
 
   update() {
     this.car.update();
-    for (let i = 0; i < this.personExtrasArray.length; i++) {
-      const personExtra = this.personExtrasArray[i];
-      personExtra.update();
-  }
   }
 
   createTileMap() {
