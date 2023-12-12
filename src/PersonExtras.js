@@ -39,7 +39,7 @@ export default class PersonExtras extends Phaser.GameObjects.Sprite {
              this.MuerteChica.play();
             }
         }
-       
+        this.scene.physics.world.disable(this);
     }
 
     randomizeDirection() {

@@ -56,6 +56,7 @@ export default class Level1 extends Phaser.Scene {
     this.physics.world.gravity.y = 0; // Esto desactiva la gravedad en el eje Y, puedes ajustarlo según tus necesidades
 
     this.car = new Car(this, 450, 120, 'TaxiVertical', 'TaxiHorizontal', 'Explosion');
+    this.car.setDepth(1);
 
     // Cambiar la textura del personaje aquí
 
