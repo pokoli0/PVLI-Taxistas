@@ -31,7 +31,7 @@ export default class Boot extends Phaser.Scene{
 
 
         //ANIMACIONS
-        this.load.spritesheet( 'personIdleVer', 'assets/Imagenes/Personajes/VerdeDia1.png',{ frameWidth: 17.25, frameHeight: 26 });
+        this.load.spritesheet( 'personIdleVer', 'assets/Imagenes/Personajes/VerdeDia1.png',{ frameWidth: 17.25, frameHeight: 24 });
         this.load.spritesheet( 'personIdleMor','assets/Imagenes/Personajes/MoradoDia1.png',{ frameWidth: 17, frameHeight: 25 });  
         this.load.spritesheet('personIdleAz','assets/Imagenes/Personajes/AzulDia1.png',{ frameWidth: 16, frameHeight: 26 });
         this.load.spritesheet('personIdleAma','assets/Imagenes/Personajes/Amarillo.png',{ frameWidth: 16.5, frameHeight: 25 });
