@@ -81,8 +81,8 @@ export default class Level1 extends Phaser.Scene {
     if (this.nivelActual == 0) {
       this.person = new Person(
         this,
-        575,
-        230,
+        1540,
+        1200,
         'personVer',
         'personIdleVer',
         'BocadilloPerson',
@@ -92,8 +92,8 @@ export default class Level1 extends Phaser.Scene {
     else if (this.nivelActual == 1) {
       this.person = new Person(
         this,
-        575,
-        230,
+        660,
+        1510,
         'personMor',
         'personIdleMor',
         'BocadilloPerson',
@@ -103,8 +103,8 @@ export default class Level1 extends Phaser.Scene {
     else if (this.nivelActual == 2) {
       this.person = new Person(
         this,
-        575,
-        230,
+        1810,
+        450,
         'personAz',
         'personIdleAz',
         'BocadilloPerson',
