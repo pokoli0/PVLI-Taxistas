@@ -3,6 +3,10 @@ export default class Person extends Phaser.GameObjects.Container {
         super(scene, x, y);
         this.texture1 = new Phaser.GameObjects.Sprite(scene, 0, 0, texture1);
         this.texture2 = new Phaser.GameObjects.Sprite(scene, 0, -40, texture2);
+
+        this.texture2.setScale(0.15);
+        this.texture2.setDepth(4);
+
         this.add(this.texture1);
         this.add(this.texture2);
         
