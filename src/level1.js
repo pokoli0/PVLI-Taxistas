@@ -180,9 +180,9 @@ export default class Level1 extends Phaser.Scene {
     let boom=this.add.image(this.car.x,this.car.y,'Explosion',)
     this.tweens.add({
       targets: boom,
-      scale: 1.5,
+      scale: 0,
       ease: 'sine.inout',
-      duration: 400,
+      duration: 800,
       delay: 50,
       repeat: 0,
       yoyo: false
