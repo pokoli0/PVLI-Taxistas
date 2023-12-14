@@ -81,8 +81,8 @@ export default class Level1 extends Phaser.Scene {
     if (this.nivelActual == 0) {
       this.person = new Person(
         this,
-        575,
-        230,
+        1540,
+        1200,
         'personVer',
         'personIdleVer',
         'BocadilloPerson',
@@ -92,8 +92,8 @@ export default class Level1 extends Phaser.Scene {
     else if (this.nivelActual == 1) {
       this.person = new Person(
         this,
-        575,
-        230,
+        660,
+        1510,
         'personMor',
         'personIdleMor',
         'BocadilloPerson',
@@ -103,8 +103,8 @@ export default class Level1 extends Phaser.Scene {
     else if (this.nivelActual == 2) {
       this.person = new Person(
         this,
-        575,
-        230,
+        1810,
+        450,
         'personAz',
         'personIdleAz',
         'BocadilloPerson',
@@ -114,12 +114,27 @@ export default class Level1 extends Phaser.Scene {
   }
 
   createExtras() {
-    const textures = ['personIdleVer', 'personIdleMor', 'personIdleAz'];
-    for (let i = 0; i < 15; i++) {
+    const textures = ['personIdleVer', 'personIdleMor', 'personIdleAz', 'personIdleAma'];
+    let animsKey = '';
+    for (let i = 0; i < 50; i++) {
         const x = Phaser.Math.Between(0, this.map.widthInPixels);
         const y = Phaser.Math.Between(0, this.map.heightInPixels);
         const randomTexture = Phaser.Math.RND.pick(textures);
-        const personExtra = new PersonExtras(this, x, y, randomTexture);
+        switch(randomTexture){
+            case "personIdleVer":
+            this.animsKey = 'personVer';
+            break;
+            case "personIdleMor":
+            this.animsKey = 'personMor';
+            break;
+            case "personIdleAz":
+            this.animsKey = 'personAz';
+            break;
+            case "personIdleAma":
+            this.animsKey = 'personAma';
+            break;
+        }
+        const personExtra = new PersonExtras(this, x, y, randomTexture, this.animsKey);
 
         this.physics.add.collider(this.car, personExtra, () => {
           personExtra.handleCollisionCar(this.car, this.personExtrasArray);
@@ -162,6 +177,19 @@ export default class Level1 extends Phaser.Scene {
   }
 
   tileExplosion(sprite, tile) {
+    let boom=this.add.image(this.car.x,this.car.y,'Explosion',)
+    this.tweens.add({
+      targets: boom,
+      scale: 0,
+      ease: 'sine.inout',
+      duration: 800,
+      delay: 50,
+      repeat: 0,
+      yoyo: false
+  });
+   boom.on('complete',function(){
+    console.log("S")
+   })
     this.explosiones.removeTileAt(tile.x, tile.y);
   }
 

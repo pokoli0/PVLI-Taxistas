@@ -10,7 +10,7 @@ export default class Boot extends Phaser.Scene{
         this.load.image('moneda', 'assets/Imagenes/imagenesPrueba/moneda.png');
         this.load.image('TaxiVertical', 'assets/sprites/taxi2.png');
         this.load.image('TaxiHorizontal', 'assets/sprites/taxi.png');
-        this.load.image('BocadilloPerson', 'assets/sprites/Taxi Puntero1.png');
+        this.load.image('BocadilloPerson', 'assets/sprites/Taxi Puntero.png');
         this.load.image('Explosion', 'assets/sprites/explosion.png');
         this.load.image('fondo', 'assets/Imagenes/fondoConver.png');
         this.load.image('botonCont', 'assets/Imagenes/Botones/Continuar.png');
@@ -31,38 +31,33 @@ export default class Boot extends Phaser.Scene{
 
 
         //ANIMACIONS
-        this.load.spritesheet(
-            'personIdleVer',
-            'assets/Imagenes/Personajes/VerdeDia1.png',
-            { frameWidth: 16, frameHeight: 26 }
-          );
-        this.load.spritesheet(
-            'personIdleMor',
-            'assets/Imagenes/Personajes/MoradoDia1.png',
-            { frameWidth: 16, frameHeight: 26 }
-          );  
-          this.load.spritesheet(
-            'personIdleAz',
-            'assets/Imagenes/Personajes/AzulDia1.png',
-            { frameWidth: 16, frameHeight: 26 }
-          );
+        this.load.spritesheet( 'personIdleVer', 'assets/Imagenes/Personajes/VerdeDia1.png',{ frameWidth: 17.25, frameHeight: 24 });
+        this.load.spritesheet( 'personIdleMor','assets/Imagenes/Personajes/MoradoDia1.png',{ frameWidth: 17, frameHeight: 25 });  
+        this.load.spritesheet('personIdleAz','assets/Imagenes/Personajes/AzulDia1.png',{ frameWidth: 16, frameHeight: 26 });
+        this.load.spritesheet('personIdleAma','assets/Imagenes/Personajes/Amarillo.png',{ frameWidth: 16.5, frameHeight: 25 });
     }
     create(){
         this.anims.create({
             key: 'personVer',
-            frames:  this.anims.generateFrameNames('personIdleVer', { start: 0, end: 3}),
+            frames:  this.anims.generateFrameNames('personIdleVer', { start: 0, end: 1}),
             frameRate: 2,
             repeat: -1
         });
         this.anims.create({
             key: 'personMor',
-            frames:  this.anims.generateFrameNames('personIdleMor', { start: 0, end: 3}),
+            frames:  this.anims.generateFrameNames('personIdleMor', { start: 0, end: 1}),
             frameRate: 2,
             repeat: -1
         });
         this.anims.create({
             key: 'personAz',
-            frames:  this.anims.generateFrameNames('personIdleAz', { start: 0, end: 3}),
+            frames:  this.anims.generateFrameNames('personIdleAz', { start: 0, end: 1}),
+            frameRate: 2,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'personAma',
+            frames:  this.anims.generateFrameNames('personIdleAma', { start: 0, end: 1}),
             frameRate: 2,
             repeat: -1
         });
