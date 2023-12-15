@@ -5,6 +5,7 @@ import LoadConversacionScene from './LoadConversacionScene.js';
 import escenaDecision from './escenaDecision.js';
 import ControlLevels from './ControlLevels.js';
 import Boot from './boot.js';
+import MenuDias from './MenuDias.js';
 
     // Configuración del juego
     let config = {
@@ -12,7 +13,7 @@ import Boot from './boot.js';
         width:1000,
         height: 500,      
         pixelArt: true,
-        scene:[Boot,Menu,ControlLevels, Level1, conversacionLvl1, LoadConversacionScene, escenaDecision],
+        scene:[Boot,Menu,MenuDias,ControlLevels, Level1, conversacionLvl1, LoadConversacionScene, escenaDecision],
         physics: {
             default: 'arcade',
             arcade: {
