@@ -1,5 +1,5 @@
 export default class Car extends Phaser.GameObjects.Sprite {
-  constructor(scene, x, y, textureVertical, textureHorizontal, Explosion,sounds, aceleracionActivada) {
+  constructor(scene, x, y, textureVertical, textureHorizontal, Explosion,sounds, aceleracionActivada, gpsActivado) {
     super(scene, x, y, textureHorizontal);
     scene.add.existing(this);
     scene.physics.world.enable(this);
@@ -17,6 +17,7 @@ this.sonido=scene.sound.add(sounds)
     this.accel = 1;
     this.muerto = false;
     this.aceleracionActivada = aceleracionActivada;
+    this.gpsActivado = gpsActivado;
     // Ancho y alto del collider general
     const colliderWidth = 50;
     const colliderHeight = 50;
@@ -32,6 +33,7 @@ this.sonido=scene.sound.add(sounds)
     if (!this.muerto) {
       this.collider.setPosition(this.x, this.y);
       this.Aceleracion();
+      this.Flecha(this.scene.person);
       let textureSet = false; // Variable para controlar si se ha configurado una textura
 
       if (this.keys.up.isDown) {
@@ -113,5 +115,21 @@ this.sonido=scene.sound.add(sounds)
         this.accel = 1;
     }
   }
+
+  Flecha(person) {
+    if(this.gpsActivado){
+      const angle = Phaser.Math.Angle.Between(this.x, this.y - 25, person.x, person.y);
+
+    // Resta 90 grados a la rotación
+    const rotation = angle - Phaser.Math.DegToRad(-90);
+
+    if (this.flecha) {
+        this.flecha.setRotation(rotation);
+        this.flecha.setPosition(this.x, this.y - 25);
+    } else {
+        this.flecha = this.scene.add.image(this.x, this.y - 25, 'FlechaVerde').setRotation(rotation).setScale(0.05);
+    }
+    }   
+}
 
 }
