@@ -5,13 +5,6 @@ export default class Menu extends Phaser.Scene {
   
     }
     preload() {
-
-        //Imagenes
-        this.load.image('fondoMenu', 'assets/Imagenes/fondo.png');
-        this.load.image('playButton', 'assets/Imagenes/Botones/playButton.png');
-
-        //Sonido
-        this.load.audio('menuSong', 'assets/Sonido_Musica/MusicaInicio.mp3');
     }
     create() {
 
@@ -28,7 +21,7 @@ export default class Menu extends Phaser.Scene {
         //Conexion con escena level (al pulsar boton)
         button.on("pointerdown", () => {
             this.sound.stopAll(); //que pare la musica del menu de inicio
-            this.scene.start('controlLevels');
+            this.scene.start('menuDias');
         });
     }
   }
