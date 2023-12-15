@@ -1,5 +1,5 @@
 export default class Car extends Phaser.GameObjects.Sprite {
-  constructor(scene, x, y, textureVertical, textureHorizontal, Explosion,sounds) {
+  constructor(scene, x, y, textureVertical, textureHorizontal, Explosion,sounds, aceleracionActivada) {
     super(scene, x, y, textureHorizontal);
     scene.add.existing(this);
     scene.physics.world.enable(this);
@@ -16,6 +16,7 @@ this.sonido=scene.sound.add(sounds)
     this.explosion = Explosion;
     this.accel = 1;
     this.muerto = false;
+    this.aceleracionActivada = aceleracionActivada;
     // Ancho y alto del collider general
     const colliderWidth = 50;
     const colliderHeight = 50;
@@ -30,17 +31,7 @@ this.sonido=scene.sound.add(sounds)
     //this.setAcceleration(0);
     if (!this.muerto) {
       this.collider.setPosition(this.x, this.y);
-      if (this.keys.shift.isDown) {
-        if (this.accel < 4)
-          this.accel += 0.01;
-        else
-          this.accel = 4;
-      } else {
-        if (this.accel > 1)
-          this.accel -= 0.1;
-        else
-          this.accel = 1;
-      }
+      this.Aceleracion();
       let textureSet = false; // Variable para controlar si se ha configurado una textura
 
       if (this.keys.up.isDown) {
@@ -106,6 +97,20 @@ this.sonido=scene.sound.add(sounds)
     }
     else {
       this.accel = 1;
+    }
+  }
+
+  Aceleracion(){
+    if (this.keys.shift.isDown && this.aceleracionActivada) {
+      if (this.accel < 4)
+        this.accel += 0.01;
+      else
+        this.accel = 4;
+    } else {
+      if (this.accel > 1)
+        this.accel -= 0.1;
+      else
+        this.accel = 1;
     }
   }
 

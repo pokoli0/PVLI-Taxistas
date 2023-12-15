@@ -12,6 +12,14 @@ export default class ControlLevels extends Phaser.Scene{
         this.nivelActual = 0;
         
     }
+
+    init(data) {
+        // Accede a los booleanos desde el objeto de datos
+        this.gpsActivado = data.gpsActivado || false;
+        this.aceleracionActivada = data.aceleracionActivada || false;
+        this.tiempoActivado = data.tiempoActivado || false;
+    }
+
     
     preload(){
     }
@@ -44,14 +52,27 @@ export default class ControlLevels extends Phaser.Scene{
     }
 
     iniciarEscenaNivel(nivel) {
-        
         // Inicializa la escena de nivel con el mapa ya cargado
-        this.scene.start('level1', { puntos: 0, nivelActual: this.nivelActual, nivelData: nivel });
+        this.scene.start('level1', {
+            puntos: 0,
+            nivelActual: this.nivelActual,
+            nivelData: nivel,
+            gpsActivado: this.gpsActivado,
+            aceleracionActivada: this.aceleracionActivada,
+            tiempoActivado: this.tiempoActivado
+        });
     }
+    
     iniciarSiguienteNivel(nivel, punto) {
-        
         // Inicializa la escena de nivel con el mapa ya cargado
-        this.scene.start('level1', { puntos: punto, nivelActual: this.nivelActual, nivelData: nivel });
+        this.scene.start('level1', {
+            puntos: punto,
+            nivelActual: this.nivelActual,
+            nivelData: nivel,
+            gpsActivado: this.gpsActivado,
+            aceleracionActivada: this.aceleracionActivada,
+            tiempoActivado: this.tiempoActivado
+        });
     }
     avanzarAlSiguienteNivel(puntos) {
         this.nivelActual++;

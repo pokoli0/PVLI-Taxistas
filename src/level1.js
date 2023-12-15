@@ -34,7 +34,9 @@ export default class Level1 extends Phaser.Scene {
     // Recibe datos del control de niveles
     this.nivelActual = data.nivelActual;
     this.puntos = data.puntos;
-
+    this.gpsActivado = data.gpsActivado || false;
+    this.aceleracionActivada = data.aceleracionActivada || false;
+    this.tiempoActivado = data.tiempoActivado || false;
 
     this.createTileMap();
 
@@ -55,7 +57,7 @@ export default class Level1 extends Phaser.Scene {
     this.physics.world.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
     this.physics.world.gravity.y = 0; // Esto desactiva la gravedad en el eje Y, puedes ajustarlo según tus necesidades
 
-    this.car = new Car(this, 450, 120, 'TaxiVertical', 'TaxiHorizontal', 'Explosion','boom');
+    this.car = new Car(this, 450, 120, 'TaxiVertical', 'TaxiHorizontal', 'Explosion','boom', this.aceleracionActivada);
     this.car.setDepth(3);
 
     // Cambiar la textura del personaje aquí

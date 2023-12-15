@@ -8,11 +8,25 @@ export default class MenuDias extends Phaser.Scene{
         
     }
 
+    init(data) {
+        // Accede a los booleanos desde el objeto de datos
+        this.gpsActivado = data.gpsActivado || false;
+        this.aceleracionActivada = data.aceleracionActivada || false;
+        this.tiempoActivado = data.tiempoActivado || false;
+    }
+
     createBotones(){
       //Ponemos imagenes:
       this.add.image(500, 250, 'fondoMenu'); //Fondo
               
-      this.add.image(200, 250, 'diasBotones');
+      const dia1 = this.add.image(200, 250, 'diasBotones').setInteractive();
+      dia1.on("pointerdown", () => {
+        this.scene.start('controlLevels', {
+            gpsActivado: this.gpsActivado,
+            aceleracionActivada: this.aceleracionActivada,
+            tiempoActivado: this.tiempoActivado
+        });
+    });
       this.add.text(153, 170, //Posicion de las preguntas (CAMBIAR ESTO)
                   "DIA 1", 
                   { 
@@ -38,6 +52,13 @@ export default class MenuDias extends Phaser.Scene{
                       fontSize: '50px'
                   });
       this.add.image(800, 300, 'candado');
+
+      const botonTienda = this.add.image(500, 500, 'Tienda').setInteractive();
+      botonTienda.on('pointerdown', () => {
+        this.scene.stop('menuDias');
+        this.scene.start('Shop')}
+      );
+      
       //Ponemos sonido a la escena:
       var musica = this.sound.add('menuSong');
       musica.play({
