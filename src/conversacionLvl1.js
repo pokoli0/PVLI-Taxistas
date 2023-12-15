@@ -92,7 +92,7 @@ export default class conversacionLvl1 extends Phaser.Scene{
         const posY = 70;
 
         // Agregar texto al grupo
-        const cuadrado = this.add.zone(posX, posY, 395, 100); // Cuadrado de la conversacion
+        const cuadrado = this.add.zone(posX, posY, 395, 150); // Cuadrado de la conversacion (sin colorear)
         cuadrado.setOrigin(0);
 
         // Relleno del cuadrado
@@ -132,10 +132,10 @@ export default class conversacionLvl1 extends Phaser.Scene{
             if (this.jsonDialogo.includes(texto)) {
                 for (let j = 0; j < 2; j++) {
                     this.indice++;
-                    const x = 535;
-                    const y = 205 + 70 * j; //poli no entiende la j aqui
+                    const x = 500;
+                    const y = 250 + 70 * j; //poli no entiende la j aqui
 
-                    const res = this.add.zone(x, y, 500, 47); // Cuadrados de respuestas
+                    const res = this.add.zone(x, y, 600, 47); // Cuadrados de respuestas
                     res.setOrigin(0);
                     res.setInteractive();
 
@@ -158,7 +158,6 @@ export default class conversacionLvl1 extends Phaser.Scene{
                         wordWrapWidth: res.width,
                         fontFamily: "VT323",
                         fontSize: '30px'
-
                     });
                     
                     grupoDialogo.add(preguntas);
