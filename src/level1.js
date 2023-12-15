@@ -56,7 +56,7 @@ export default class Level1 extends Phaser.Scene {
     this.physics.world.gravity.y = 0; // Esto desactiva la gravedad en el eje Y, puedes ajustarlo según tus necesidades
 
     this.car = new Car(this, 450, 120, 'TaxiVertical', 'TaxiHorizontal', 'Explosion');
-    this.car.setDepth(1);
+    this.car.setDepth(3);
 
     // Cambiar la textura del personaje aquí
 
@@ -135,7 +135,7 @@ export default class Level1 extends Phaser.Scene {
             break;
         }
         const personExtra = new PersonExtras(this, x, y, randomTexture, this.animsKey);
-
+        personExtra.setDepth(2);
         this.physics.add.collider(this.car, personExtra, () => {
           personExtra.handleCollisionCar(this.car, this.personExtrasArray);
       });
@@ -168,9 +168,9 @@ export default class Level1 extends Phaser.Scene {
     this.asfalto = this.map.createLayer('asfalto', tileset1);
     this.cesped = this.map.createLayer('cesped', tileset1);
     this.casas = this.map.createLayer('casas', tileset1);
-    this.casas.setDepth(2);
+    this.casas.setDepth(4);
     this.hierba = this.map.createLayer('hierba', tileset1);
-    this.hierba.setDepth(3);
+    this.hierba.setDepth(5);
     this.puentes = this.map.createLayer('Puentes', tileset1);
     this.colisiones = this.map.createLayer('colisiones', tileset1);
     this.explosiones = this.map.createLayer('explosiones', tileset1);
