@@ -1,8 +1,9 @@
 export default class Car extends Phaser.GameObjects.Sprite {
-  constructor(scene, x, y, textureVertical, textureHorizontal, Explosion) {
+  constructor(scene, x, y, textureVertical, textureHorizontal, Explosion,sounds) {
     super(scene, x, y, textureHorizontal);
     scene.add.existing(this);
     scene.physics.world.enable(this);
+this.sonido=scene.sound.add(sounds)
     this.keys = scene.input.keyboard.addKeys({
       up: Phaser.Input.Keyboard.KeyCodes.W,
       down: Phaser.Input.Keyboard.KeyCodes.S,
@@ -87,6 +88,7 @@ export default class Car extends Phaser.GameObjects.Sprite {
 
   cocheExplota() {
     if (this.accel == 4) {
+      this.sonido.play();
       this.muerto = true;
       this.body.setVelocityX(0);
       this.body.setVelocityY(0);
