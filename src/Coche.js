@@ -91,6 +91,16 @@ export default class Car extends Phaser.GameObjects.Sprite {
       this.body.setVelocityX(0);
       this.body.setVelocityY(0);
       this.setTexture(this.explosion);
+      
+      this.scene.tweens.add({
+        targets: this,
+        scale: 0,
+        ease: 'sine.inout',
+        duration: 400,
+        delay: 50,
+        repeat: 0,
+        yoyo: false
+    });
     }
     else {
       this.accel = 1;
