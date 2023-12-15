@@ -177,6 +177,8 @@ export default class Level1 extends Phaser.Scene {
   }
 
   tileExplosion(sprite, tile) {
+    const BOOM= this.sound.add('boom')
+    BOOM.play();
     let boom=this.add.image(this.car.x,this.car.y,'Explosion',)
     this.tweens.add({
       targets: boom,
@@ -187,9 +189,6 @@ export default class Level1 extends Phaser.Scene {
       repeat: 0,
       yoyo: false
   });
-   boom.on('complete',function(){
-    console.log("S")
-   })
     this.explosiones.removeTileAt(tile.x, tile.y);
   }
 
