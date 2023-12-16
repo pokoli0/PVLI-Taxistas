@@ -12,10 +12,10 @@ export default class Shop extends Phaser.Scene{
 
         this.add.image(0, 0, 'FondoTienda').setOrigin(0).setDisplaySize(width, height);
 
-        const botonGPS = this.add.image(100, 100, 'GPS').setInteractive().setScale(0.3);
-        const botonAceleracion = this.add.image(300, 100, 'Aceleracion').setInteractive().setScale(0.3);
-        const botonTiempo = this.add.image(100, 300, 'TiempoExtra').setInteractive().setScale(0.3);
-        const botonVolver = this.add.image(300, 300, 'Dias').setInteractive().setScale(0.3);
+        const botonGPS = this.add.image(200, 200, 'GPS').setInteractive().setScale(0.4);
+        const botonAceleracion = this.add.image(500, 200, 'Aceleracion').setInteractive().setScale(0.4);
+        const botonTiempo = this.add.image(800, 200, 'TiempoExtra').setInteractive().setScale(0.4);
+        const botonVolver = this.add.image(500, 400, 'VolverMenuDias').setInteractive().setScale(0.3);
 
         botonGPS.on('pointerdown', () => this.botonGPSPresionado());
         botonAceleracion.on('pointerdown', () => this.botonAceleracionPresionado());
