@@ -19,6 +19,12 @@ export default class MenuDias extends Phaser.Scene{
     createBotones(){
       //Ponemos imagenes:
       this.add.image(500, 250, 'fondoMenu'); //Fondo
+
+      const textoMonedas = this.add.text(360, 75, `Monedas: ${this.monedas}`, {
+        fontSize: '32px',
+        fill: '#fff',
+        align: 'center',
+    });
               
       const dia1 = this.add.image(200, 250, 'diasBotones').setInteractive();
       dia1.on("pointerdown", () => {
