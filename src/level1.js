@@ -19,7 +19,7 @@ export default class Level1 extends Phaser.Scene {
     //   this.maxVol = 0.7;
     //   this.muteVol = 0;
     //   this.isMute = false;
-    this.puntos; // Inicializa los puntos
+    this.puntos = 0; // Inicializa los puntos
     this.textoPuntos; // Variable para almacenar el objeto de texto de los puntos
     this.nivel;
     this.initialTime = 120;

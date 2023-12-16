@@ -1,6 +1,7 @@
 export default class MenuDias extends Phaser.Scene{
     constructor() {
         super({ key: 'menuDias' });
+        this.monedas = 1000;
       }
 
       create() {
@@ -56,7 +57,9 @@ export default class MenuDias extends Phaser.Scene{
       const botonTienda = this.add.image(500, 450, 'Tienda').setInteractive().setScale(0.5);
       botonTienda.on('pointerdown', () => {
         this.scene.stop('menuDias');
-        this.scene.start('Shop')}
+        this.scene.start('Shop', {
+           monedas : this.monedas
+        });}
       );
       
       //Ponemos sonido a la escena:
