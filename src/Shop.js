@@ -5,10 +5,12 @@ export default class Shop extends Phaser.Scene{
         this.gpsActivado = false;
         this.aceleracionActivada = false;
         this.tiempoActivado = false;
+        this.menuDiasScene;
     }
 
     init(data){
         this.monedas = data.monedas;
+        this.menuDiasScene = data.menuDiasScene;
     }
     create() {
         const width = this.cameras.main.width; 
@@ -58,6 +60,8 @@ export default class Shop extends Phaser.Scene{
     }
 
     botonVolverPresionado(){
+        this.menuDiasScene.actualizarMonedas(this.monedas);
+
         this.scene.stop('Shop');
         this.scene.start('menuDias', {
             gpsActivado: this.gpsActivado,

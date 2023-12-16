@@ -2,6 +2,7 @@ export default class MenuDias extends Phaser.Scene{
     constructor() {
         super({ key: 'menuDias' });
         this.monedas = 1000;
+        this.textoMonedas;
       }
 
       create() {
@@ -20,7 +21,7 @@ export default class MenuDias extends Phaser.Scene{
       //Ponemos imagenes:
       this.add.image(500, 250, 'fondoMenu'); //Fondo
 
-      const textoMonedas = this.add.text(360, 75, `Monedas: ${this.monedas}`, {
+      this.textoMonedas = this.add.text(360, 75, `Monedas: ${this.monedas}`, {
         fontSize: '32px',
         fill: '#fff',
         align: 'center',
@@ -64,14 +65,19 @@ export default class MenuDias extends Phaser.Scene{
       botonTienda.on('pointerdown', () => {
         this.scene.stop('menuDias');
         this.scene.start('Shop', {
-           monedas : this.monedas
+           monedas : this.monedas,
+           menuDiasScene: this
         });}
-      );
-      
+      );    
       //Ponemos sonido a la escena:
       var musica = this.sound.add('menuSong');
       musica.play({
           loop: true //para que este en bucle
       })
+    }
+
+    actualizarMonedas(monedas) {
+        this.monedas = monedas;
+        this.textoMonedas.setText(`Monedas: ${this.monedas}`);
     }
 }
