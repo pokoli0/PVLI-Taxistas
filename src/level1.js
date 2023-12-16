@@ -77,6 +77,25 @@ export default class Level1 extends Phaser.Scene {
     });
 
     this.cameras.main.startFollow(this.car, true, 0.1, 0.1);
+
+    //Texto Tiempo
+    let initialTime = 120; 
+    if(this.tiempoActivado){
+      initialTime = 180;  // Ajusta el tiempo inicial si el tiempo está activado
+    }
+    this.timerText = this.add.text(850, 25, this.formatTime(initialTime), {
+      fontSize: '40px',
+      fill: '#FFF',
+    });
+    this.timerText.setDepth(4);
+    this.timer = this.time.addEvent({
+      delay: 1000,
+      callback: this.updateTimer,
+      callbackScope: this,
+      loop: true,
+      startAt: 0,
+      start: true,
+    });
   }
 
   createPerson() {
@@ -192,6 +211,23 @@ export default class Level1 extends Phaser.Scene {
       yoyo: false
   });
     this.explosiones.removeTileAt(tile.x, tile.y);
+  }
+
+  formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+  }
+
+  updateTimer() {
+    console.log('Update Timer');
+    if (this.timer.getProgress() !== 1) {
+      const remainingTime = Math.round((1 - this.timer.getProgress()) * this.initialTime);
+      this.timerText.setText(this.formatTime(remainingTime));
+    } else {
+      // El temporizador ha alcanzado el final, regresar a la escena de menúDias
+      this.scene.start('menuDias');
+    }
   }
 
 }
