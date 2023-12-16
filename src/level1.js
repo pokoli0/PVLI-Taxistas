@@ -22,11 +22,9 @@ export default class Level1 extends Phaser.Scene {
     this.puntos; // Inicializa los puntos
     this.textoPuntos; // Variable para almacenar el objeto de texto de los puntos
     this.nivel;
+    this.initialTime = 120;
     this.personExtrasArray = [];
   }
-  // handleCollision(car, colisiones){
-  //   car.setVelocity(0,0);
-  // }
   preload() {
     this.load.tilemapTiledJSON('level1', 'assets/Mapas/mapa2.json');
   }
@@ -79,15 +77,14 @@ export default class Level1 extends Phaser.Scene {
     this.cameras.main.startFollow(this.car, true, 0.1, 0.1);
 
     //Texto Tiempo
-    let initialTime = 120; 
     if(this.tiempoActivado){
-      initialTime = 180;  // Ajusta el tiempo inicial si el tiempo está activado
+      this.initialTime = 180;  // Ajusta el tiempo inicial si el tiempo está activado
     }
-    this.timerText = this.add.text(850, 25, this.formatTime(initialTime), {
+    this.timerText = this.add.text(850, 25, this.formatTime(this.initialTime), {
       fontSize: '40px',
       fill: '#FFF',
     });
-    this.timerText.setDepth(4);
+    this.timerText.setDepth(4).setScrollFactor(0);
     this.timer = this.time.addEvent({
       delay: 1000,
       callback: this.updateTimer,
@@ -220,14 +217,13 @@ export default class Level1 extends Phaser.Scene {
   }
 
   updateTimer() {
-    console.log('Update Timer');
-    if (this.timer.getProgress() !== 1) {
-      const remainingTime = Math.round((1 - this.timer.getProgress()) * this.initialTime);
-      this.timerText.setText(this.formatTime(remainingTime));
+    if (this.initialTime > 0) {
+        this.initialTime -= 1; // Restar 1 segundo
+        const remainingTime = Math.ceil(this.initialTime);
+        this.timerText.setText(this.formatTime(remainingTime));
     } else {
-      // El temporizador ha alcanzado el final, regresar a la escena de menúDias
-      this.scene.start('menuDias');
+        // El temporizador ha alcanzado el final, regresar a la escena de menúDias
+        this.scene.start('menuDias');
     }
-  }
-
+}
 }
