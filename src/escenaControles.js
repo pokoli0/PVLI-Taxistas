@@ -10,14 +10,13 @@ export default class Controles extends Phaser.Scene {
     create(){
         //Ponemos imagenes:
         this.add.image(500, 250, 'fondoMenu'); //Fondo
-        this.add.image(, , 'controles'); //Imagen de los controles
+        this.add.image(0, 0, 'controles'); //Imagen de los controles
+        const backButton = this.add.image(this.scale.width / 2, this.scale.height / 1.6, 'playButton').setInteractive(); //Boton de VOLVER
 
-        // Añade el botón para volver al menú inicial
-        var botonVolver = this.add.image(400, 500, 'botonVolver').setInteractive();
 
-        // Configura el evento del botón para volver al menú inicial
-        botonVolver.on('pointerdown', function () {
-            this.scene.start('MainMenu'); // Cambia 'MainMenu' por el nombre de tu escena de menú inicial
-        }, this);
+         //Conexion con escena Main Menu
+         backButton.on("pointerdown", () => {
+            this.scene.start('menuInicial');
+        });
     }
 }
