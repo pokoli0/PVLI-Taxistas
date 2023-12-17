@@ -61,7 +61,7 @@ export default class MenuDias extends Phaser.Scene{
                   });
       this.add.image(800, 300, 'candado');
 
-      const botonTienda = this.add.image(500, 450, 'Tienda').setInteractive().setScale(0.5);
+      const botonTienda = this.add.image(500, 450, 'Tienda').setInteractive().setScale(0.35);
       botonTienda.on('pointerdown', () => {
         this.scene.stop('menuDias');
         this.scene.start('Shop', {
