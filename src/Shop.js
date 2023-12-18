@@ -57,8 +57,9 @@ export default class Shop extends Phaser.Scene{
         this.add.image(0, 0, 'FondoTienda').setOrigin(0).setDisplaySize(width, height);
 
         this.add.image(850, 420, 'Moneda').setScale(1.4);
-        this.textoMonedas = this.add.text(700, 400, this.monedas, {
-        fontSize: '50px',
+        this.textoMonedas = this.add.text(730, 400, this.monedas, {
+        fontSize: '70px',
+        fontFamily: "VT323",
         fill: '#fff',
         align: 'center',
         });
@@ -78,8 +79,9 @@ export default class Shop extends Phaser.Scene{
             });
             this.add.image(170, 300, 'DescripcionGPS').setInteractive().setScale(0.2);
             this.add.image(190, 130, 'Moneda').setScale(1.2);
-            this.precioGPS = this.add.text(115, 115, 100, {
-                fontSize: '32px',
+            this.precioGPS = this.add.text(115, 105, 100, {
+                fontSize: '50px',
+                fontFamily: "VT323",
                 fill: '#fff',
                 align: 'center',
             });
@@ -99,8 +101,9 @@ export default class Shop extends Phaser.Scene{
             });
             this.add.image(510, 300, 'DescripcionAceleracion').setInteractive().setScale(0.2);
             this.add.image(530, 130, 'Moneda').setScale(1.2);
-            this.precioAceleracion = this.add.text(470, 115, 75, {
-                fontSize: '32px',
+            this.precioAceleracion = this.add.text(470, 105, 75, {
+                fontSize: '50px',
+                fontFamily: "VT323",
                 fill: '#fff',
                 align: 'center',
             });
@@ -120,8 +123,9 @@ export default class Shop extends Phaser.Scene{
             });
             this.add.image(860, 300, 'DescripcionTiempoExtra').setInteractive().setScale(0.2);
             this.add.image(870, 130, 'Moneda').setScale(1.2);
-            this.precioTiempoExtra = this.add.text(810, 115, 50, {
-                fontSize: '32px',
+            this.precioTiempoExtra = this.add.text(810, 105, 50, {
+                fontSize: '50px',
+                fontFamily: "VT323",
                 fill: '#fff',
                 align: 'center',
             });

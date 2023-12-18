@@ -10,12 +10,13 @@ export default class MenuDias extends Phaser.Scene{
         //Ponemos imagenes:
       this.add.image(500, 250, 'fondoMenu'); //Fondo
 
-      this.add.image(560, 95, 'Moneda').setScale(1.4);
-      this.textoMonedas = this.add.text(420, 75, this.monedas, {
-        fontSize: '50px',
+      this.add.image(850, 420, 'Moneda').setScale(1.4);
+        this.textoMonedas = this.add.text(730, 400, this.monedas, {
+        fontSize: '70px',
+        fontFamily: "VT323",
         fill: '#fff',
         align: 'center',
-    });
+        });
         this.createBotones();
         
     }
