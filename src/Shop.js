@@ -53,6 +53,8 @@ export default class Shop extends Phaser.Scene{
     createbuttons(){
         const width = this.cameras.main.width; 
         const height = this.cameras.main.height;  
+        const ButtonClicked = this.sound.add('Button');
+        const CursorOnButton = this.sound.add('CursorOnButton');
 
         this.add.image(0, 0, 'FondoTienda').setOrigin(0).setDisplaySize(width, height);
 
@@ -68,7 +70,8 @@ export default class Shop extends Phaser.Scene{
         if (!this.gpsActivado){
             botonGPS.on('pointerover', () => {
                 if (!this.gpsActivado){
-                botonGPS.setScale(0.35);
+                 CursorOnButton.play();
+                 botonGPS.setScale(0.35);
                 }
             });
             
@@ -90,6 +93,7 @@ export default class Shop extends Phaser.Scene{
         if (!this.aceleracionActivada){
             botonAceleracion.on('pointerover', () => {
                 if (!this.aceleracionActivada){
+                    CursorOnButton.play();
                     botonAceleracion.setScale(0.35);
                 }
             });
@@ -112,6 +116,7 @@ export default class Shop extends Phaser.Scene{
         if (!this.tiempoActivado){
             botonTiempo.on('pointerover', () => {
                 if (!this.tiempoActivado){
+                    CursorOnButton.play();
                     botonTiempo.setScale(0.35);
                 }
             });
@@ -132,6 +137,7 @@ export default class Shop extends Phaser.Scene{
         }
         const botonVolver = this.add.image(50, 450, 'VolverMenuDias').setInteractive().setScale(0.3);
         botonVolver.on('pointerover', () => {
+                CursorOnButton.play();
                 botonVolver.setScale(0.35);
         });
         
@@ -139,9 +145,9 @@ export default class Shop extends Phaser.Scene{
                 botonVolver.setScale(0.3);
         });
 
-        botonGPS.on('pointerdown', () => {botonGPS.setScale(0.3); this.botonGPSPresionado(this.textoMonedas)});
-        botonAceleracion.on('pointerdown', () => {botonAceleracion.setScale(0.3);this.botonAceleracionPresionado(this.textoMonedas)});
-        botonTiempo.on('pointerdown', () => {botonTiempo.setScale(0.3);this.botonTiempoPresionado(this.textoMonedas)});
-        botonVolver.on('pointerdown', () => this.botonVolverPresionado());
+        botonGPS.on('pointerdown', () => {ButtonClicked.play(); botonGPS.setScale(0.3); this.botonGPSPresionado(this.textoMonedas)});
+        botonAceleracion.on('pointerdown', () => {ButtonClicked.play(); botonAceleracion.setScale(0.3);this.botonAceleracionPresionado(this.textoMonedas)});
+        botonTiempo.on('pointerdown', () => {ButtonClicked.play(); botonTiempo.setScale(0.3);this.botonTiempoPresionado(this.textoMonedas)});
+        botonVolver.on('pointerdown', () => {ButtonClicked.play(); this.botonVolverPresionado();});
     }
 }

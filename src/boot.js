@@ -48,6 +48,8 @@ export default class Boot extends Phaser.Scene{
         this.load.audio('MuerteChica', 'assets/Sonido_Musica/Sound effect- screaming girl.mp3');
         this.load.audio('boom','assets/Sonido_Musica/Explosion.mp3' )
         this.load.audio('menuSong', 'assets/Sonido_Musica/MusicaInicio.mp3');
+        this.load.audio('Button', 'assets/Sonido_Musica/Button.mp3');
+        this.load.audio('CursorOnButton', 'assets/Sonido_Musica/Cursor encima de boton.mp3');
 
         //ANIMACIONS
         this.load.spritesheet( 'personIdleVer', 'assets/Imagenes/Personajes/VerdeDia1.png',{ frameWidth: 17.25, frameHeight: 24 });
