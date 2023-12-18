@@ -18,11 +18,12 @@ export default class Shop extends Phaser.Scene{
 
         this.add.image(0, 0, 'FondoTienda').setOrigin(0).setDisplaySize(width, height);
 
-        const textoMonedas = this.add.text(375, 100, `Monedas: ${this.monedas}`, {
-            fontSize: '32px',
-            fill: '#fff',
-            align: 'center',
-        });
+        this.add.image(550, 95, 'Moneda').setScale(1.1);
+        this.textoMonedas = this.add.text(420, 75, this.monedas, {
+          fontSize: '45px',
+          fill: '#fff',
+          align: 'center',
+      });
 
         const botonGPS = this.add.image(200, 200, 'GPS').setInteractive().setScale(0.3);
         const botonAceleracion = this.add.image(500, 200, 'Aceleracion').setInteractive().setScale(0.3);
