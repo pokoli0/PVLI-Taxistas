@@ -3,6 +3,7 @@ export default class MenuDias extends Phaser.Scene{
         super({ key: 'menuDias' });
         this.monedas = 1000;
         this.textoMonedas;
+        this.level = 1;
       }
 
       create() {
@@ -24,6 +25,7 @@ export default class MenuDias extends Phaser.Scene{
         this.gpsActivado = data.gpsActivado || false;
         this.aceleracionActivada = data.aceleracionActivada || false;
         this.tiempoActivado = data.tiempoActivado || false;
+        this.levelCompletado = data.levelCompletado || false;
     }
 
     createBotones(){
@@ -55,6 +57,7 @@ export default class MenuDias extends Phaser.Scene{
     botonDia1(){
       const dia1 = this.add.image(200, 250, 'diasBotones').setInteractive();
       dia1.on("pointerdown", () => {
+        this.level++;
         this.scene.start('controlLevels', {
             gpsActivado: this.gpsActivado,
             aceleracionActivada: this.aceleracionActivada,
@@ -71,7 +74,7 @@ export default class MenuDias extends Phaser.Scene{
     }
 
     botonDia2(){
-      this.add.image(500, 250, 'diasBotones');
+      const dia2 = this.add.image(500, 250, 'diasBotones');
       this.add.text(453, 170, //Posicion de las preguntas (CAMBIAR ESTO)
       "DIA 2", 
       { 
@@ -80,11 +83,20 @@ export default class MenuDias extends Phaser.Scene{
           fontSize: '50px'
       });
       this.add.image(500, 300, 'candado');
-
-      
+      if(this.levelCompletado  && this.level == 2){
+        dia2.setInteractive();
+        dia2.on("pointerdown", () => {
+          this.level++;
+          this.scene.start('controlLevels', {
+              gpsActivado: this.gpsActivado,
+              aceleracionActivada: this.aceleracionActivada,
+              tiempoActivado: this.tiempoActivado
+          });
+      });
+    }
     }
     botonDia3(){
-      this.add.image(800, 250, 'diasBotones');
+      const dia3 = this.add.image(800, 250, 'diasBotones');
       this.add.text(753, 170, //Posicion de las preguntas (CAMBIAR ESTO)
       "DIA 3", 
       { 
@@ -93,5 +105,15 @@ export default class MenuDias extends Phaser.Scene{
           fontSize: '50px'
       });
       this.add.image(800, 300, 'candado');
+      if(this.levelCompletado  && this.level == 3){
+        dia3.setInteractive();
+        dia3.on("pointerdown", () => {
+          this.scene.start('controlLevels', {
+              gpsActivado: this.gpsActivado,
+              aceleracionActivada: this.aceleracionActivada,
+              tiempoActivado: this.tiempoActivado
+          });
+      });
+    }
     }
 }
