@@ -65,8 +65,8 @@ export default class Shop extends Phaser.Scene{
 
         this.add.image(0, 0, 'FondoTienda').setOrigin(0).setDisplaySize(width, height);
 
-        this.add.image(850, 420, 'Moneda').setScale(1.4);
-        this.textoMonedas = this.add.text(730, 400, this.monedas, {
+        this.add.image(850, 420, 'Moneda').setScale(1.5);
+        this.textoMonedas = this.add.text(748, 385, this.monedas, {
         fontSize: '70px',
         fontFamily: "VT323",
         fill: '#fff',
