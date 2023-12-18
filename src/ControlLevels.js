@@ -4,13 +4,17 @@ const niveles = [
   { key: 'level1', mapa: 'mapa2.json', dialogo: 'dia1p1.txt' },
   { key: 'level1', mapa: 'mapa2.json', dialogo: 'dia1p2.txt' },
   { key: 'level1', mapa: 'mapa2.json', dialogo: 'dia1p3.txt' },
+  {key: 'level2', mapa: 'mapa2.json', dialogo: 'dia2p1.txt'},
+  {key: 'level2', mapa: 'mapa2.json', dialogo: 'dia2p2.txt'},
+  {key: 'level2', mapa: 'mapa2.json', dialogo: 'dia2p3.txt'},
 ];
 
 export default class ControlLevels extends Phaser.Scene{
     constructor(){
         super({key: 'controlLevels'});
         this.nivelActual = 0;
-        
+        this.levelCompletado = false;
+        this.personajes = 3;
     }
 
     init(data) {
@@ -53,7 +57,7 @@ export default class ControlLevels extends Phaser.Scene{
 
     iniciarEscenaNivel(nivel) {
         // Inicializa la escena de nivel con el mapa ya cargado
-        this.scene.start('level1', {
+        this.scene.start(nivel.key, {
             puntos: 0,
             nivelActual: this.nivelActual,
             nivelData: nivel,
@@ -65,7 +69,7 @@ export default class ControlLevels extends Phaser.Scene{
     
     iniciarSiguienteNivel(nivel, punto) {
         // Inicializa la escena de nivel con el mapa ya cargado
-        this.scene.start('level1', {
+        this.scene.start(nivel.key, {
             puntos: punto,
             nivelActual: this.nivelActual,
             nivelData: nivel,
@@ -77,12 +81,14 @@ export default class ControlLevels extends Phaser.Scene{
     avanzarAlSiguienteNivel(puntos) {
         this.nivelActual++;
     
-        if (this.nivelActual < niveles.length) {
+        if (this.nivelActual <= niveles.length / this.personajes) {
             this.scene.stop('conversacionLvl1');
             this.cargarNivel(puntos);
         } else {
-          console.log('¡Has completado todos los niveles!');
-          // Puedes implementar aquí lo que desees hacer cuando completes todos los niveles
+          this.levelCompletado = true;
+          this.scene.start('menuDias', {
+            levelCompletado: this.levelCompletado
+          })
         }
       }
 }
