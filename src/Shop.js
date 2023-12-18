@@ -24,12 +24,18 @@ export default class Shop extends Phaser.Scene{
             align: 'center',
         });
 
-        const botonGPS = this.add.image(200, 200, 'GPS').setInteractive().setScale(0.3);
+        const botonGPS = this.add.image(160, 200, 'GPS').setInteractive().setScale(0.3);
         if (!this.gpsActivado){
-            this.add.image(200, 300, 'DescripcionGPS').setInteractive().setScale(0.2);
+            this.add.image(160, 300, 'DescripcionGPS').setInteractive().setScale(0.2);
         }
         const botonAceleracion = this.add.image(500, 200, 'Aceleracion').setInteractive().setScale(0.3);
-        const botonTiempo = this.add.image(800, 200, 'TiempoExtra').setInteractive().setScale(0.3);
+        if (!this.aceleracionActivada){
+            this.add.image(500, 300, 'DescripcionAceleracion').setInteractive().setScale(0.2);
+        }
+        const botonTiempo = this.add.image(840, 200, 'TiempoExtra').setInteractive().setScale(0.3);
+        if (!this.tiempoActivado){
+            this.add.image(840, 300, 'DescripcionTiempoExtra').setInteractive().setScale(0.2);
+        }
         const botonVolver = this.add.image(50, 450, 'VolverMenuDias').setInteractive().setScale(0.3);
 
         botonGPS.on('pointerdown', () => this.botonGPSPresionado(textoMonedas));
