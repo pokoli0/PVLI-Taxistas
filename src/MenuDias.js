@@ -9,9 +9,9 @@ export default class MenuDias extends Phaser.Scene{
         //Ponemos imagenes:
       this.add.image(500, 250, 'fondoMenu'); //Fondo
 
-      this.add.image(550, 95, 'Moneda').setScale(1.1);
+      this.add.image(560, 95, 'Moneda').setScale(1.4);
       this.textoMonedas = this.add.text(420, 75, this.monedas, {
-        fontSize: '45px',
+        fontSize: '50px',
         fill: '#fff',
         align: 'center',
     });
