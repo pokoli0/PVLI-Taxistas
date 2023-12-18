@@ -18,23 +18,24 @@ export default class Shop extends Phaser.Scene{
 
         this.add.image(0, 0, 'FondoTienda').setOrigin(0).setDisplaySize(width, height);
 
-        const textoMonedas = this.add.text(375, 100, `Monedas: ${this.monedas}`, {
-            fontSize: '32px',
-            fill: '#fff',
-            align: 'center',
+        this.add.image(550, 95, 'Moneda').setScale(1.1);
+        this.textoMonedas = this.add.text(420, 75, this.monedas, {
+        fontSize: '45px',
+        fill: '#fff',
+        align: 'center',
         });
 
         const botonGPS = this.add.image(160, 200, 'GPS').setInteractive().setScale(0.3);
         if (!this.gpsActivado){
-            this.add.image(160, 300, 'DescripcionGPS').setInteractive().setScale(0.2);
+            this.add.image(170, 300, 'DescripcionGPS').setInteractive().setScale(0.2);
         }
         const botonAceleracion = this.add.image(500, 200, 'Aceleracion').setInteractive().setScale(0.3);
         if (!this.aceleracionActivada){
-            this.add.image(500, 300, 'DescripcionAceleracion').setInteractive().setScale(0.2);
+            this.add.image(510, 300, 'DescripcionAceleracion').setInteractive().setScale(0.2);
         }
         const botonTiempo = this.add.image(840, 200, 'TiempoExtra').setInteractive().setScale(0.3);
         if (!this.tiempoActivado){
-            this.add.image(840, 300, 'DescripcionTiempoExtra').setInteractive().setScale(0.2);
+            this.add.image(860, 300, 'DescripcionTiempoExtra').setInteractive().setScale(0.2);
         }
         const botonVolver = this.add.image(50, 450, 'VolverMenuDias').setInteractive().setScale(0.3);
 
