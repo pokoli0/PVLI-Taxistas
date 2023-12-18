@@ -75,8 +75,8 @@ export default class Shop extends Phaser.Scene{
         const botonAceleracion = this.add.image(500, 200, 'Aceleracion').setInteractive().setScale(0.3);
         if (!this.aceleracionActivada){
             this.add.image(510, 300, 'DescripcionAceleracion').setInteractive().setScale(0.2);
-            this.add.image(190, 140, 'Moneda').setScale(1.2);
-            this.precioAceleracion = this.add.text(115, 125, 75, {
+            this.add.image(530, 140, 'Moneda').setScale(1.2);
+            this.precioAceleracion = this.add.text(470, 125, 75, {
                 fontSize: '32px',
                 fill: '#fff',
                 align: 'center',
@@ -85,6 +85,12 @@ export default class Shop extends Phaser.Scene{
         const botonTiempo = this.add.image(840, 200, 'TiempoExtra').setInteractive().setScale(0.3);
         if (!this.tiempoActivado){
             this.add.image(860, 300, 'DescripcionTiempoExtra').setInteractive().setScale(0.2);
+            this.add.image(860, 140, 'Moneda').setScale(1.2);
+            this.precioTiempoExtra = this.add.text(800, 125, 50, {
+                fontSize: '32px',
+                fill: '#fff',
+                align: 'center',
+            });
         }
         const botonVolver = this.add.image(50, 450, 'VolverMenuDias').setInteractive().setScale(0.3);
 
