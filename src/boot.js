@@ -23,6 +23,7 @@ export default class Boot extends Phaser.Scene{
         this.load.image('botonInf', 'assets/Imagenes/Botones/Infierno.png');
         this.load.image('dejarVivo', 'assets/Imagenes/Botones/Vivo.png');
         this.load.image('CharcoSangre', 'assets/Imagenes/CharcoSangre.png');
+        this.load.image('DescripcionGPS', 'assets/sprites/Descripcion de GPS.png')
 
         this.load.image('Tienda', 'assets/Imagenes/PruebaTienda/Tienda.png');
         this.load.image('Aceleracion', 'assets/Imagenes/PruebaTienda/Aceleracion.png');

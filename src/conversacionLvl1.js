@@ -97,11 +97,11 @@ export default class conversacionLvl1 extends Phaser.Scene{
 
         // Relleno del cuadrado
         const graphics = this.add.graphics();
-        graphics.fillStyle(0xFFFFFF, 0.5); // Fondo del cuadrado: blanco, con opacidad al 50%
+        graphics.fillStyle(0x444444, 0.5); // Fondo del cuadrado: blanco, con opacidad al 50%
         graphics.fillRectShape(cuadrado);
 
         // Crear el borde del cuadrado, blanco con opacidad 50%
-        this.add.graphics().lineStyle(2, 0xFFFFFF, 0.5).strokeRectShape(cuadrado);
+        this.add.graphics().lineStyle(2, 0x444444).strokeRectShape(cuadrado);
 
         // ------ DIALOGO -------
         const textoDialogo = this.add.text(posX + cuadrado.width / 2, posY + cuadrado.height / 2, // Pos del diálogo en el cuadrado
@@ -142,7 +142,7 @@ export default class conversacionLvl1 extends Phaser.Scene{
                     // Relleno del cuadrado
                     const graphics = this.add.graphics();
                     const borderRadius = 10;                                                              // Para que las esquinas salgan redondeadas, creamos un radio
-                    graphics.fillStyle(0xFFFFFF, 0.5);                                                    // Fondo del cuadrado: blanco, con opacidad al 50%
+                    graphics.fillStyle(0x444444, 0.5);                                                    // Fondo del cuadrado: blanco, con opacidad al 50%
                     graphics.fillRoundedRect(res.x, res.y, res.width / 1.5, res.height, borderRadius);    // Lo rellenamos
 
                     // Obtener la respuesta correspondiente a la pregunta
