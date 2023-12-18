@@ -47,16 +47,12 @@ export default class MenuDias extends Phaser.Scene{
         });}
       );   
       botonTienda.on('pointerover', () => {
-        if (!this.aceleracionActivada){
             CursorOnButton.play();
             botonTienda.setScale(0.35);
-        }
     });
     
     botonTienda.on('pointerout', () => {
-        if (!this.aceleracionActivada){
           botonTienda.setScale(0.3);
-            }
     }); 
       //Ponemos sonido a la escena:
       /*var musica = this.sound.add('menuSong');
