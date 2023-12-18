@@ -35,14 +35,29 @@ export default class MenuDias extends Phaser.Scene{
     this.botonDia2();
     this.botonDia3();
 
-      const botonTienda = this.add.image(500, 450, 'Tienda').setInteractive().setScale(0.35);
+    const ButtonClicked = this.sound.add('Button');
+    const CursorOnButton = this.sound.add('CursorOnButton');
+    const botonTienda = this.add.image(500, 450, 'Tienda').setInteractive().setScale(0.3);
       botonTienda.on('pointerdown', () => {
+        ButtonClicked.play();
         this.scene.stop('menuDias');
         this.scene.start('Shop', {
            monedas : this.monedas,
            menuDiasScene: this
         });}
-      );    
+      );   
+      botonTienda.on('pointerover', () => {
+        if (!this.aceleracionActivada){
+            CursorOnButton.play();
+            botonTienda.setScale(0.35);
+        }
+    });
+    
+    botonTienda.on('pointerout', () => {
+        if (!this.aceleracionActivada){
+          botonTienda.setScale(0.3);
+            }
+    }); 
       //Ponemos sonido a la escena:
       /*var musica = this.sound.add('menuSong');
       musica.play({
