@@ -35,9 +35,8 @@ export default class escenaDecision extends Phaser.Scene{
                 this.puntos -= 15; // Incrementa los puntos en 50
                 this.actualizarPuntos(); // Actualiza el objeto de texto
             }
+            botonCielo.disableInteractive();
             this.time.delayedCall(1000, () => {
-                botonCielo.disableInteractive();
-            // Obtener referencia a la escena de controlLevels
             const controlLevelsScene = this.scene.get('controlLevels');
             // Llamar al método avanzarAlSiguienteNivel() de la escena de controlLevels
             controlLevelsScene.avanzarAlSiguienteNivel(this.puntos);
@@ -61,9 +60,8 @@ export default class escenaDecision extends Phaser.Scene{
                 this.puntos -= 15; // Incrementa los puntos en 50
                 this.actualizarPuntos(); // Actualiza el objeto de texto
             }
+            botonInf.disableInteractive();
             this.time.delayedCall(1000, () => {
-                botonInf.disableInteractive();
-            // Obtener referencia a la escena de controlLevels
             const controlLevelsScene = this.scene.get('controlLevels');
             // Llamar al método avanzarAlSiguienteNivel() de la escena de controlLevels
             controlLevelsScene.avanzarAlSiguienteNivel(this.puntos);
