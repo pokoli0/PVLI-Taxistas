@@ -6,6 +6,15 @@ export default class MenuDias extends Phaser.Scene{
       }
 
       create() {
+        //Ponemos imagenes:
+      this.add.image(500, 250, 'fondoMenu'); //Fondo
+
+      this.add.image(550, 95, 'Moneda').setScale(1.1);
+      this.textoMonedas = this.add.text(420, 75, this.monedas, {
+        fontSize: '45px',
+        fill: '#fff',
+        align: 'center',
+    });
         this.createBotones();
         
     }
@@ -18,49 +27,10 @@ export default class MenuDias extends Phaser.Scene{
     }
 
     createBotones(){
-      //Ponemos imagenes:
-      this.add.image(500, 250, 'fondoMenu'); //Fondo
-
-      this.add.image(550, 95, 'Moneda').setScale(1.1);
-      this.textoMonedas = this.add.text(420, 75, this.monedas, {
-        fontSize: '45px',
-        fill: '#fff',
-        align: 'center',
-    });
               
-      const dia1 = this.add.image(200, 250, 'diasBotones').setInteractive();
-      dia1.on("pointerdown", () => {
-        this.scene.start('controlLevels', {
-            gpsActivado: this.gpsActivado,
-            aceleracionActivada: this.aceleracionActivada,
-            tiempoActivado: this.tiempoActivado
-        });
-    });
-      this.add.text(153, 170, //Posicion de las preguntas (CAMBIAR ESTO)
-                  "DIA 1", 
-                  { 
-                      fill: '#FFFFFF',  //Color del texto de las preguntas
-                      fontFamily: "VT323",
-                      fontSize: '50px'
-                  });
-      this.add.image(500, 250, 'diasBotones');
-      this.add.text(453, 170, //Posicion de las preguntas (CAMBIAR ESTO)
-                  "DIA 2", 
-                  { 
-                      fill: '#FFFFFF',  //Color del texto de las preguntas
-                      fontFamily: "VT323",
-                      fontSize: '50px'
-                  });
-      this.add.image(500, 300, 'candado');
-      this.add.image(800, 250, 'diasBotones');
-      this.add.text(753, 170, //Posicion de las preguntas (CAMBIAR ESTO)
-                  "DIA 3", 
-                  { 
-                      fill: '#FFFFFF',  //Color del texto de las preguntas
-                      fontFamily: "VT323",
-                      fontSize: '50px'
-                  });
-      this.add.image(800, 300, 'candado');
+      this.botonDia1();
+      this.botonDia2();
+     
 
       const botonTienda = this.add.image(500, 450, 'Tienda').setInteractive().setScale(0.35);
       botonTienda.on('pointerdown', () => {
@@ -80,5 +50,48 @@ export default class MenuDias extends Phaser.Scene{
     actualizarMonedas(monedas) {
         this.monedas = monedas;
         this.textoMonedas.setText(this.monedas);
+    }
+
+    botonDia1(){
+      const dia1 = this.add.image(200, 250, 'diasBotones').setInteractive();
+      dia1.on("pointerdown", () => {
+        this.scene.start('controlLevels', {
+            gpsActivado: this.gpsActivado,
+            aceleracionActivada: this.aceleracionActivada,
+            tiempoActivado: this.tiempoActivado
+        });
+    });
+      this.add.text(153, 170, //Posicion de las preguntas (CAMBIAR ESTO)
+                  "DIA 1", 
+                  { 
+                      fill: '#FFFFFF',  //Color del texto de las preguntas
+                      fontFamily: "VT323",
+                      fontSize: '50px'
+                  });
+      
+    }
+
+    botonDia2(){
+      this.add.image(800, 250, 'diasBotones');
+      this.add.text(453, 170, //Posicion de las preguntas (CAMBIAR ESTO)
+      "DIA 2", 
+      { 
+          fill: '#FFFFFF',  //Color del texto de las preguntas
+          fontFamily: "VT323",
+          fontSize: '50px'
+      });
+      this.add.image(500, 300, 'candado');
+      
+    }
+    botonDia3(){
+      this.add.image(500, 250, 'diasBotones');
+      this.add.text(753, 170, //Posicion de las preguntas (CAMBIAR ESTO)
+      "DIA 3", 
+      { 
+          fill: '#FFFFFF',  //Color del texto de las preguntas
+          fontFamily: "VT323",
+          fontSize: '50px'
+      });
+      this.add.image(800, 300, 'candado');
     }
 }
