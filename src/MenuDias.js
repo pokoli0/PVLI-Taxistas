@@ -28,9 +28,9 @@ export default class MenuDias extends Phaser.Scene{
 
     createBotones(){
               
-      this.botonDia1();
-      this.botonDia2();
-     
+    this.botonDia1();
+    this.botonDia2();
+    this.botonDia3();
 
       const botonTienda = this.add.image(500, 450, 'Tienda').setInteractive().setScale(0.35);
       botonTienda.on('pointerdown', () => {
@@ -68,11 +68,10 @@ export default class MenuDias extends Phaser.Scene{
                       fontFamily: "VT323",
                       fontSize: '50px'
                   });
-      
     }
 
     botonDia2(){
-      this.add.image(800, 250, 'diasBotones');
+      this.add.image(500, 250, 'diasBotones');
       this.add.text(453, 170, //Posicion de las preguntas (CAMBIAR ESTO)
       "DIA 2", 
       { 
@@ -81,10 +80,11 @@ export default class MenuDias extends Phaser.Scene{
           fontSize: '50px'
       });
       this.add.image(500, 300, 'candado');
+
       
     }
     botonDia3(){
-      this.add.image(500, 250, 'diasBotones');
+      this.add.image(800, 250, 'diasBotones');
       this.add.text(753, 170, //Posicion de las preguntas (CAMBIAR ESTO)
       "DIA 3", 
       { 
