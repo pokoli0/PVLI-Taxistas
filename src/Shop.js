@@ -40,7 +40,7 @@ export default class Shop extends Phaser.Scene{
         if(this.monedas > 100 && !this.gpsActivado){
             this.gpsActivado = true;
             this.monedas -= 100;
-            textoMonedas.setText(`Monedas: ${this.monedas}`);
+            textoMonedas.setText(this.monedas);
         }
     }
 
@@ -48,7 +48,7 @@ export default class Shop extends Phaser.Scene{
         if(this.monedas > 75 && !this.aceleracionActivada){
         this.aceleracionActivada = true;
         this.monedas -= 75;
-        textoMonedas.setText(`Monedas: ${this.monedas}`);
+        textoMonedas.setText(this.monedas);
         }
     }
 
@@ -56,14 +56,12 @@ export default class Shop extends Phaser.Scene{
         if(this.monedas > 50 && !this.tiempoActivado){
         this.tiempoActivado = true;
         this.monedas -= 50;
-        textoMonedas.setText(`Monedas: ${this.monedas}`);
+        textoMonedas.setText(this.monedas);
         }
     }
 
     botonVolverPresionado(){
         this.menuDiasScene.actualizarMonedas(this.monedas);
-
-        this.scene.stop('Shop');
         this.scene.start('menuDias', {
             gpsActivado: this.gpsActivado,
             aceleracionActivada: this.aceleracionActivada,

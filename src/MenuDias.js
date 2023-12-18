@@ -79,6 +79,6 @@ export default class MenuDias extends Phaser.Scene{
 
     actualizarMonedas(monedas) {
         this.monedas = monedas;
-        this.textoMonedas.setText(`Monedas: ${this.monedas}`);
+        this.textoMonedas.setText(this.monedas);
     }
 }
