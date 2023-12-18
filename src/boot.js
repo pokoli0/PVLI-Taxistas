@@ -5,6 +5,7 @@ export default class Boot extends Phaser.Scene{
     preload(){
         //MAPA
         this.load.image('patronesTilemap', 'assets/CP_V1.1.0_nyknck/tileset/CP_V1.0.4.png');
+        this.load.tilemapTiledJSON('level1', 'assets/Mapas/mapa2.json');
 
         //SPRITES
         this.load.image('fondoMenu', 'assets/Imagenes/fondo.png');

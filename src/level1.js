@@ -26,7 +26,6 @@ export default class Level1 extends Phaser.Scene {
     this.personExtrasArray = [];
   }
   preload() {
-    this.load.tilemapTiledJSON('level1', 'assets/Mapas/mapa2.json');
   }
   create(data) {
     // Recibe datos del control de niveles

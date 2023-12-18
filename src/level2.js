@@ -26,7 +26,7 @@ export default class Level2 extends Phaser.Scene {
     this.personExtrasArray = [];
   }
   preload() {
-    this.load.tilemapTiledJSON('level2', 'assets/Mapas/mapa2.json');
+    
   }
   create(data) {
     // Recibe datos del control de niveles
@@ -177,11 +177,11 @@ export default class Level2 extends Phaser.Scene {
     // Carga el tilemap según el nivel actual
     this.nivel = this.scene.get('controlLevels').getNivelActual();
     this.map = this.make.tilemap({
-      key: 'level2',
+      key: 'level1',
       tileWidth: 64,
       tileHeight: 64
     });
-    const tileset1 = this.map.addTilesetImage(this.nivel.key, 'patronesTilemap');
+    const tileset1 = this.map.addTilesetImage('level1', 'patronesTilemap');
     this.carretera = this.map.createLayer('carretera', tileset1);
     this.asfalto = this.map.createLayer('asfalto', tileset1);
     this.cesped = this.map.createLayer('cesped', tileset1);
