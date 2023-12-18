@@ -24,10 +24,13 @@ export default class Shop extends Phaser.Scene{
             align: 'center',
         });
 
-        const botonGPS = this.add.image(200, 200, 'GPS').setInteractive().setScale(0.4);
-        const botonAceleracion = this.add.image(500, 200, 'Aceleracion').setInteractive().setScale(0.4);
-        const botonTiempo = this.add.image(800, 200, 'TiempoExtra').setInteractive().setScale(0.4);
-        const botonVolver = this.add.image(500, 400, 'VolverMenuDias').setInteractive().setScale(0.3);
+        const botonGPS = this.add.image(200, 200, 'GPS').setInteractive().setScale(0.3);
+        if (!this.gpsActivado){
+            this.add.image(200, 300, 'DescripcionGPS').setInteractive().setScale(0.2);
+        }
+        const botonAceleracion = this.add.image(500, 200, 'Aceleracion').setInteractive().setScale(0.3);
+        const botonTiempo = this.add.image(800, 200, 'TiempoExtra').setInteractive().setScale(0.3);
+        const botonVolver = this.add.image(50, 450, 'VolverMenuDias').setInteractive().setScale(0.3);
 
         botonGPS.on('pointerdown', () => this.botonGPSPresionado(textoMonedas));
         botonAceleracion.on('pointerdown', () => this.botonAceleracionPresionado(textoMonedas));
@@ -39,7 +42,7 @@ export default class Shop extends Phaser.Scene{
         if(this.monedas > 100 && !this.gpsActivado){
             this.gpsActivado = true;
             this.monedas -= 100;
-            textoMonedas.setText(`Monedas: ${this.monedas}`);
+            textoMonedas.setText(this.monedas);
         }
     }
 
@@ -47,7 +50,7 @@ export default class Shop extends Phaser.Scene{
         if(this.monedas > 75 && !this.aceleracionActivada){
         this.aceleracionActivada = true;
         this.monedas -= 75;
-        textoMonedas.setText(`Monedas: ${this.monedas}`);
+        textoMonedas.setText(this.monedas);
         }
     }
 
@@ -55,14 +58,12 @@ export default class Shop extends Phaser.Scene{
         if(this.monedas > 50 && !this.tiempoActivado){
         this.tiempoActivado = true;
         this.monedas -= 50;
-        textoMonedas.setText(`Monedas: ${this.monedas}`);
+        textoMonedas.setText(this.monedas);
         }
     }
 
     botonVolverPresionado(){
         this.menuDiasScene.actualizarMonedas(this.monedas);
-
-        this.scene.stop('Shop');
         this.scene.start('menuDias', {
             gpsActivado: this.gpsActivado,
             aceleracionActivada: this.aceleracionActivada,

@@ -21,8 +21,9 @@ export default class MenuDias extends Phaser.Scene{
       //Ponemos imagenes:
       this.add.image(500, 250, 'fondoMenu'); //Fondo
 
-      this.textoMonedas = this.add.text(360, 75, `Monedas: ${this.monedas}`, {
-        fontSize: '32px',
+      this.add.image(550, 95, 'Moneda').setScale(1.1);
+      this.textoMonedas = this.add.text(420, 75, this.monedas, {
+        fontSize: '45px',
         fill: '#fff',
         align: 'center',
     });
@@ -61,7 +62,7 @@ export default class MenuDias extends Phaser.Scene{
                   });
       this.add.image(800, 300, 'candado');
 
-      const botonTienda = this.add.image(500, 450, 'Tienda').setInteractive().setScale(0.5);
+      const botonTienda = this.add.image(500, 450, 'Tienda').setInteractive().setScale(0.35);
       botonTienda.on('pointerdown', () => {
         this.scene.stop('menuDias');
         this.scene.start('Shop', {
@@ -78,6 +79,6 @@ export default class MenuDias extends Phaser.Scene{
 
     actualizarMonedas(monedas) {
         this.monedas = monedas;
-        this.textoMonedas.setText(`Monedas: ${this.monedas}`);
+        this.textoMonedas.setText(this.monedas);
     }
 }

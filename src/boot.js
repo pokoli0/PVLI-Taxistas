@@ -23,14 +23,16 @@ export default class Boot extends Phaser.Scene{
         this.load.image('botonInf', 'assets/Imagenes/Botones/Infierno.png');
         this.load.image('dejarVivo', 'assets/Imagenes/Botones/Vivo.png');
         this.load.image('CharcoSangre', 'assets/Imagenes/CharcoSangre.png');
+        this.load.image('DescripcionGPS', 'assets/sprites/Descripcion de GPS.png')
 
         this.load.image('Tienda', 'assets/Imagenes/PruebaTienda/Tienda.png');
         this.load.image('Aceleracion', 'assets/Imagenes/PruebaTienda/Aceleracion.png');
         this.load.image('GPS', 'assets/Imagenes/PruebaTienda/GPS.png');
-        this.load.image('VolverMenuDias', 'assets/Imagenes/PruebaTienda/Dias.png');
+        this.load.image('VolverMenuDias', 'assets/Imagenes/Atras.png');
         this.load.image('TiempoExtra', 'assets/Imagenes/PruebaTienda/TiempoExtra.png');
         this.load.image('FondoTienda', 'assets/Imagenes/PruebaTienda/FondoTienda.png');
         this.load.image('FlechaVerde', 'assets/sprites/FlechaVerde.png');
+        this.load.image('Moneda', 'assets/sprites/Moneda.png');
 
         //MENU
         this.load.image('fondoMenu','assets/Imagenes/fondo.jpg' );
