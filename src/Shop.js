@@ -6,6 +6,7 @@ export default class Shop extends Phaser.Scene{
         this.aceleracionActivada = false;
         this.tiempoActivado = false;
         this.menuDiasScene;
+        this.ShopMusic;
     }
 
     init(data){
@@ -15,6 +16,10 @@ export default class Shop extends Phaser.Scene{
 
     create() {
         this.createbuttons();
+        this.ShopMusic = this.sound.add('ShopMusic');
+        this.ShopMusic.play({
+            loop: true 
+        })
     }
 
     botonGPSPresionado(textoMonedas){
@@ -55,6 +60,8 @@ export default class Shop extends Phaser.Scene{
         const height = this.cameras.main.height;  
         const ButtonClicked = this.sound.add('Button');
         const CursorOnButton = this.sound.add('CursorOnButton');
+        const BuySound = this.sound.add('BuySound');
+
 
         this.add.image(0, 0, 'FondoTienda').setOrigin(0).setDisplaySize(width, height);
 
@@ -68,6 +75,11 @@ export default class Shop extends Phaser.Scene{
 
         const botonGPS = this.add.image(160, 200, 'GPS').setInteractive().setScale(0.3);
         if (!this.gpsActivado){
+            botonGPS.on('pointerdown', () => {
+                BuySound.play(); 
+                botonGPS.setScale(0.3); 
+                this.botonGPSPresionado(this.textoMonedas);
+            });
             botonGPS.on('pointerover', () => {
                 if (!this.gpsActivado){
                  CursorOnButton.play();
@@ -89,8 +101,21 @@ export default class Shop extends Phaser.Scene{
                 align: 'center',
             });
         }
+        else{
+            this.Agotado1 = this.add.text(90, 250, "AGOTADO", {
+                fontSize: '50px',
+                fontFamily: "VT323",
+                fill: '#fff',
+                align: 'center',
+            });
+        }
         const botonAceleracion = this.add.image(500, 200, 'Aceleracion').setInteractive().setScale(0.3);
         if (!this.aceleracionActivada){
+            botonAceleracion.on('pointerdown', () => {
+                BuySound.play(); 
+                botonAceleracion.setScale(0.3);
+                this.botonAceleracionPresionado(this.textoMonedas)
+            });
             botonAceleracion.on('pointerover', () => {
                 if (!this.aceleracionActivada){
                     CursorOnButton.play();
@@ -112,8 +137,21 @@ export default class Shop extends Phaser.Scene{
                 align: 'center',
             });
         }
+        else{
+            this.Agotado2 = this.add.text(430, 250, "AGOTADO", {
+                fontSize: '50px',
+                fontFamily: "VT323",
+                fill: '#fff',
+                align: 'center',
+            });
+        }
         const botonTiempo = this.add.image(840, 200, 'TiempoExtra').setInteractive().setScale(0.3);
         if (!this.tiempoActivado){
+            botonTiempo.on('pointerdown', () => {
+                BuySound.play(); 
+                botonTiempo.setScale(0.3);
+                this.botonTiempoPresionado(this.textoMonedas)
+            });
             botonTiempo.on('pointerover', () => {
                 if (!this.tiempoActivado){
                     CursorOnButton.play();
@@ -135,7 +173,20 @@ export default class Shop extends Phaser.Scene{
                 align: 'center',
             });
         }
+        else{
+            this.Agotado3 = this.add.text(775, 250, "AGOTADO", {
+                fontSize: '50px',
+                fontFamily: "VT323",
+                fill: '#fff',
+                align: 'center',
+            });
+        }
         const botonVolver = this.add.image(50, 450, 'VolverMenuDias').setInteractive().setScale(0.3);
+        botonVolver.on('pointerdown', () => { 
+            this.ShopMusic.stop(); 
+            ButtonClicked.play(); 
+            this.botonVolverPresionado();
+        });
         botonVolver.on('pointerover', () => {
                 CursorOnButton.play();
                 botonVolver.setScale(0.35);
@@ -144,10 +195,5 @@ export default class Shop extends Phaser.Scene{
         botonVolver.on('pointerout', () => {
                 botonVolver.setScale(0.3);
         });
-
-        botonGPS.on('pointerdown', () => {ButtonClicked.play(); botonGPS.setScale(0.3); this.botonGPSPresionado(this.textoMonedas)});
-        botonAceleracion.on('pointerdown', () => {ButtonClicked.play(); botonAceleracion.setScale(0.3);this.botonAceleracionPresionado(this.textoMonedas)});
-        botonTiempo.on('pointerdown', () => {ButtonClicked.play(); botonTiempo.setScale(0.3);this.botonTiempoPresionado(this.textoMonedas)});
-        botonVolver.on('pointerdown', () => {ButtonClicked.play(); this.botonVolverPresionado();});
     }
 }

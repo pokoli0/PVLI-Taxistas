@@ -44,10 +44,10 @@ export default class MenuDias extends Phaser.Scene{
         });}
       );    
       //Ponemos sonido a la escena:
-      var musica = this.sound.add('menuSong');
+      /*var musica = this.sound.add('menuSong');
       musica.play({
           loop: true //para que este en bucle
-      })
+      })*/
     }
 
     actualizarMonedas(monedas) {

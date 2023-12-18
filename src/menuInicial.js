@@ -13,10 +13,10 @@ export default class Menu extends Phaser.Scene {
         const button = this.add.image(this.scale.width / 2, this.scale.height / 1.6, 'playButton').setInteractive(); //Boton
 
         //Ponemos sonido a la escena:
-        var musica = this.sound.add('menuSong');
+       /* var musica = this.sound.add('menuSong');
         musica.play({
             loop: true //para que este en bucle
-        })
+        })*/
 
         //Conexion con escena level (al pulsar boton)
         button.on("pointerdown", () => {
