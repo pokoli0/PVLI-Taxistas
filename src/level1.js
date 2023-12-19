@@ -1,7 +1,6 @@
 import Car from './Coche.js'
 import Person from './Person.js'
 import PersonExtras from './PersonExtras.js'
-import leerPersonajes from "./leerPersonajes.js";
 
 const personajesData = {
   personas: [
