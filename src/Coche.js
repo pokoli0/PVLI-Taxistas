@@ -33,13 +33,28 @@ export default class Car extends Phaser.GameObjects.Sprite {
   }
 
   handleExplosionComplete() {
+    if(!this.explosionCompleteHandled){
     this.accel = 1; 
-    this.muerto = false;
     this.x = 450;
     this.y = 120;
     this.flipY = true;
     this.setTexture(this.textureUp);
+    this.scene.tweens.add({
+      targets: this,
+      scale: 1,
+      ease: 'sine.inout',
+      duration: 400,
+      delay: 0,
+      repeat: 0,
+      yoyo: false,
+      onComplete: () => {
+        this.explosionCompleteHandled = true;
+        this.muerto = false;
+      },
+    onCompleteScope: this,
+  });
   }
+}
   
 
   handleKeyDown(event) {
@@ -129,14 +144,14 @@ export default class Car extends Phaser.GameObjects.Sprite {
       
       this.scene.tweens.add({
         targets: this,
-        scale: 1,
+        scale: 0,
         ease: 'sine.inout',
         duration: 400,
         delay: 50,
         repeat: 0,
         yoyo: false,
         onComplete: () => this.handleExplosionComplete(),
-      onCompleteScope: this,
+        onCompleteScope: this,
     });
     }
     else {
