@@ -24,6 +24,9 @@ export default class Boot extends Phaser.Scene{
         this.load.image('CharcoSangre', 'assets/Imagenes/CharcoSangre.png');
         this.load.image('DescripcionGPS', 'assets/sprites/Descripcion de GPS.png')
         this.load.image('DescripcionAceleracion', 'assets/sprites/Descripcion de aceleracion.png')
+
+        this.load.image('PagarAlquiler', 'assets/sprites/Pagar el alquiler.png')
+        this.load.image('NoTienesDinero', 'assets/sprites/No tienes Dinero.png')
         
         this.load.image('BocadilloConver', 'assets/sprites/Bocadillo de conversacion.png')
         this.load.image('BocadilloOpcion', 'assets/sprites/Bocadillo de opcion.png')
@@ -41,6 +44,7 @@ export default class Boot extends Phaser.Scene{
         this.load.image('Play','assets/Imagenes/Botones/Play.png' );
         this.load.image('ControlesButton', 'assets/Imagenes/Botones/controles.png')
         this.load.video('FondoMenu', 'assets/Archivos mp4/FondoMenu.mp4'); 
+        this.load.image('GameOver', 'assets/sprites/Titulo GAME OVER.png')
 
         //RADIO
         this.load.video('Radio', 'assets/Archivos mp4/Radio Gif.mp4'); 
