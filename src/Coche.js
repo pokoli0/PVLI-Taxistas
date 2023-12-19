@@ -3,7 +3,6 @@ export default class Car extends Phaser.GameObjects.Sprite {
     super(scene, x, y, textureHorizontal);
     scene.add.existing(this);
     scene.physics.world.enable(this);
-this.sonido=scene.sound.add(sounds)
     this.keys = scene.input.keyboard.addKeys({
       up: Phaser.Input.Keyboard.KeyCodes.W,
       down: Phaser.Input.Keyboard.KeyCodes.S,
@@ -25,16 +24,72 @@ this.sonido=scene.sound.add(sounds)
     this.collider = scene.physics.add.sprite(x, y).setSize(colliderWidth, colliderHeight);
     this.x=x;
     this.y=y;
+    this.moveKeysPressed = 0;
+    this.soundExplosion=scene.sound.add(sounds);
+    this.soundExplosion.on('complete', this.handleExplosionComplete, this);
+    this.carSound = scene.sound.add('Coche', { loop: true });
+    scene.input.keyboard.on('keydown', (event) => this.handleKeyDown(event));
+    scene.input.keyboard.on('keyup', (event) => this.handleKeyUp(event));
+  }
 
+  handleExplosionComplete() {
+    if(!this.explosionCompleteHandled){
+    this.accel = 1; 
+    this.x = 450;
+    this.y = 120;
+    this.flipY = true;
+    this.setTexture(this.textureUp);
+    this.scene.tweens.add({
+      targets: this,
+      scale: 1,
+      ease: 'sine.inout',
+      duration: 400,
+      delay: 0,
+      repeat: 0,
+      yoyo: false,
+      onComplete: () => {
+        this.explosionCompleteHandled = true;
+        this.muerto = false;
+      },
+    onCompleteScope: this,
+  });
+  }
+}
+  
+
+  handleKeyDown(event) {
+    if (this.isMoveKey(event)) {
+      this.moveKeysPressed++;
+      if (this.moveKeysPressed === 1) {
+        this.carSound.play();
+      }
+    }
+  }
+
+  handleKeyUp(event) {
+    if (this.isMoveKey(event)) {
+      this.moveKeysPressed--;
+      if (this.moveKeysPressed === 0) {
+        this.carSound.stop();
+      }
+    }
+  }
+
+  isMoveKey(event) {
+    return (
+      event.code === 'KeyW' ||
+      event.code === 'KeyA' ||
+      event.code === 'KeyS' ||
+      event.code === 'KeyD'
+    );
   }
 
   update() {
-    //this.setAcceleration(0);
     if (!this.muerto) {
       this.collider.setPosition(this.x, this.y);
       this.Aceleracion();
       this.Flecha(this.scene.person);
-      let textureSet = false; // Variable para controlar si se ha configurado una textura
+      let textureSet = false; 
 
       if (this.keys.up.isDown) {
         this.flipY = false;
@@ -81,12 +136,12 @@ this.sonido=scene.sound.add(sounds)
 
   cocheExplota() {
     if (this.accel == 4) {
-      this.sonido.play();
+      this.soundExplosion.play();
       this.muerto = true;
       this.body.setVelocityX(0);
       this.body.setVelocityY(0);
       this.setTexture(this.explosion);
-      
+      this.explosionCompleteHandled = false;
       this.scene.tweens.add({
         targets: this,
         scale: 0,
@@ -94,7 +149,9 @@ this.sonido=scene.sound.add(sounds)
         duration: 400,
         delay: 50,
         repeat: 0,
-        yoyo: false
+        yoyo: false,
+        onComplete: () => this.handleExplosionComplete(),
+        onCompleteScope: this,
     });
     }
     else {
@@ -130,6 +187,10 @@ this.sonido=scene.sound.add(sounds)
         this.flecha = this.scene.add.image(this.x, this.y - 25, 'FlechaVerde').setRotation(rotation).setScale(0.05);
     }
     }   
+}
+
+StopCarSounds(){
+  this.carSound.stop();
 }
 
 }

@@ -12,9 +12,10 @@ export default class conversacionLvl1 extends Phaser.Scene{
         this.textoPuntos;
         this.nivelActual;
     }
-
+    init(data){
+        this.nivel = data.nivel;
+    }
     preload(){
-        this.nivel = this.sys.settings.data.nivel;
         this.cache.text.remove('dialogoActual');
         if (!this.cache.text.has('dialogoActual')) {
             this.load.text('dialogoActual', 'assets/Guiones/' + this.nivel.dialogo);
@@ -85,29 +86,23 @@ export default class conversacionLvl1 extends Phaser.Scene{
     }
     
     mostrarDialogo(texto){
-        // const colores = [0xfff000, 0xff0000, 0xffff00, 0xfffff0];
+        const colores = [0xfff000, 0xff0000, 0xffff00, 0xfffff0];
         const grupoDialogo = this.add.group();
 
-        const posX = 500;
-        const posY = 70;
+        const posX = 250;
+        const posY = 290;
 
         // Agregar texto al grupo
         const cuadrado = this.add.zone(posX, posY, 395, 150); // Cuadrado de la conversacion (sin colorear)
         cuadrado.setOrigin(0);
 
-        // Relleno del cuadrado
-        const graphics = this.add.graphics();
-        graphics.fillStyle(0x444444, 0.5); // Fondo del cuadrado: blanco, con opacidad al 50%
-        graphics.fillRectShape(cuadrado);
-
-        // Crear el borde del cuadrado, blanco con opacidad 50%
-        this.add.graphics().lineStyle(2, 0x444444).strokeRectShape(cuadrado);
+        this.add.image(posX, posY, 'BocadilloConver').setScale(3.6);
 
         // ------ DIALOGO -------
-        const textoDialogo = this.add.text(posX + cuadrado.width / 2, posY + cuadrado.height / 2, // Pos del diálogo en el cuadrado
+        const textoDialogo = this.add.text(posX, posY + 10, // Pos del diálogo en el cuadrado
         texto, 
         { 
-            fill: '#000000',  
+            fill: '#FFFFFF',
             wordWrap: { width: cuadrado.width, useAdvancedWrap: true },
             wordWrapWidth: cuadrado.width,
             fontFamily: "VT323",
@@ -135,14 +130,14 @@ export default class conversacionLvl1 extends Phaser.Scene{
                     const x = 500;
                     const y = 250 + 70 * j; //poli no entiende la j aqui
 
-                    const res = this.add.zone(x, y, 600, 47); // Cuadrados de respuestas
+                    const res = this.add.zone(x, y, 700, 47); // Cuadrados de respuestas
                     res.setOrigin(0);
                     res.setInteractive();
 
                     // Relleno del cuadrado
                     const graphics = this.add.graphics();
                     const borderRadius = 10;                                                              // Para que las esquinas salgan redondeadas, creamos un radio
-                    graphics.fillStyle(0x444444, 0.5);                                                    // Fondo del cuadrado: blanco, con opacidad al 50%
+                    graphics.fillStyle(0xFFC20E, 0.5);                                                    // Fondo del cuadrado: blanco, con opacidad al 50%
                     graphics.fillRoundedRect(res.x, res.y, res.width / 1.5, res.height, borderRadius);    // Lo rellenamos
 
                     // Obtener la respuesta correspondiente a la pregunta

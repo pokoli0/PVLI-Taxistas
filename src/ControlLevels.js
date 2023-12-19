@@ -4,13 +4,22 @@ const niveles = [
   { key: 'level1', mapa: 'mapa2.json', dialogo: 'dia1p1.txt' },
   { key: 'level1', mapa: 'mapa2.json', dialogo: 'dia1p2.txt' },
   { key: 'level1', mapa: 'mapa2.json', dialogo: 'dia1p3.txt' },
+  {key: 'level2', mapa: 'mapa2.json', dialogo: 'dia2p1.txt'},
+  {key: 'level2', mapa: 'mapa2.json', dialogo: 'dia2p2.txt'},
+  {key: 'level2', mapa: 'mapa2.json', dialogo: 'dia2p3.txt'},
+  {key: 'level3', mapa: 'mapa2.json', dialogo: 'dia3p1.txt'},
+  {key: 'level3', mapa: 'mapa2.json', dialogo: 'dia3p2.txt'},
+  {key: 'level3', mapa: 'mapa2.json', dialogo: 'dia3p3.txt'}
 ];
 
 export default class ControlLevels extends Phaser.Scene{
     constructor(){
         super({key: 'controlLevels'});
         this.nivelActual = 0;
-        
+        this.levelCompletado = false;
+        this.personajes = 3;
+        this.puntos;
+        this.cont = 0;
     }
 
     init(data) {
@@ -18,6 +27,7 @@ export default class ControlLevels extends Phaser.Scene{
         this.gpsActivado = data.gpsActivado || false;
         this.aceleracionActivada = data.aceleracionActivada || false;
         this.tiempoActivado = data.tiempoActivado || false;
+        this.puntos = data.puntos;
     }
 
     
@@ -26,7 +36,7 @@ export default class ControlLevels extends Phaser.Scene{
 
     create(){
 
-        this.cargarNivel();
+        this.cargarNivel(this.puntos);
     }
     getNivelActual() {
         return niveles[this.nivelActual];
@@ -53,8 +63,8 @@ export default class ControlLevels extends Phaser.Scene{
 
     iniciarEscenaNivel(nivel) {
         // Inicializa la escena de nivel con el mapa ya cargado
-        this.scene.start('level1', {
-            puntos: 0,
+        this.scene.start(nivel.key, {
+            puntos: this.puntos,
             nivelActual: this.nivelActual,
             nivelData: nivel,
             gpsActivado: this.gpsActivado,
@@ -65,7 +75,7 @@ export default class ControlLevels extends Phaser.Scene{
     
     iniciarSiguienteNivel(nivel, punto) {
         // Inicializa la escena de nivel con el mapa ya cargado
-        this.scene.start('level1', {
+        this.scene.start(nivel.key, {
             puntos: punto,
             nivelActual: this.nivelActual,
             nivelData: nivel,
@@ -75,14 +85,23 @@ export default class ControlLevels extends Phaser.Scene{
         });
     }
     avanzarAlSiguienteNivel(puntos) {
+        this.cont++;
         this.nivelActual++;
-    
-        if (this.nivelActual < niveles.length) {
+        this.puntos = puntos;
+        if (this.cont < niveles.length / this.personajes) {
+            
             this.scene.stop('conversacionLvl1');
             this.cargarNivel(puntos);
         } else {
-          console.log('¡Has completado todos los niveles!');
-          // Puedes implementar aquí lo que desees hacer cuando completes todos los niveles
+          this.levelCompletado = true;
+          this.cont = 0;
+          this.scene.start('menuDias', {
+            levelCompletado: this.levelCompletado,
+            puntos: this.puntos,
+            gpsActivado: this.gpsActivado,
+            aceleracionActivada: this.aceleracionActivada,
+            tiempoActivado: this.tiempoActivado
+          })
         }
       }
 }

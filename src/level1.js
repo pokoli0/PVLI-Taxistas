@@ -1,11 +1,10 @@
 import Car from './Coche.js'
 import Person from './Person.js'
 import PersonExtras from './PersonExtras.js'
-import leerPersonajes from "./leerPersonajes.js";
 
 const personajesData = {
   personas: [
-    { key: 'dia1p1', textura: 'VerdeDia1.png', asesino: true },
+    { key: 'dia1p1', textura: 'VerdeDia1.png', asesino: false },
     { key: 'dia1p2', textura: 'MoradoDia1.png', asesino: true },
     { key: 'dia1p3', textura: 'AzulDia1.png', asesino: false }]
 };
@@ -22,20 +21,22 @@ export default class Level1 extends Phaser.Scene {
     this.puntos = 0; // Inicializa los puntos
     this.textoPuntos; // Variable para almacenar el objeto de texto de los puntos
     this.nivel;
-    this.initialTime = 120;
+    this.initialTime;
     this.personExtrasArray = [];
+    
   }
-  preload() {
-    this.load.tilemapTiledJSON('level1', 'assets/Mapas/mapa2.json');
-  }
-  create(data) {
+  init(data){
     // Recibe datos del control de niveles
     this.nivelActual = data.nivelActual;
     this.puntos = data.puntos;
     this.gpsActivado = data.gpsActivado || false;
     this.aceleracionActivada = data.aceleracionActivada || false;
     this.tiempoActivado = data.tiempoActivado || false;
-
+    this.initialTime = 120;
+  }
+  preload() {
+  }
+  create() {
     this.createTileMap();
 
     const moneda = this.add.sprite(40, 40, 'moneda');
@@ -71,6 +72,7 @@ export default class Level1 extends Phaser.Scene {
     this.physics.add.collider(this.car, this.colisiones, () => this.car.cocheExplota());
 
     this.events.on('cambiarEscena', (nuevaEscena, asesino) => {
+      this.car.StopCarSounds();
       this.scene.start('LoadConversacionScene', { asesino: asesino, puntos: this.puntos, nivel: this.nivel });
     });
 
@@ -81,10 +83,11 @@ export default class Level1 extends Phaser.Scene {
       this.initialTime = 180;  // Ajusta el tiempo inicial si el tiempo está activado
     }
     this.timerText = this.add.text(850, 25, this.formatTime(this.initialTime), {
-      fontSize: '40px',
+      fontFamily: 'VT323',
+      fontSize: '60px',
       fill: '#FFF',
     });
-    this.timerText.setDepth(4).setScrollFactor(0);
+    this.timerText.setDepth(8).setScrollFactor(0);
     this.timer = this.time.addEvent({
       delay: 1000,
       callback: this.updateTimer,
@@ -222,8 +225,26 @@ export default class Level1 extends Phaser.Scene {
         const remainingTime = Math.ceil(this.initialTime);
         this.timerText.setText(this.formatTime(remainingTime));
     } else {
-        // El temporizador ha alcanzado el final, regresar a la escena de menúDias
-        this.scene.start('menuDias');
+        this.scene.pause();
+        const centerX = this.cameras.main.worldView.x + this.cameras.main.width / 2;
+        const centerY = this.cameras.main.worldView.y + this.cameras.main.height / 2;
+        const Alarma = this.sound.add('Alarma');
+
+        const message = this.add.text(centerX, centerY, 'SE AGOTO EL TIEMPO', {
+            fontSize: '60px',
+            fontFamily: 'VT323',
+            fill: '#fff'
+        }).setOrigin(0.5, 0.5);
+        message.setDepth(8);
+
+        Alarma.play();
+        Alarma.once('complete', () => {
+            this.car.StopCarSounds();
+            message.destroy();
+            this.scene.resume();
+            this.scene.start('menuDias');
+        });
     }
 }
+
 }

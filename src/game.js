@@ -8,6 +8,9 @@ import Boot from './boot.js';
 import MenuDias from './MenuDias.js';
 import Shop from './Shop.js';
 import escenaControles from './escenaControles.js';
+import Level2 from './level2.js';
+import Level3 from './level3.js';
+import Radio from './Radio.js';
 
     // Configuración del juego
     let config = {
@@ -15,7 +18,9 @@ import escenaControles from './escenaControles.js';
         width:1000,
         height: 500,      
         pixelArt: true,
-        scene:[Boot,Menu,escenaControles,MenuDias,Shop,ControlLevels, Level1, conversacionLvl1, LoadConversacionScene, escenaDecision],
+
+        scene:[Boot,Menu,escenaControles,MenuDias,Shop,Radio,ControlLevels, Level1,Level2,Level3, conversacionLvl1, LoadConversacionScene, escenaDecision],
+
         physics: {
             default: 'arcade',
             arcade: {

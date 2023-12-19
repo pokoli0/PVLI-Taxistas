@@ -5,10 +5,9 @@ export default class Boot extends Phaser.Scene{
     preload(){
         //MAPA
         this.load.image('patronesTilemap', 'assets/CP_V1.1.0_nyknck/tileset/CP_V1.0.4.png');
+        this.load.tilemapTiledJSON('level1', 'assets/Mapas/mapa2.json');
 
         //SPRITES
-        this.load.image('fondoMenu', 'assets/Imagenes/fondo.png');
-        this.load.image('playButton', 'assets/Imagenes/Botones/playButton.png');
         this.load.image('diasBotones', 'assets/Imagenes/Botones/Dias.png');
         this.load.image('candado', 'assets/Imagenes/imagenesPrueba/candado.png');
         this.load.image('moneda', 'assets/Imagenes/imagenesPrueba/moneda.png');
@@ -21,9 +20,13 @@ export default class Boot extends Phaser.Scene{
         this.load.image('moneda', 'assets/Imagenes/imagenesPrueba/moneda.png');
         this.load.image('botonCielo', 'assets/Imagenes/Botones/Cielo.png');
         this.load.image('botonInf', 'assets/Imagenes/Botones/Infierno.png');
-        this.load.image('dejarVivo', 'assets/Imagenes/Botones/Vivo.png');
+        this.load.image('dejarVivo', 'assets/Imagenes/Botones/Dejar vivo.png');
         this.load.image('CharcoSangre', 'assets/Imagenes/CharcoSangre.png');
         this.load.image('DescripcionGPS', 'assets/sprites/Descripcion de GPS.png')
+        this.load.image('DescripcionAceleracion', 'assets/sprites/Descripcion de aceleracion.png')
+        
+        this.load.image('BocadilloConver', 'assets/sprites/Bocadillo de conversacion.png')
+        this.load.image('BocadilloOpcion', 'assets/sprites/Bocadillo de opcion.png')
 
         this.load.image('Tienda', 'assets/Imagenes/PruebaTienda/Tienda.png');
         this.load.image('Aceleracion', 'assets/Imagenes/PruebaTienda/Aceleracion.png');
@@ -35,8 +38,8 @@ export default class Boot extends Phaser.Scene{
         this.load.image('Moneda', 'assets/sprites/Moneda.png');
 
         //MENU
-        this.load.image('fondoMenu','assets/Imagenes/fondo.jpg' );
-        this.load.image('playButton','assets/Imagenes/Botones/playButton.png' );
+        this.load.image('Play','assets/Imagenes/Botones/Play.png' );
+        this.load.video('FondoMenu', 'assets/Archivos mp4/FondoMenu.mp4'); 
 
         //AUDIOS
         this.load.audio('PuertaCoche', 'assets/Sonido_Musica/Puerta de coche.mp3'); 
@@ -45,6 +48,12 @@ export default class Boot extends Phaser.Scene{
         this.load.audio('MuerteChica', 'assets/Sonido_Musica/Sound effect- screaming girl.mp3');
         this.load.audio('boom','assets/Sonido_Musica/Explosion.mp3' )
         this.load.audio('menuSong', 'assets/Sonido_Musica/MusicaInicio.mp3');
+        this.load.audio('Button', 'assets/Sonido_Musica/Button.mp3');
+        this.load.audio('CursorOnButton', 'assets/Sonido_Musica/Cursor encima de boton.mp3');
+        this.load.audio('ShopMusic', 'assets/Sonido_Musica/Shop Music.mp3');
+        this.load.audio('BuySound', 'assets/Sonido_Musica/Comprar Sonido.mp3');
+        this.load.audio('Alarma', 'assets/Sonido_Musica/AlarmaTiempo.mp3');
+        this.load.audio('Coche', 'assets/Sonido_Musica/CarSound.mp3');
 
         //ANIMACIONS
         this.load.spritesheet( 'personIdleVer', 'assets/Imagenes/Personajes/VerdeDia1.png',{ frameWidth: 17.25, frameHeight: 24 });

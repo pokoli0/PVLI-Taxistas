@@ -9,6 +9,9 @@ export default class escenaDecision extends Phaser.Scene{
     preload(){
     }
     create(){
+
+        this.add.image(500, 250, 'fondo').setAlpha(0.5);
+        
         this.asesino = this.sys.settings.data.asesino;
         this.puntos = this.sys.settings.data.puntos;
         
@@ -26,7 +29,7 @@ export default class escenaDecision extends Phaser.Scene{
     }
     botonCielo(){
         const botonCielo= this.add.sprite(250, 400, 'botonCielo').setInteractive();
-        botonCielo.setScale(0.4);
+        botonCielo.setScale(0.3);
         botonCielo.on('pointerdown', () => {
             if (!this.asesino) {
                 this.puntos += 25; // Incrementa los puntos en 50
@@ -35,10 +38,9 @@ export default class escenaDecision extends Phaser.Scene{
                 this.puntos -= 15; // Incrementa los puntos en 50
                 this.actualizarPuntos(); // Actualiza el objeto de texto
             }
+            botonCielo.disableInteractive();
             this.time.delayedCall(1000, () => {
-                botonCielo.disableInteractive();
-            // Obtener referencia a la escena de controlLevels
-            const controlLevelsScene = this.scene.get('controlLevels');
+            const controlLevelsScene = this.scene.get('controlLevels', {puntos: this.puntos});
             // Llamar al método avanzarAlSiguienteNivel() de la escena de controlLevels
             controlLevelsScene.avanzarAlSiguienteNivel(this.puntos);
             // Detener la escena actual
@@ -52,7 +54,7 @@ export default class escenaDecision extends Phaser.Scene{
     }
     botonInfierno(){
         const botonInf= this.add.sprite(750, 400, 'botonInf').setInteractive();
-        botonInf.setScale(0.4);
+        botonInf.setScale(0.3);
         botonInf.on('pointerdown', () => {
             if (this.asesino) {
                 this.puntos += 25; // Incrementa los puntos en 50
@@ -61,9 +63,8 @@ export default class escenaDecision extends Phaser.Scene{
                 this.puntos -= 15; // Incrementa los puntos en 50
                 this.actualizarPuntos(); // Actualiza el objeto de texto
             }
+            botonInf.disableInteractive();
             this.time.delayedCall(1000, () => {
-                botonInf.disableInteractive();
-            // Obtener referencia a la escena de controlLevels
             const controlLevelsScene = this.scene.get('controlLevels');
             // Llamar al método avanzarAlSiguienteNivel() de la escena de controlLevels
             controlLevelsScene.avanzarAlSiguienteNivel(this.puntos);
@@ -76,7 +77,7 @@ export default class escenaDecision extends Phaser.Scene{
     }
     botonVivir(){
         const dejarVivo= this.add.sprite(500, 400, 'dejarVivo').setInteractive();
-        dejarVivo.setScale(0.4);
+        dejarVivo.setScale(0.3);
         
     }
 }
