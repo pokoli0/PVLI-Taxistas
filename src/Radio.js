@@ -73,7 +73,7 @@ export default class Radio extends Phaser.Scene {
         const textoDialogo = this.add.text(
             200 + cuadrado.width / 2,
             133 + cuadrado.height / 2,
-            texto,
+            '',
             {
                 fill: '#ffffff',
                 wordWrap: { width: cuadrado.width, useAdvancedWrap: true },
@@ -85,25 +85,44 @@ export default class Radio extends Phaser.Scene {
         textoDialogo.setOrigin(0.5, 0.5);
         grupoDialogo.add(textoDialogo);
         
-        this.indice++;
-        const pasar = this.add.zone(0, 0, 1000, 500);
-        pasar.setOrigin(0);
-        pasar.setInteractive();
-        // this.add.graphics().lineStyle(2, 0xfff000).strokeRectShape(pasar);
-        if(this.indice == this.dialogosText.parrafos.length){
-            pasar.on("pointerdown", () => {
-                this.dialogoActual = null;
-                this.indice = 0;
-                this.scene.start('controlLevels',{gpsActivado: this.gpsActivado,
-                    aceleracionActivada: this.aceleracionActivada,
-                    tiempoActivado: this.tiempoActivado,
-                    puntos: this.puntos} );
-               //  { mapName: 'finalMap1',dash:false, click:false, middle:'one' });
-              });
-        }
-        else{
-        pasar.once('pointerdown', () => this.opcionPulsada(this.dialogosText.parrafos[this.indice].texto));
-        }
+        // Configurar animación de aparición de texto
+    let index = 0;
+    const delay = 10; // Puedes ajustar este valor para cambiar la velocidad de aparición
+
+    this.time.addEvent({
+        repeat: texto.length - 1,
+        delay: delay,
+        callback: () => {
+            textoDialogo.text += texto[index];
+            index++;
+
+            if (index === texto.length) {
+                this.indice++;
+                // Cuando se completa la animación, agregar el evento de hacer clic para avanzar
+                const pasar = this.add.zone(0, 0, 1000, 500);
+                pasar.setOrigin(0);
+                pasar.setInteractive();
+                
+                if (this.indice === this.dialogosText.parrafos.length) {
+                    pasar.on("pointerdown", () => {
+                        this.dialogoActual = null;
+                        this.indice = 0;
+                        this.scene.start('controlLevels', {
+                            gpsActivado: this.gpsActivado,
+                            aceleracionActivada: this.aceleracionActivada,
+                            tiempoActivado: this.tiempoActivado,
+                            puntos: this.puntos
+                        });
+                    });
+                } else {
+                    pasar.once('pointerdown', () => this.opcionPulsada(this.dialogosText.parrafos[this.indice].texto));
+                }
+
+                grupoDialogo.add(pasar);
+            }
+        },
+        callbackScope: this
+    });
         // Asignar el grupo actual al dialogoActual
         this.dialogoActual = grupoDialogo;
         return grupoDialogo; // Importante devolver el grupo para que puedas utilizarlo fuera de la función
