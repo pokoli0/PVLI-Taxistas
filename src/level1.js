@@ -82,7 +82,7 @@ export default class Level1 extends Phaser.Scene {
     }
     this.timerText = this.add.text(850, 25, this.formatTime(this.initialTime), {
       fontFamily: 'VT323',
-      fontSize: '40px',
+      fontSize: '60px',
       fill: '#FFF',
     });
     this.timerText.setDepth(8).setScrollFactor(0);
