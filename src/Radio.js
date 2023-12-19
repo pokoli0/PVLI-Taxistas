@@ -25,6 +25,8 @@ export default class Radio extends Phaser.Scene {
     }
 
     create() {
+        const radiogif = this.add.video(500, 120, 'Radio').setScale(0.5);
+        radiogif.play(true); // Reproduce el video en bucle
         if (!this.dialogoActual) {
             // Cargar el archivo de texto
             this.lecturaArchivoText();
@@ -70,7 +72,7 @@ export default class Radio extends Phaser.Scene {
         const grupoDialogo = this.add.group();
 
         // Agregar texto al grupo
-        const cuadrado = this.add.zone(200, 133, 600, 220);
+        const cuadrado = this.add.zone(200, 133, 600, 300);
         cuadrado.setOrigin(0);
         // this.add.graphics().lineStyle(2, 0xfff000).strokeRectShape(cuadrado);
         const textoDialogo = this.add.text(
