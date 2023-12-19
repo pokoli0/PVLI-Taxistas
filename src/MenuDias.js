@@ -17,6 +17,9 @@ export default class MenuDias extends Phaser.Scene{
       create() {
         //Ponemos imagenes:
         const background = this.add.video(500, 250, 'FondoMenu');
+        this.ButtonClicked = this.sound.add('Button');
+        this.CursorOnButton = this.sound.add('CursorOnButton');
+
         background.play(true); // Reproduce el video en bucle
 
       this.add.image(850, 420, 'Moneda').setScale(1.5);
@@ -80,6 +83,7 @@ export default class MenuDias extends Phaser.Scene{
     botonDia1(){
       this.dia1 = this.add.image(200, 250, 'diasBotones').setInteractive();
       this.dia1.on("pointerdown", () => {
+        this.ButtonClicked.play();
         this.level++;
         this.scene.start('Radio', {
             gpsActivado: this.gpsActivado,
@@ -89,6 +93,14 @@ export default class MenuDias extends Phaser.Scene{
             radio: radios[0].dialogo
         });
     });
+    this.dia1.on('pointerover', () => {
+      this.CursorOnButton.play();
+      this.dia1.setScale(1.1);
+});
+
+this.dia1.on('pointerout', () => {
+    this.dia1.setScale(1);
+});
       this.add.text(153, 170, //Posicion de las preguntas (CAMBIAR ESTO)
                   "DIA 1", 
                   { 
@@ -113,6 +125,7 @@ export default class MenuDias extends Phaser.Scene{
         this.dia1.disableInteractive();
         candado.setVisible(false);
         this.dia2.on("pointerdown", () => {
+          this.ButtonClicked.play();
           this.level++;
           this.scene.start('Radio', {
               gpsActivado: this.gpsActivado,
@@ -122,6 +135,14 @@ export default class MenuDias extends Phaser.Scene{
               radio: radios[1].dialogo
           });
       });
+      this.dia2.on('pointerover', () => {
+            this.CursorOnButton.play();
+            this.dia2.setScale(1.1);
+    });
+    
+    this.dia2.on('pointerout', () => {
+          this.dia2.setScale(1);
+    });
     }
     }
     botonDia3(){
@@ -139,6 +160,7 @@ export default class MenuDias extends Phaser.Scene{
         this.dia2.disableInteractive();
         candado.setVisible(false);
         this.dia3.on("pointerdown", () => {
+          this.ButtonClicked.play();
           this.level++;
           this.scene.start('Radio', {
               gpsActivado: this.gpsActivado,
@@ -148,6 +170,14 @@ export default class MenuDias extends Phaser.Scene{
               radio: radios[2].dialogo
           });
       });
+      this.dia3.on('pointerover', () => {
+        this.CursorOnButton.play();
+        this.dia3.setScale(1.1);
+  });
+  
+  this.dia3.on('pointerout', () => {
+      this.dia3.setScale(1);
+  });
     }
     }
 }
