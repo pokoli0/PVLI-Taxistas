@@ -75,7 +75,7 @@ export default class MenuDias extends Phaser.Scene{
       this.dia1 = this.add.image(200, 250, 'diasBotones').setInteractive();
       this.dia1.on("pointerdown", () => {
         this.level++;
-        this.scene.start('controlLevels', {
+        this.scene.start('Radio', {
             gpsActivado: this.gpsActivado,
             aceleracionActivada: this.aceleracionActivada,
             tiempoActivado: this.tiempoActivado,
