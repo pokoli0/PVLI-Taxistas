@@ -4,7 +4,7 @@ export default class Controles extends Phaser.Scene {
     }
 
     preload(){
-        this.load.image('controles', 'assets/Imagenes/Controles.png');
+        this.load.image('controles', 'assets/Imagenes/controles.png');
     }
 
     create(){
