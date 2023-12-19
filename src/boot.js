@@ -41,6 +41,9 @@ export default class Boot extends Phaser.Scene{
         this.load.image('Play','assets/Imagenes/Botones/Play.png' );
         this.load.video('FondoMenu', 'assets/Archivos mp4/FondoMenu.mp4'); 
 
+        //RADIO
+        this.load.video('Radio', 'assets/Archivos mp4/Radio Gif.mp4'); 
+
         //AUDIOS
         this.load.audio('PuertaCoche', 'assets/Sonido_Musica/Puerta de coche.mp3'); 
         this.load.audio('EncendidoMotor', 'assets/Sonido_Musica/Encendido motor.mp3');
