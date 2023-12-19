@@ -1,3 +1,9 @@
+const radios = [
+  { dialogo: 'radioDia1.txt' },
+  { dialogo: 'radioDia2.txt' },
+  { dialogo: 'radioDia3.txt' }
+];
+
 export default class MenuDias extends Phaser.Scene{
     constructor() {
         super({ key: 'menuDias' });
@@ -80,6 +86,7 @@ export default class MenuDias extends Phaser.Scene{
             aceleracionActivada: this.aceleracionActivada,
             tiempoActivado: this.tiempoActivado,
             puntos: this.puntos,
+            radio: radios[0].dialogo
         });
     });
       this.add.text(153, 170, //Posicion de las preguntas (CAMBIAR ESTO)
@@ -107,11 +114,12 @@ export default class MenuDias extends Phaser.Scene{
         candado.setVisible(false);
         this.dia2.on("pointerdown", () => {
           this.level++;
-          this.scene.start('controlLevels', {
+          this.scene.start('Radio', {
               gpsActivado: this.gpsActivado,
               aceleracionActivada: this.aceleracionActivada,
               tiempoActivado: this.tiempoActivado,
-              puntos: this.puntos
+              puntos: this.puntos,
+              radio: radios[1].dialogo
           });
       });
     }
@@ -132,11 +140,12 @@ export default class MenuDias extends Phaser.Scene{
         candado.setVisible(false);
         this.dia3.on("pointerdown", () => {
           this.level++;
-          this.scene.start('controlLevels', {
+          this.scene.start('Radio', {
               gpsActivado: this.gpsActivado,
               aceleracionActivada: this.aceleracionActivada,
               tiempoActivado: this.tiempoActivado,
-              puntos: this.puntos
+              puntos: this.puntos,
+              radio: radios[2].dialogo
           });
       });
     }

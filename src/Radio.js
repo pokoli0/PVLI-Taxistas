@@ -14,12 +14,13 @@ export default class Radio extends Phaser.Scene {
         this.aceleracionActivada = data.aceleracionActivada || false;
         this.tiempoActivado = data.tiempoActivado || false;
         this.puntos = data.puntos;
+        this.radioText = data.radio;
     }
     preload(){
         // this.nivel = this.sys.settings.data.nivel;
         this.cache.text.remove('dialogoActual');
         if (!this.cache.text.has('dialogoActual')) {
-            this.load.text('dialogoActual', 'assets/Guiones/radioDia1.txt');
+            this.load.text('dialogoActual', 'assets/Guiones/' + this.radioText);
         }
     }
 
@@ -91,6 +92,7 @@ export default class Radio extends Phaser.Scene {
         // this.add.graphics().lineStyle(2, 0xfff000).strokeRectShape(pasar);
         if(this.indice == this.dialogosText.parrafos.length){
             pasar.on("pointerdown", () => {
+                this.dialogoActual = null;
                 this.indice = 0;
                 this.scene.start('controlLevels',{gpsActivado: this.gpsActivado,
                     aceleracionActivada: this.aceleracionActivada,

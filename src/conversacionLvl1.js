@@ -12,9 +12,10 @@ export default class conversacionLvl1 extends Phaser.Scene{
         this.textoPuntos;
         this.nivelActual;
     }
-
+    init(data){
+        this.nivel = data.nivel;
+    }
     preload(){
-        this.nivel = this.sys.settings.data.nivel;
         this.cache.text.remove('dialogoActual');
         if (!this.cache.text.has('dialogoActual')) {
             this.load.text('dialogoActual', 'assets/Guiones/' + this.nivel.dialogo);
