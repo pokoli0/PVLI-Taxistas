@@ -33,10 +33,11 @@ export default class Car extends Phaser.GameObjects.Sprite {
   }
 
   handleExplosionComplete() {
-    this.x = 450;
-    this.y = 120;
     this.accel = 1; 
     this.muerto = false;
+    this.x = 450;
+    this.y = 120;
+    this.flipY = true;
     this.setTexture(this.textureUp);
   }
   
@@ -128,7 +129,7 @@ export default class Car extends Phaser.GameObjects.Sprite {
       
       this.scene.tweens.add({
         targets: this,
-        scale: 0,
+        scale: 1,
         ease: 'sine.inout',
         duration: 400,
         delay: 50,
