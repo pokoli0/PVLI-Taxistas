@@ -11,3 +11,15 @@ Para el mapa de Alcázar de San Juan, hemos querido utilizar pixel art. Lo hemos
 Para los personajes, queríamos diferenciarlos por los colores de las cuatro personalidades principales: azul, verde, amarillo y morado. Hemos tomado una sprite sheet que ha decidido el jefe de arte.
 
 [Enlace a los recursos de los personajes.](https://www.spriters-resource.com/snes/earthbound/sheet/3153/)
+
+## Imágenes
+El fondo de inicio, y de diálogos han sido creados por nosotros mismos.
+
+## Sprites
+Algunos sprites han sido creados por nosotros. Incluímos aquí:
+
+- Taxi
+- Botones
+
+## Sonidos
+Los sonidos que utilizamos han sido obtenidos de YouTube. De dominio público.
