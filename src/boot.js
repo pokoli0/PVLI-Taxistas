@@ -39,7 +39,7 @@ export default class Boot extends Phaser.Scene{
 
         //MENU
         this.load.image('fondoMenu','assets/Imagenes/fondo.jpg' );
-        this.load.image('playButton','assets/Imagenes/Botones/Play.png' );
+        this.load.image('Play','assets/Imagenes/Botones/Play.png' );
 
         //AUDIOS
         this.load.audio('PuertaCoche', 'assets/Sonido_Musica/Puerta de coche.mp3'); 

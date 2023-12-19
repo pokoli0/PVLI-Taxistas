@@ -10,7 +10,7 @@ export default class Menu extends Phaser.Scene {
 
         //Ponemos imagenes:
         this.add.image(500, 250, 'fondoMenu'); //Fondo
-        const button = this.add.image(this.scale.width / 2, this.scale.height / 1.6, 'playButton').setInteractive(); //Boton
+        const button = this.add.image(this.scale.width / 2, this.scale.height / 1.6, 'Play').setInteractive().setScale(0.4); //Boton
 
         //Ponemos sonido a la escena:
        /* var musica = this.sound.add('menuSong');
