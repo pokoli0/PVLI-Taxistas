@@ -22,7 +22,7 @@ export default class Boot extends Phaser.Scene{
         this.load.image('moneda', 'assets/Imagenes/imagenesPrueba/moneda.png');
         this.load.image('botonCielo', 'assets/Imagenes/Botones/Cielo.png');
         this.load.image('botonInf', 'assets/Imagenes/Botones/Infierno.png');
-        this.load.image('dejarVivo', 'assets/Imagenes/Botones/Vivo.png');
+        this.load.image('dejarVivo', 'assets/Imagenes/Botones/Dejar vivo.png');
         this.load.image('CharcoSangre', 'assets/Imagenes/CharcoSangre.png');
         this.load.image('DescripcionGPS', 'assets/sprites/Descripcion de GPS.png')
         this.load.image('DescripcionAceleracion', 'assets/sprites/Descripcion de aceleracion.png')
@@ -39,7 +39,7 @@ export default class Boot extends Phaser.Scene{
 
         //MENU
         this.load.image('fondoMenu','assets/Imagenes/fondo.jpg' );
-        this.load.image('playButton','assets/Imagenes/Botones/playButton.png' );
+        this.load.image('playButton','assets/Imagenes/Botones/Play.png' );
 
         //AUDIOS
         this.load.audio('PuertaCoche', 'assets/Sonido_Musica/Puerta de coche.mp3'); 
