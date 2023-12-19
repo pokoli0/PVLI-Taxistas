@@ -127,7 +127,7 @@ export default class conversacionLvl1 extends Phaser.Scene{
             if (this.jsonDialogo.includes(texto)) {
                 for (let j = 0; j < 2; j++) {
                     this.indice++;
-                    const x = 500;
+                    const x = 530;
                     const y = 250 + 70 * j; //poli no entiende la j aqui
 
                     const res = this.add.zone(x, y, 700, 47); // Cuadrados de respuestas
@@ -137,7 +137,7 @@ export default class conversacionLvl1 extends Phaser.Scene{
                     // Relleno del cuadrado
                     const graphics = this.add.graphics();
                     const borderRadius = 10;                                                              // Para que las esquinas salgan redondeadas, creamos un radio
-                    graphics.fillStyle(0xFFC20E, 0.5);                                                    // Fondo del cuadrado: blanco, con opacidad al 50%
+                    graphics.fillStyle(0xFFC20E);                                                    
                     graphics.fillRoundedRect(res.x, res.y, res.width / 1.5, res.height, borderRadius);    // Lo rellenamos
 
                     // Obtener la respuesta correspondiente a la pregunta
