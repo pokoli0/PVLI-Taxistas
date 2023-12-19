@@ -238,6 +238,7 @@ export default class Level1 extends Phaser.Scene {
 
         Alarma.play();
         Alarma.once('complete', () => {
+            this.car.StopCarSounds();
             message.destroy();
             this.scene.resume();
             this.scene.start('menuDias');

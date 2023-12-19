@@ -25,16 +25,45 @@ this.sonido=scene.sound.add(sounds)
     this.collider = scene.physics.add.sprite(x, y).setSize(colliderWidth, colliderHeight);
     this.x=x;
     this.y=y;
+    this.moveKeysPressed = 0;
+    this.carSound = scene.sound.add('Coche', { loop: true });
+    scene.input.keyboard.on('keydown', (event) => this.handleKeyDown(event));
+    scene.input.keyboard.on('keyup', (event) => this.handleKeyUp(event));
+  }
 
+  handleKeyDown(event) {
+    if (this.isMoveKey(event)) {
+      this.moveKeysPressed++;
+      if (this.moveKeysPressed === 1) {
+        this.carSound.play();
+      }
+    }
+  }
+
+  handleKeyUp(event) {
+    if (this.isMoveKey(event)) {
+      this.moveKeysPressed--;
+      if (this.moveKeysPressed === 0) {
+        this.carSound.stop();
+      }
+    }
+  }
+
+  isMoveKey(event) {
+    return (
+      event.code === 'KeyW' ||
+      event.code === 'KeyA' ||
+      event.code === 'KeyS' ||
+      event.code === 'KeyD'
+    );
   }
 
   update() {
-    //this.setAcceleration(0);
     if (!this.muerto) {
       this.collider.setPosition(this.x, this.y);
       this.Aceleracion();
       this.Flecha(this.scene.person);
-      let textureSet = false; // Variable para controlar si se ha configurado una textura
+      let textureSet = false; 
 
       if (this.keys.up.isDown) {
         this.flipY = false;
@@ -130,6 +159,10 @@ this.sonido=scene.sound.add(sounds)
         this.flecha = this.scene.add.image(this.x, this.y - 25, 'FlechaVerde').setRotation(rotation).setScale(0.05);
     }
     }   
+}
+
+StopCarSounds(){
+  this.carSound.stop();
 }
 
 }
