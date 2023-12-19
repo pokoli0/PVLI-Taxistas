@@ -1,13 +1,13 @@
-Hola!
-1¿A dónde vás?
-3¿A ti qué te importa? JAJA es bromi, adonde tú me lleves guapo.
-2¿Cómo te va?
-4Me va bien, aunque me podría tocar la lotería.
-1¿Quieres que ponga música?
-3Me va bien, aunque me podría tocar la lotería.
-2¿Tienes frío?
-4¿Por qué? Si es verano.
-1¿Has oído lo que ha ocurrido?
-3No, ¿por?
-2¿No te da miedo salir a la calle?
-4Ay, no me asustes.
+0 Hola!
+1 ¿A dónde vás?
+3 ¿A ti qué te importa? JAJA es bromi, adonde tú me lleves guapo.
+2 ¿Cómo te va?
+4 Me va bien, aunque me podría tocar la lotería.
+1 ¿Quieres que ponga música?
+3 Me va bien, aunque me podría tocar la lotería.
+2 ¿Tienes frío?
+4 ¿Por qué? Si es verano.
+1 ¿Has oído lo que ha ocurrido?
+3 No, ¿por?
+2 ¿No te da miedo salir a la calle?
+4 Ay, no me asustes.

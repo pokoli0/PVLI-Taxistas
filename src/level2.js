@@ -4,8 +4,8 @@ import PersonExtras from './PersonExtras.js'
 
 const personajesData = {
   personas: [
-    { key: 'dia2p1', textura: 'VerdeDia1.png', asesino: true },
-    { key: 'dia2p2', textura: 'MoradoDia1.png', asesino: true },
+    { key: 'dia2p1', textura: 'Amarillo.png', asesino: true },
+    { key: 'dia2p2', textura: 'MoradoDia1.png', asesino: false },
     { key: 'dia2p3', textura: 'AzulDia1.png', asesino: false }]
 };
 export default class Level2 extends Phaser.Scene {
@@ -102,8 +102,8 @@ export default class Level2 extends Phaser.Scene {
         this,
         1540,
         1200,
-        'personVer',
-        'personIdleVer',
+        'personAma',
+        'personIdleAma',
         'BocadilloPerson',
         personajesData.personas[this.nivelActual % this.personajes].asesino,
       );

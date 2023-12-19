@@ -7,6 +7,9 @@ const niveles = [
   {key: 'level2', mapa: 'mapa2.json', dialogo: 'dia2p1.txt'},
   {key: 'level2', mapa: 'mapa2.json', dialogo: 'dia2p2.txt'},
   {key: 'level2', mapa: 'mapa2.json', dialogo: 'dia2p3.txt'},
+  {key: 'level3', mapa: 'mapa2.json', dialogo: 'dia3p1.txt'},
+  {key: 'level3', mapa: 'mapa2.json', dialogo: 'dia3p2.txt'},
+  {key: 'level3', mapa: 'mapa2.json', dialogo: 'dia3p3.txt'}
 ];
 
 export default class ControlLevels extends Phaser.Scene{
@@ -16,6 +19,7 @@ export default class ControlLevels extends Phaser.Scene{
         this.levelCompletado = false;
         this.personajes = 3;
         this.puntos;
+        this.cont = 0;
     }
 
     init(data) {
@@ -80,13 +84,16 @@ export default class ControlLevels extends Phaser.Scene{
         });
     }
     avanzarAlSiguienteNivel(puntos) {
+        this.cont++;
         this.nivelActual++;
         this.puntos = puntos;
-        if (this.nivelActual <= niveles.length / this.personajes) {
+        if (this.cont < niveles.length / this.personajes) {
+            
             this.scene.stop('conversacionLvl1');
             this.cargarNivel(puntos);
         } else {
           this.levelCompletado = true;
+          this.cont = 0;
           this.scene.start('menuDias', {
             levelCompletado: this.levelCompletado,
             puntos: this.puntos,

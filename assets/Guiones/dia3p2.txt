@@ -1,13 +1,13 @@
-Hola, qué tal?
-1¿A dónde vás?
-3Desafortunadamente, lejos de mi casa.
-2¿Cómo te va?
-4Fatal, el tema de las chinches me tiene loca. Me preocupa cómo estarán viviendo los vagabundos de Alcázar.
-1¿Quieres que ponga música?
-3Que va, que va.
-2¿Tienes frío?
-4No, tranquilo.
-1¿Has oído lo que ha ocurrido?
-3¿Que si lo he oído? Lo estoy viviendo en mi casa!
-2¿No te da miedo salir a la calle?
-4Me estoy volviendo loca, a este ritmo me mudo del país.
+0 Hola, qué tal?
+1 ¿A dónde vás?
+3 Desafortunadamente, lejos de mi casa.
+2 ¿Cómo te va?
+4 Fatal, el tema de las chinches me tiene loca. Me preocupa cómo estarán viviendo los vagabundos de Alcázar.
+1 ¿Quieres que ponga música?
+3 Que va, que va.
+2 ¿Tienes frío?
+4 No, tranquilo.
+1 ¿Has oído lo que ha ocurrido?
+3 ¿Que si lo he oído? Lo estoy viviendo en mi casa!
+2 ¿No te da miedo salir a la calle?
+4 Me estoy volviendo loca, a este ritmo me mudo del país.

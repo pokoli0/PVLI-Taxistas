@@ -4,7 +4,7 @@ import PersonExtras from './PersonExtras.js'
 
 const personajesData = {
   personas: [
-    { key: 'dia1p1', textura: 'VerdeDia1.png', asesino: true },
+    { key: 'dia1p1', textura: 'VerdeDia1.png', asesino: false },
     { key: 'dia1p2', textura: 'MoradoDia1.png', asesino: true },
     { key: 'dia1p3', textura: 'AzulDia1.png', asesino: false }]
 };
