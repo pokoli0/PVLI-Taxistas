@@ -28,10 +28,21 @@ export default class MenuDias extends Phaser.Scene{
         });
         this.createBotones();
 
-        //Boton de VOLVER. Conexion con escena Main Menu
+        //Boton de VOLVER
+        const ButtonClicked = this.sound.add('Button');
+        const CursorOnButton = this.sound.add('CursorOnButton');
+
         const backButton = this.add.image(this.scale.width - 925, this.scale.height - 50, 'VolverMenuDias').setInteractive().setScale(0.25); 
         backButton.on("pointerdown", () => {
             this.scene.start('menuInicial');
+            ButtonClicked.play(); 
+        });
+        backButton.on('pointerover', () => {
+          CursorOnButton.play();
+          backButton.setScale(0.3);
+        });
+        backButton.on('pointerout', () => {
+            backButton.setScale(0.25);
         });
         
     }
