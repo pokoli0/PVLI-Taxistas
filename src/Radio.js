@@ -34,6 +34,9 @@ export default class Radio extends Phaser.Scene {
             console.log(textoDelDialogoActual);
 
             this.mostrarDialogo(textoDelDialogoActual);
+
+            this.radioSound = this.sound.add('RadioSound', { loop: true });
+            this.radioSound.play();
         }
     }
 
@@ -87,7 +90,7 @@ export default class Radio extends Phaser.Scene {
         
         // Configurar animación de aparición de texto
     let index = 0;
-    const delay = 10; // Puedes ajustar este valor para cambiar la velocidad de aparición
+    const delay = 20; // Puedes ajustar este valor para cambiar la velocidad de aparición
 
     this.time.addEvent({
         repeat: texto.length - 1,
@@ -107,6 +110,7 @@ export default class Radio extends Phaser.Scene {
                     pasar.on("pointerdown", () => {
                         this.dialogoActual = null;
                         this.indice = 0;
+                        this.radioSound.stop();
                         this.scene.start('controlLevels', {
                             gpsActivado: this.gpsActivado,
                             aceleracionActivada: this.aceleracionActivada,
