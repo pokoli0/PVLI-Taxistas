@@ -7,9 +7,10 @@ export default class Menu extends Phaser.Scene {
     preload() {
     }
     create() {
-
+        
         //Ponemos imagenes:
-        this.add.image(500, 250, 'fondoMenu'); //Fondo
+        const background = this.add.video(500, 250, 'FondoMenu');
+        background.play(true); // Reproduce el video en bucle
         const button = this.add.image(this.scale.width / 2, this.scale.height / 1.6, 'Play').setInteractive().setScale(0.4); //Boton
 
         //Ponemos sonido a la escena:

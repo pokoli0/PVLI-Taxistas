@@ -11,7 +11,8 @@ export default class MenuDias extends Phaser.Scene{
 
       create() {
         //Ponemos imagenes:
-      this.add.image(500, 250, 'fondoMenu'); //Fondo
+        const background = this.add.video(500, 250, 'FondoMenu');
+        background.play(true); // Reproduce el video en bucle
 
       this.add.image(850, 420, 'Moneda').setScale(1.5);
         this.textoMonedas = this.add.text(748, 385, this.monedas, {
