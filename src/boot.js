@@ -39,6 +39,7 @@ export default class Boot extends Phaser.Scene{
 
         //MENU
         this.load.image('Play','assets/Imagenes/Botones/Play.png' );
+        this.load.image('ControlesButton', 'assets/Imagenes/Botones/Controles.png')
         this.load.video('FondoMenu', 'assets/Archivos mp4/FondoMenu.mp4'); 
 
         //AUDIOS
