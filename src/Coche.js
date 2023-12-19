@@ -3,7 +3,6 @@ export default class Car extends Phaser.GameObjects.Sprite {
     super(scene, x, y, textureHorizontal);
     scene.add.existing(this);
     scene.physics.world.enable(this);
-this.sonido=scene.sound.add(sounds)
     this.keys = scene.input.keyboard.addKeys({
       up: Phaser.Input.Keyboard.KeyCodes.W,
       down: Phaser.Input.Keyboard.KeyCodes.S,
@@ -26,10 +25,21 @@ this.sonido=scene.sound.add(sounds)
     this.x=x;
     this.y=y;
     this.moveKeysPressed = 0;
+    this.soundExplosion=scene.sound.add(sounds);
+    this.soundExplosion.on('complete', this.handleExplosionComplete, this);
     this.carSound = scene.sound.add('Coche', { loop: true });
     scene.input.keyboard.on('keydown', (event) => this.handleKeyDown(event));
     scene.input.keyboard.on('keyup', (event) => this.handleKeyUp(event));
   }
+
+  handleExplosionComplete() {
+    this.x = 450;
+    this.y = 120;
+    this.accel = 1; 
+    this.muerto = false;
+    this.setTexture(this.textureUp);
+  }
+  
 
   handleKeyDown(event) {
     if (this.isMoveKey(event)) {
@@ -110,7 +120,7 @@ this.sonido=scene.sound.add(sounds)
 
   cocheExplota() {
     if (this.accel == 4) {
-      this.sonido.play();
+      this.soundExplosion.play();
       this.muerto = true;
       this.body.setVelocityX(0);
       this.body.setVelocityY(0);
@@ -123,7 +133,9 @@ this.sonido=scene.sound.add(sounds)
         duration: 400,
         delay: 50,
         repeat: 0,
-        yoyo: false
+        yoyo: false,
+        onComplete: () => this.handleExplosionComplete(),
+      onCompleteScope: this,
     });
     }
     else {
