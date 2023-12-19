@@ -1,6 +1,6 @@
 # Death Cab
 > Documento de diseño de videojuego.
-> Versión 2 – 3 de Noviembre, 2023.
+> Versión 3 – 19 de Diciembre, 2023.
 > - Adrián Castellanos Ormeño.
 > - Daniel Moreno Álvarez.
 > - Jiale He.
@@ -16,77 +16,63 @@
 - Modos de juego: Un jugador.
 
 ## 2. Descripción
-La Muerte no puede permitirse pagar el alquiler en el inframundo, y por ello conseguirá
-trabajo como taxista. Cada día la radio informará de un crimen. El objetivo de la Muerte es
-recoger gente por la ciudad ejerciendo su profesión. A medida que fluye la conversación con
-el cliente, la Muerte tendrá que decidir si llevar a su cliente al infierno, al cielo o dejarlo vivir
-dependiendo de la intuición del jugador y de la personalidad de los personajes, viendo si es
-una posible víctima o culpable del crimen o tan solo un viandante.
-El jugador tendrá que decidir el destino de cada pasajero para ser recompensado y con ello
-perdurar en el juego.
+La Muerte no puede permitirse pagar el alquiler en el inframundo, y por ello conseguirá trabajo como taxista. Cada día la radio del taxi informará de un crimen a La Muerte. Su objetivo será recoger gente por la ciudad ejerciendo su profesión, estos clientes tendrán o no que ver con el crimen. Al recogerlos, el taxista hablará con ellos. A medida que fluye la conversación con el cliente, la Muerte tendrá que decidir si llevar a su cliente al infierno, al cielo o dejarlo vivir dependiendo de la intuición del jugador y de la personalidad de los personajes, viendo si es una posible víctima o culpable del crimen o tan solo un viandante.
+El jugador tendrá que decidir el destino de cada pasajero para ser recompensado y con ello perdurar en el juego.
 
 ## 3. Jugabilidad
 ### Cámara
-En la fase de conducción, la cámara sería “Top Down” en el estilo de los juegos 2D de GTA.
-Seguirá al taxi de modo que esté centrado.
+En la fase de conducción, la cámara sería “Top Down” en el estilo de los juegos 2D de GTA. Seguirá al taxi de modo que esté centrado.
 
 ### Mecánicas de conducción
-El jugador conducirá un taxi desde una vista “Top Down” (cenital), mediante el cual podrá
-interactuar con ciertos objetos del entorno (papeleras, farolas...) y en el que podrá recoger
-gente, una vez que recoja a alguien se pasará a la parte de diálogo.
-- El coche se moverá con las teclas “W” (acelerar) “A” (izquierda) “S” (marcha atrás)
-“D” (derecha), cambiando su ángulo y movimiento en esa dirección. Rotará según la
-dirección de la fuerza aplicada del vector u 8 direcciones (dependiendo de qué sea
-más sencillo).
-- El coche se podrá frenar con la tecla SPACE.
-En el mapa se encuentran diferentes objetos con los que el taxi puede chocar: Edificios,
-Cubos de basura, Farolas, Semáforos, Coches...Que el jugador deberá sortear para seguir
-avanzando por la carretera.
+El jugador conducirá un taxi desde una vista cenital con una breve inclinación para dar sensación de profundidad.
+- El coche se moverá con las teclas “W” (acelerar) “A” (izquierda) “S” (marcha atrás) “D” (derecha), cambiando su ángulo y movimiento en esa dirección.
+- En el caso de que se consiga la mejora de ACELERAR, se podrá utilizar con la tecla de “SHIFT”. Esto aumentará la velocidad del taxi.
+
+En el mapa se encuentran diferentes objetos con los que el taxi puede chocar: Edificios, Cubos de basura, Farolas, Semáforos, Coches…Que el jugador deberá esquivar para seguir avanzando por la carretera.
+También encontrará NPCs que podrá atropellar si colisiona con ellos. En cada nivel, habrá uno o varios NPCs que serán los clientes. Entraremos en la escena de recogida al colisionar con ellos. Se distinguirán gracias a un icono encima de su cabeza con forma de bocadillo, con un taxi.
+
+![Icono de Recogida](/assets/Imagenes/capturas/capturaIcono.png)
+
+Algunos objetos con los que el coche puede colisionar, tendrán la posibilidad de explotar.
+Las explosiones y atropellos no tienen efecto en la puntuación del juego.
 
 ### Mecánicas de diálogo
-Una vez entrado en el minijuego conversacional, comenzará la conversación taxista-cliente.
-Aquí es donde aparece la temática de las personalidades, las conversaciones serán
-diferentes según el personaje al que se recoja. Se tendrá en cuenta lo malo y lo bueno de
-cada una y si encajan con la descripción que da la radio todos los días. A partir de ahí
-construiremos los diálogos. Irán apareciendo y desapareciendo los bocadillos de
-conversación a medida que se elija la contestación. No se podrá volver atrás en la
-conversación para recordar qué se ha dicho.
-Cada vez que el cliente cuente algo, aparecerán dos recuadros con las opciones para
-contestarle. Según lo que el jugador elija, la conversación fluirá de una manera u otra,
-especificada en el guión del juego. Para elegir la opción, se usará el ratón y el click
-izquierdo. (IA?)
+Tras entrar en la escena de recogida, se entrará en el minijuego conversacional, comenzará la conversación taxista-cliente. Aquí es donde aparece la temática de las personalidades, las conversaciones serán diferentes según el personaje al que se recoja. Se tendrá en cuenta lo malo y lo bueno de cada una, y si encajan con la descripción que da la radio todos los días. A partir de ahí construiremos los diálogos. Irán apareciendo y desapareciendo los bocadillos de conversación a medida que se elija la contestación. No se podrá volver atrás en la conversación para recordar qué se ha dicho.
+
+Cada vez que el cliente cuente algo, aparecerán dos recuadros con las opciones para contestarle, haciendo más preguntas. Según lo que el jugador elija, tendrá que ir juzgando al cliente, y finalmente elegir entre las opciones de “CIELO”, “INFIERNO”, o “DEJAR VIVO”. Para elegir la opción, se usará el ratón y el click izquierdo.
 
 ### Sistema monetario
-La moneda principal del juego son años de vida. Para ganar años de vida, la Muerte tendrá
-que llevar a un cliente al infierno o al cielo. En este apartado hay que describir las distintas
-posibilidades en las que se podría perder dinero.
-- Si dejas vivir a un cliente y es alguien que no tenía nada que ver con un crimen, no
-se ganará dinero pero no habrá penalización.
-- Si aciertas, ganarás los años de edad que tenga la persona. Acertar conlleva: +25.
+La moneda principal del juego son años de vida. Para ganar monedas, la Muerte tendrá que llevar a un cliente al infierno o al cielo. En este apartado hay que describir las distintas posibilidades en las que se podría ganar o perder dinero.
+- Si dejas vivir a un cliente y es alguien que no tenía nada que ver con un crimen, no se ganará dinero pero no habrá penalización.
+- Si se acierta, se ganarán 25 monedas. Acertar conlleva:
   - Llevar a un culpable al infierno.
   - Llevar a una víctima al cielo.
-De esta forma tendremos que haber llevado como mínimo a 4 personas.
-- Si fallas, habrá penalizaciones, como:
-  - Llevar a un culpable al cielo. Penalización de -15 (por ejemplo).
-  - Llevar a una víctima al infierno. Penalización de -15 (por ejemplo)
-  - Si era culpable y se le deja vivo. Habrá consecuencias al día siguiente, ya
-que el culpable seguirá matando (enviando más trabajo al cielo/infierno) y por
-ello penalización de -10 por gastos de gestión. (por ejemplo)
-○ Si era víctima y se le deja vivo. Habrá consecuencias al día siguiente, ya que
-por su trauma, se suicidará (enviando más trabajo al cielo/infierno) y por ello
-penalización de -5 por gastos de gestión. (por ejemplo)
+- Si se falla, se perderán 15 monedas. Fallar conlleva:
+  - Llevar a un culpable al cielo.
+  - Llevar a una víctima al infierno.
+  - Si era culpable y se le deja vivo. Habrá consecuencias al día siguiente, ya que el culpable seguirá matando (enviando más trabajo al cielo/infierno) y por ello penalización de -10 monedas por gastos de gestión.
+  - Si era víctima y se le deja vivo. Habrá consecuencias al día siguiente, ya que por su trauma, se suicidará (enviando más trabajo al cielo/infierno) y por ello penalización de -5 monedas por gastos de gestión.
 
-El precio del alquiler será de 100 años de vida. Se pagará cada día con el dinero acumulado
-o con las ganancias.
+El precio del alquiler será de 100 años de vida. Se pagará cada día con el dinero acumulado o con las ganancias.
 
-### Salud del taxi (extra si da tiempo)
+### Tienda
+El juego tiene implementadas mejoras para el modo de conducción. Para conseguirlas se podrán comprar en la tienda con la moneda del juego.
+
+Las mejoras incluidas son las siguientes:
+- GPS. Encima del taxi aparecerá una flecha que indicará dónde se encuentra el cliente a recoger. Su coste será de 100 monedas.
+- Acelerador. Permitirá al taxi aumentar su velocidad pulsando la tecla SHIFT. Su coste será de 75 monedas.
+- Tiempo extra. Se aumentará el tiempo para encontrar a los clientes. Su coste será de 50 monedas.
+
+El jugador tendrá que administrar las ganancias que vaya adquiriendo de forma efectiva para superar cada nivel, por lo tanto no podrá abusar de los beneficios de la tienda. 
+
+
+### Salud del taxi (extra)
 El taxi conducido, podrá estrellarse con elementos de la carretera, especificados en el
 contenido del juego. Si se estrella, perderá puntos de salud. Por lo que habrá que conducir
 el taxi a una zona de reparación.
 El juego empezará con el 100% de salud. Cada vez que se estrelle, perderá 25% de salud.
 Si se llega al 0%, se perderá el juego, teniendo que volver a empezar desde el principio.
-En las zonas de reparación habrá que pagar para reparar el taxi. Costará 10 años de vida
-(por ejemplo).
+En las zonas de reparación habrá que pagar para reparar el taxi. Costará 10 monedas.
 
 ## 4. Dinámica
 ### Diseño de niveles: el mapa.
@@ -94,18 +80,16 @@ Es una zona del pueblo de Alcázar de San Juan donde conduciremos buscando clien
 podrán distinguir las carreteras fácilmente. Habrá zonas de colisión (edificadas), elementos
 que exploten (farolas, postes...). Cada nivel se distinguirá por las zonas de aparición de
 clientes, pero siempre será el mismo mapa.
-He aquí el primer boceto del mapa:
 
 ![Mapa](/assets/Mapas/mapa.png)
 
 ### Diseño de niveles: los crímenes.
-Cada nivel (o cada día) se distingue por un crimen. (Se adjuntará un pdf cuando estén
-acabados).
-1. Un robo.
-2. Caso de violencia de género.
-3. Creación de una plaga de chinches.
-4. Crimen falso.
-5. Asesino en serie.
+Cada nivel (o cada día) se distingue por un crimen.
+1. [Un robo.](/documentation/guion/guiond1.md)
+2. [Caso de violencia de género.](/documentation/guion/guiond2.md)
+3. [Creación de una plaga de chinches.](/documentation/guion/guiond3.md)
+4. [Crimen falso.](/documentation/guion/guiond4.md)
+5. [Asesino en serie.](/documentation/guion/guiond5.md)
 
 En el guión se encontrará una descripción detallada de cada crimen, para ayudar a
 desarrollar cada nivel, donde se informa de quién es el culpable y la víctima, o si hay alguna
@@ -116,28 +100,16 @@ elige entre 4 preguntas para averiguar si el cliente es una víctima, un culpabl
 que no está implicado.
 
 ### Descripción de partida típica
-1. Presentación del día. Se muestra en qué día estamos (habrá 5 días), y comienzan
-las noticias en la radio. Se explica un crimen que ha sucedido, qué número de
-personas hay implicadas y una breve descripción de cada una (sobre todo hablando
-de su personalidad).
-2. Conducción del taxi.
-Pasamos la vista desde arriba de la ciudad. Se buscan posibles clientes por el
-mapa. Habrá que pararse en un rango cerca del cliente para poder recogerlo y
-continuar a la parte conversacional. Podremos colisionar con elementos de la ciudad
-(farolas y postes).
-3. Cuando se suba un cliente, entraremos en el minijuego conversacional. En él el
-jugador tendrá que juzgar si su cliente es un posible culpable o víctima del crimen a
-través del diálogo y lo que conoce sobre el crimen que ha contado la radio. Al final
-de la conversación, el jugador tendrá que decidir si el cliente es una víctima, un
-culpable o nada. Así acabará en el cielo, infierno o se le dejará vivir,
-respectivamente.
-4. Volveremos a la conducción en búsqueda de otros clientes. Se repetirán los pasos 2,
-3 y 4 hasta pasar el número definido de personas al principio del día.
+1. Presentación del día. Se muestran las noticias en la radio. Se explica un crimen que ha sucedido.
+2. Conducción del taxi. 
+Pasamos la vista desde arriba de la ciudad. Se buscan posibles clientes por el mapa. Habrá que colisionar con el cliente para poder recogerlo y continuar a la parte conversacional. Podremos colisionar con elementos de la ciudad o atropellar gente.
+3. Cuando se suba un cliente, entraremos en el minijuego conversacional. En él el jugador tendrá que juzgar si su cliente es un posible culpable o víctima del crimen a través del diálogo y lo que conoce sobre el crimen que ha contado la radio. Al final de la conversación, el jugador tendrá que decidir si el cliente es una víctima, un culpable o nada. Así acabará en el cielo, infierno o se le dejará vivir, respectivamente.
+4. Volveremos a la conducción en búsqueda de otros clientes. Se repetirán los pasos 2, 3 y 4 hasta pasar el número de personas del nivel.
 5. Al final de cada día, se nos presentará el resumen del día. En este el jugador
 conocerá las ganancias que ha obtenido, pérdidas, y si puede o no pasar al
 siguiente día (si podemos pagar el alquiler).
 
-    5.1. En el caso de que sea el quinto y último día, la Muerte se cansará de las
+   5.1. En el caso de que sea el quinto y último día, la Muerte se cansará de las
 aburridas personalidades de la gente del día a día y por ello, dimitirá para
 buscarse otro trabajo. Se mostrarán los créditos y se habrá superado el
 juego.
@@ -147,21 +119,61 @@ inframundo, y por ende, no se habrá superado el juego. Se tendrá que jugar
 de nuevo, desde el día 1.
 
 ## 5. Estética
-### HUD
-(Provisional, la localización de los diferentes elementos puede variar dependiendo
-de las necesidades que se tengan)
 
-![HUDConducción](/assets/Imagenes/HUDConduccion.jpg)
+### Estilo artístico y paleta de colores
+El estilo artístico utilizado ha sido el de Pixel Art. Se ha optado por un diseño sencillo. 
 
-Al principio de cada día se indicará el día en el que va a empezar (día 1, día 2...)
-En la parte de conducción se mostrarán el número de almas que tiene el jugador.
+En el modo de conducción, la paleta de colores utilizada es bastante variada, destacando los colores primarios sobre fondo de distintas tonalidades de gris. Así podemos destacar cada elemento del mapa.
 
-![HUDDialogo](/assets/Imagenes/HUDDialogo.png)
+![capturaColores](/assets/Imagenes/capturas/capturaColores.png)
+
+### Diseño de personajes
+En cuanto al diseño de personajes que aparecen en el mapa, los hemos diferenciado también por los colores que se utilizan en la página de [16personalities]([URL_del_enlace](https://www.16personalities.com/es/descripcion-de-los-tipos)). Que también destacan sobre los fondos grises.
+
+![capturaColores](/assets/Imagenes/Personajes/AzulDia1.png)
+
+### Mapa
+El mapa del juego, como ya se ha mostrado en el apartado de dinámica, da bastante espacio al taxi, lo que hace que el jugador se sienta cómodo a la hora de la conducción. Se pueden distinguir carreteras más estrechas, para aportar variedad. La iluminación es bastante clara, y hay zonas de vegetación (parques) para hacer que la ciudad sea más diversa.
+
+![Mapa](/assets/Mapas/mapa.png)
+
+### Animaciones
+En cuanto a animaciones, son muy sencillas. Los ciudadanos están animados al andar. Se destaca la animación de la explosión al colisionar con ciertos elementos, y la animación al atropellar a un ciudadano, lo que puede satisfacer al jugador.
+
+### UI
+Hablando de la UI, no es muy cansada para la vista. Aparecen botones que destacan mucho sobre los fondos. 
+
+![botonPlay](/assets/Imagenes/capturas/capturaBoton.png)
+![botonOpciones](/assets/Imagenes/capturas/capturaOpciones.png)
+
+En el **menú inicial** será un menú intuitivo con dos únicos botones: PLAY y CONTROLES. El primero para acceder al menú de Días, y el segundo para aprender los controles básicos del juego.
+
+En el **menú de días** se podrá acceder a cada nivel desbloqueado, y a la tienda.
+
+La **tienda** mostrará las monedas de las que dispones abajo a la derecha. Cada vez que se haga una compra, al pulsar uno de los botones (GPS, ACELERADOR ó TIEMPO EXTRA), se reproducirá un sonido de cajero para dar a entender al usuario que ha realizado una compra. Debajo de cada botón se incluye una descripción de la mejora que se consigue, tal y como se muestra en la imagen. También se incluye un botón para regresar al menú de días (ATRÁS).
+
+![capturaTienda](/assets/Imagenes/capturas/capturaTienda.png)
+
+### Narrativa visual
+Es importante la narrativa visual en el juego. Los textos son lo suficientemente grandes para que cualquier jugador sea capaz de leer. Se separan los textos grandes en distintas secuencias para no cansar al jugador, podrá pasar cuando se realice el click en la pantalla, haciendo que pueda tomarse su tiempo para leer.
+
+### Sonidos
+Destacamos algunos sonidos en el juego para hacerlo más inmersivo. Algunos de estos sonidos se han exagerado para producir en el jugador sensación de ironía.
+- Al conducir, se puede escuchar el motor del coche.
+- Al recoger un cliente, se escucha cómo cierra la puerta, y como arranca el taxi.
+- Al atropellar a un NPC, se puede escuchar cómo grita.
+- Al colisionar con ciertos elementos que explotan, se puede escuchar una explosión muy fuerte.
+- Al poner el ratón sobre ciertos botones, se escuchan efectos de sonido.
+
+En general, el jugador se sentirá cómodo conduciendo.
+
+### Música
+En algunos momentos del juego, se reproducirá música de fondo para entretener al jugador. Aquí destacamos la música de la tienda.
 
 ## 6. Contenido
 ### Personajes
-Las personalidades de los clientes estarán basadas en los tipos del indicador Myers-Briggs
-o inventario tipológico de Myers-Briggs, (también conocido como MBTI), un cuestionario
+Las personalidades de los clientes estarán basadas en los tipos del [indicador Myers-Briggs
+o inventario tipológico de Myers-Briggs](https://www.16personalities.com/es/descripcion-de-los-tipos), (también conocido como MBTI), un cuestionario
 autorreportado que evalúa cómo las personas perciben el entorno y toman decisiones.
 Nuestras interacciones con estos estarán muy marcadas con la personalidad de los clientes
 quienes se comportan de cierta forma dependiendo de su tipo de personalidad. Habrá
@@ -188,14 +200,8 @@ En el minijuego de conducción, nos encontraremos distintos elementos repartidos
 | Obstáculos   | Obstáculo en la carretera con el que el taxi podrá colisionar, y que producirá una fuerza opuesta a la dirección del taxi. Si se colisiona con alguno, explota y causará daños al taxi. Son farolas, postes, cubos de basura, semáforos y otros coches.   | De distintos colores.   |
 
 ### Diálogos
-Al ser una aventura conversacional, destacarán los diálogos entre la Muerte y sus clientes.
-Se adjunta un enlace al documento con el guión del juego. (cuando esté en pdf pondremos
-el enlace bueno)
-En el juego distinguiremos dos tipos de conversaciones.
-- Se definirán algunas preguntas y respuestas predeterminadas, que se irán
-mezclando para que surja una conversación con sentido.
-- Diálogos acorde al crimen del día, irán contando una historia a medida que la
-Muerte pregunte.
+Al ser una aventura conversacional, destacarán los diálogos entre la Muerte y sus clientes. Se ha adjuntado un enlace al guión de cada día en el apartado de *Dinámica*.
+Se definirán preguntas y respuestas predeterminadas, con las que el jugador tendrá que decidir finalmente si su cliente es culpable, una víctima o un simple transeúnte.
 
 ## 7. Referencias
 Para el diseño y desarrollo de Death Cab, se han tomado los siguientes juegos como
