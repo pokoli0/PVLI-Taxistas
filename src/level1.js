@@ -22,7 +22,7 @@ export default class Level1 extends Phaser.Scene {
     this.puntos = 0; // Inicializa los puntos
     this.textoPuntos; // Variable para almacenar el objeto de texto de los puntos
     this.nivel;
-    this.initialTime = 120;
+    this.initialTime;
     this.personExtrasArray = [];
   }
   preload() {
@@ -35,6 +35,7 @@ export default class Level1 extends Phaser.Scene {
     this.aceleracionActivada = data.aceleracionActivada || false;
     this.tiempoActivado = data.tiempoActivado || false;
 
+    this.initialTime = 10;
     this.createTileMap();
 
     const moneda = this.add.sprite(40, 40, 'moneda');
@@ -80,10 +81,11 @@ export default class Level1 extends Phaser.Scene {
       this.initialTime = 180;  // Ajusta el tiempo inicial si el tiempo está activado
     }
     this.timerText = this.add.text(850, 25, this.formatTime(this.initialTime), {
+      fontFamily: 'VT323',
       fontSize: '40px',
       fill: '#FFF',
     });
-    this.timerText.setDepth(4).setScrollFactor(0);
+    this.timerText.setDepth(8).setScrollFactor(0);
     this.timer = this.time.addEvent({
       delay: 1000,
       callback: this.updateTimer,
@@ -221,8 +223,25 @@ export default class Level1 extends Phaser.Scene {
         const remainingTime = Math.ceil(this.initialTime);
         this.timerText.setText(this.formatTime(remainingTime));
     } else {
-        // El temporizador ha alcanzado el final, regresar a la escena de menúDias
-        this.scene.start('menuDias');
+        this.scene.pause();
+        const centerX = this.cameras.main.worldView.x + this.cameras.main.width / 2;
+        const centerY = this.cameras.main.worldView.y + this.cameras.main.height / 2;
+        const Alarma = this.sound.add('Alarma');
+
+        const message = this.add.text(centerX, centerY, 'SE AGOTO EL TIEMPO', {
+            fontSize: '60px',
+            fontFamily: 'VT323',
+            fill: '#fff'
+        }).setOrigin(0.5, 0.5);
+        message.setDepth(8);
+
+        Alarma.play();
+        Alarma.once('complete', () => {
+            message.destroy();
+            this.scene.resume();
+            this.scene.start('menuDias');
+        });
     }
 }
+
 }
