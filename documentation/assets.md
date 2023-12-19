@@ -20,3 +20,6 @@ Algunos sprites han sido creados por nosotros. Incluímos aquí:
 
 - Taxi
 - Botones
+
+## Sonidos
+Los sonidos que utilizamos han sido obtenidos de YouTube. De dominio público.
