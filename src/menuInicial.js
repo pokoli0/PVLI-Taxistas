@@ -12,6 +12,8 @@ export default class Menu extends Phaser.Scene {
         const background = this.add.video(500, 250, 'FondoMenu');
         background.play(true); // Reproduce el video en bucle
         const button = this.add.image(this.scale.width / 2, this.scale.height / 1.6, 'Play').setInteractive().setScale(0.4); //Boton
+        const controlesButton = this.add.image(this.scale.width / 2, this.scale.height / 1.25, 'ControlesButton').setInteractive().setScale(0.35); //Boton de CONTROLES
+
 
         //Ponemos sonido a la escena:
        /* var musica = this.sound.add('menuSong');
@@ -25,6 +27,11 @@ export default class Menu extends Phaser.Scene {
             this.scene.start('menuDias', {
                 puntos : this.puntos
             });
+        });
+
+        //Conexion con escena Controles
+        controlesButton.on("pointerdown", () => {
+            this.scene.start('escenaControles');
         });
     }
   }
