@@ -9,6 +9,9 @@ export default class escenaDecision extends Phaser.Scene{
     preload(){
     }
     create(){
+
+        this.add.image(500, 250, 'fondo').setAlpha(0.5);
+        
         this.asesino = this.sys.settings.data.asesino;
         this.puntos = this.sys.settings.data.puntos;
         
