@@ -184,7 +184,7 @@ export default class Shop extends Phaser.Scene{
                 align: 'center',
             });
         }
-        const botonVolver = this.add.image(this.scale.width - 925, this.scale.height - 50, 'VolverMenuDias').setInteractive().setScale(0.25);
+        const botonVolver = this.add.image(50, 450, 'VolverMenuDias').setInteractive().setScale(0.3);
         botonVolver.on('pointerdown', () => { 
             this.ShopMusic.stop(); 
             ButtonClicked.play(); 
@@ -192,10 +192,11 @@ export default class Shop extends Phaser.Scene{
         });
         botonVolver.on('pointerover', () => {
                 CursorOnButton.play();
-                botonVolver.setScale(0.3);
+                botonVolver.setScale(0.35);
         });
+        
         botonVolver.on('pointerout', () => {
-                botonVolver.setScale(0.25);
+                botonVolver.setScale(0.3);
         });
     }
 }

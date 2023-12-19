@@ -39,7 +39,6 @@ export default class Boot extends Phaser.Scene{
 
         //MENU
         this.load.image('Play','assets/Imagenes/Botones/Play.png' );
-        this.load.image('ControlesButton', 'assets/Imagenes/Botones/Controles.png')
         this.load.video('FondoMenu', 'assets/Archivos mp4/FondoMenu.mp4'); 
 
         //AUDIOS
@@ -56,6 +55,7 @@ export default class Boot extends Phaser.Scene{
         this.load.audio('Alarma', 'assets/Sonido_Musica/AlarmaTiempo.mp3');
         this.load.audio('Coche', 'assets/Sonido_Musica/CarSound.mp3');
         this.load.audio('RadioSound', 'assets/Sonido_Musica/RadioSound.mp3');
+        this.load.audio('MuscicaMenus', 'assets/Sonido_Musica/RadioSound.mp3');
 
         //ANIMACIONS
         this.load.spritesheet( 'personIdleVer', 'assets/Imagenes/Personajes/VerdeDia1.png',{ frameWidth: 17.25, frameHeight: 24 });
