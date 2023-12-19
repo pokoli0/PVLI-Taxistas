@@ -37,7 +37,7 @@ export default class escenaDecision extends Phaser.Scene{
             }
             botonCielo.disableInteractive();
             this.time.delayedCall(1000, () => {
-            const controlLevelsScene = this.scene.get('controlLevels');
+            const controlLevelsScene = this.scene.get('controlLevels', {puntos: this.puntos});
             // Llamar al método avanzarAlSiguienteNivel() de la escena de controlLevels
             controlLevelsScene.avanzarAlSiguienteNivel(this.puntos);
             // Detener la escena actual

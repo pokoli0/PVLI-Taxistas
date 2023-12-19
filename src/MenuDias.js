@@ -4,6 +4,9 @@ export default class MenuDias extends Phaser.Scene{
         this.monedas = 1000;
         this.textoMonedas;
         this.level = 1;
+        this.dia1;
+        this.dia2;
+        this.dia3;
       }
 
       create() {
@@ -27,6 +30,7 @@ export default class MenuDias extends Phaser.Scene{
         this.aceleracionActivada = data.aceleracionActivada || false;
         this.tiempoActivado = data.tiempoActivado || false;
         this.levelCompletado = data.levelCompletado || false;
+        this.puntos = data.puntos;
     }
 
     createBotones(){
@@ -67,13 +71,14 @@ export default class MenuDias extends Phaser.Scene{
     }
 
     botonDia1(){
-      const dia1 = this.add.image(200, 250, 'diasBotones').setInteractive();
-      dia1.on("pointerdown", () => {
+      this.dia1 = this.add.image(200, 250, 'diasBotones').setInteractive();
+      this.dia1.on("pointerdown", () => {
         this.level++;
         this.scene.start('controlLevels', {
             gpsActivado: this.gpsActivado,
             aceleracionActivada: this.aceleracionActivada,
-            tiempoActivado: this.tiempoActivado
+            tiempoActivado: this.tiempoActivado,
+            puntos: this.puntos
         });
     });
       this.add.text(153, 170, //Posicion de las preguntas (CAMBIAR ESTO)
@@ -86,7 +91,7 @@ export default class MenuDias extends Phaser.Scene{
     }
 
     botonDia2(){
-      const dia2 = this.add.image(500, 250, 'diasBotones');
+      this.dia2 = this.add.image(500, 250, 'diasBotones');
       this.add.text(453, 170, //Posicion de las preguntas (CAMBIAR ESTO)
       "DIA 2", 
       { 
@@ -94,21 +99,24 @@ export default class MenuDias extends Phaser.Scene{
           fontFamily: "VT323",
           fontSize: '50px'
       });
-      this.add.image(500, 300, 'candado');
+      const candado = this.add.image(500, 300, 'candado');
       if(this.levelCompletado  && this.level == 2){
-        dia2.setInteractive();
-        dia2.on("pointerdown", () => {
+        this.dia2.setInteractive();
+        this.dia1.disableInteractive();
+        candado.setVisible(false);
+        this.dia2.on("pointerdown", () => {
           this.level++;
           this.scene.start('controlLevels', {
               gpsActivado: this.gpsActivado,
               aceleracionActivada: this.aceleracionActivada,
-              tiempoActivado: this.tiempoActivado
+              tiempoActivado: this.tiempoActivado,
+              puntos: this.puntos
           });
       });
     }
     }
     botonDia3(){
-      const dia3 = this.add.image(800, 250, 'diasBotones');
+      this.dia3 = this.add.image(800, 250, 'diasBotones');
       this.add.text(753, 170, //Posicion de las preguntas (CAMBIAR ESTO)
       "DIA 3", 
       { 
@@ -116,14 +124,18 @@ export default class MenuDias extends Phaser.Scene{
           fontFamily: "VT323",
           fontSize: '50px'
       });
-      this.add.image(800, 300, 'candado');
+      const candado=this.add.image(800, 300, 'candado');
       if(this.levelCompletado  && this.level == 3){
-        dia3.setInteractive();
-        dia3.on("pointerdown", () => {
+        this.dia3.setInteractive();
+        this.dia2.disableInteractive();
+        candado.setVisible(false);
+        this.dia3.on("pointerdown", () => {
+          this.level++;
           this.scene.start('controlLevels', {
               gpsActivado: this.gpsActivado,
               aceleracionActivada: this.aceleracionActivada,
-              tiempoActivado: this.tiempoActivado
+              tiempoActivado: this.tiempoActivado,
+              puntos: this.puntos
           });
       });
     }

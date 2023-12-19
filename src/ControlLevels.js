@@ -15,6 +15,7 @@ export default class ControlLevels extends Phaser.Scene{
         this.nivelActual = 0;
         this.levelCompletado = false;
         this.personajes = 3;
+        this.puntos;
     }
 
     init(data) {
@@ -30,7 +31,7 @@ export default class ControlLevels extends Phaser.Scene{
 
     create(){
 
-        this.cargarNivel();
+        this.cargarNivel(this.puntos);
     }
     getNivelActual() {
         return niveles[this.nivelActual];
@@ -80,14 +81,18 @@ export default class ControlLevels extends Phaser.Scene{
     }
     avanzarAlSiguienteNivel(puntos) {
         this.nivelActual++;
-    
+        this.puntos = puntos;
         if (this.nivelActual <= niveles.length / this.personajes) {
             this.scene.stop('conversacionLvl1');
             this.cargarNivel(puntos);
         } else {
           this.levelCompletado = true;
           this.scene.start('menuDias', {
-            levelCompletado: this.levelCompletado
+            levelCompletado: this.levelCompletado,
+            puntos: this.puntos,
+            gpsActivado: this.gpsActivado,
+            aceleracionActivada: this.aceleracionActivada,
+            tiempoActivado: this.tiempoActivado
           })
         }
       }

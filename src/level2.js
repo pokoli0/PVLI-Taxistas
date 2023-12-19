@@ -22,20 +22,22 @@ export default class Level2 extends Phaser.Scene {
     this.puntos = 0; // Inicializa los puntos
     this.textoPuntos; // Variable para almacenar el objeto de texto de los puntos
     this.nivel;
-    this.initialTime = 120;
     this.personExtrasArray = [];
+    this.personajes = 3;
   }
-  preload() {
-    
-  }
-  create(data) {
+  init(data){
     // Recibe datos del control de niveles
     this.nivelActual = data.nivelActual;
     this.puntos = data.puntos;
     this.gpsActivado = data.gpsActivado || false;
     this.aceleracionActivada = data.aceleracionActivada || false;
     this.tiempoActivado = data.tiempoActivado || false;
-
+    this.initialTime = 120;
+  }
+  preload() {
+    
+  }
+  create() {
     this.createTileMap();
 
     const moneda = this.add.sprite(40, 40, 'moneda');
@@ -96,7 +98,7 @@ export default class Level2 extends Phaser.Scene {
   }
 
   createPerson() {
-    if (this.nivelActual == 0) {
+    if (this.nivelActual % this.personajes == 0) {
       this.person = new Person(
         this,
         1540,
@@ -104,10 +106,10 @@ export default class Level2 extends Phaser.Scene {
         'personVer',
         'personIdleVer',
         'BocadilloPerson',
-        personajesData.personas[this.nivelActual].asesino,
+        personajesData.personas[this.nivelActual % this.personajes].asesino,
       );
     }
-    else if (this.nivelActual == 1) {
+    else if (this.nivelActual % this.personajes == 1) {
       this.person = new Person(
         this,
         660,
@@ -115,10 +117,10 @@ export default class Level2 extends Phaser.Scene {
         'personMor',
         'personIdleMor',
         'BocadilloPerson',
-        personajesData.personas[this.nivelActual].asesino,
+        personajesData.personas[this.nivelActual % this.personajes].asesino,
       );
     }
-    else if (this.nivelActual == 2) {
+    else if (this.nivelActual % this.personajes == 2) {
       this.person = new Person(
         this,
         1810,
@@ -126,7 +128,7 @@ export default class Level2 extends Phaser.Scene {
         'personAz',
         'personIdleAz',
         'BocadilloPerson',
-        personajesData.personas[this.nivelActual].asesino,
+        personajesData.personas[this.nivelActual % this.personajes].asesino,
       );
     }
   }

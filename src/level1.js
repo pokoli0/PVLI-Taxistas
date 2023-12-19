@@ -24,18 +24,20 @@ export default class Level1 extends Phaser.Scene {
     this.nivel;
     this.initialTime;
     this.personExtrasArray = [];
+    
   }
-  preload() {
-  }
-  create(data) {
+  init(data){
     // Recibe datos del control de niveles
     this.nivelActual = data.nivelActual;
     this.puntos = data.puntos;
     this.gpsActivado = data.gpsActivado || false;
     this.aceleracionActivada = data.aceleracionActivada || false;
     this.tiempoActivado = data.tiempoActivado || false;
-
-    this.initialTime = 10;
+    this.initialTime = 120;
+  }
+  preload() {
+  }
+  create() {
     this.createTileMap();
 
     const moneda = this.add.sprite(40, 40, 'moneda');
