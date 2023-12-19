@@ -8,7 +8,6 @@ export default class Boot extends Phaser.Scene{
         this.load.tilemapTiledJSON('level1', 'assets/Mapas/mapa2.json');
 
         //SPRITES
-        this.load.image('fondoMenu', 'assets/Imagenes/fondo.png');
         this.load.image('diasBotones', 'assets/Imagenes/Botones/Dias.png');
         this.load.image('candado', 'assets/Imagenes/imagenesPrueba/candado.png');
         this.load.image('moneda', 'assets/Imagenes/imagenesPrueba/moneda.png');
