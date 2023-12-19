@@ -2,7 +2,7 @@
 export default class Menu extends Phaser.Scene {
     constructor() {
       super({ key: 'menuInicial' });
-  
+    this.puntos = 1000;
     }
     preload() {
     }
@@ -22,7 +22,9 @@ export default class Menu extends Phaser.Scene {
         //Conexion con escena level (al pulsar boton)
         button.on("pointerdown", () => {
             this.sound.stopAll(); //que pare la musica del menu de inicio
-            this.scene.start('menuDias');
+            this.scene.start('menuDias', {
+                puntos : this.puntos
+            });
         });
     }
   }

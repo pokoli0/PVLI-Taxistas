@@ -27,6 +27,7 @@ export default class ControlLevels extends Phaser.Scene{
         this.gpsActivado = data.gpsActivado || false;
         this.aceleracionActivada = data.aceleracionActivada || false;
         this.tiempoActivado = data.tiempoActivado || false;
+        this.puntos = data.puntos;
     }
 
     
@@ -63,7 +64,7 @@ export default class ControlLevels extends Phaser.Scene{
     iniciarEscenaNivel(nivel) {
         // Inicializa la escena de nivel con el mapa ya cargado
         this.scene.start(nivel.key, {
-            puntos: 0,
+            puntos: this.puntos,
             nivelActual: this.nivelActual,
             nivelData: nivel,
             gpsActivado: this.gpsActivado,

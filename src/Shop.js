@@ -10,7 +10,7 @@ export default class Shop extends Phaser.Scene{
     }
 
     init(data){
-        this.monedas = data.monedas;
+        this.puntos = data.puntos;
         this.menuDiasScene = data.menuDiasScene;
         this.levelCompletado = data.levelCompletado;
     }
@@ -24,36 +24,37 @@ export default class Shop extends Phaser.Scene{
     }
 
     botonGPSPresionado(textoMonedas){
-        if(this.monedas > 100 && !this.gpsActivado){
+        if(this.puntos > 100 && !this.gpsActivado){
             this.gpsActivado = true;
-            this.monedas -= 100;
-            textoMonedas.setText(this.monedas);
+            this.puntos -= 100;
+            textoMonedas.setText(this.puntos);
         }
     }
 
     botonAceleracionPresionado(textoMonedas){
-        if(this.monedas > 75 && !this.aceleracionActivada){
+        if(this.puntos > 75 && !this.aceleracionActivada){
         this.aceleracionActivada = true;
-        this.monedas -= 75;
-        textoMonedas.setText(this.monedas);
+        this.puntos -= 75;
+        textoMonedas.setText(this.puntos);
         }
     }
 
     botonTiempoPresionado(textoMonedas){
-        if(this.monedas > 50 && !this.tiempoActivado){
+        if(this.puntos > 50 && !this.tiempoActivado){
         this.tiempoActivado = true;
-        this.monedas -= 50;
-        textoMonedas.setText(this.monedas);
+        this.puntos -= 50;
+        textoMonedas.setText(this.puntos);
         }
     }
 
     botonVolverPresionado(){
-        this.menuDiasScene.actualizarMonedas(this.monedas);
+        //this.menuDiasScene.actualizarMonedas(this.monedas);
         this.scene.start('menuDias', {
             gpsActivado: this.gpsActivado,
             aceleracionActivada: this.aceleracionActivada,
             tiempoActivado: this.tiempoActivado,
-            levelCompletado: this.levelCompletado
+            levelCompletado: this.levelCompletado,
+            puntos : this.puntos,
         });
     }
 
@@ -68,7 +69,7 @@ export default class Shop extends Phaser.Scene{
         this.add.image(0, 0, 'FondoTienda').setOrigin(0).setDisplaySize(width, height);
 
         this.add.image(850, 420, 'Moneda').setScale(1.5);
-        this.textoMonedas = this.add.text(748, 385, this.monedas, {
+        this.textoMonedas = this.add.text(748, 385, this.puntos, {
         fontSize: '70px',
         fontFamily: "VT323",
         fill: '#fff',

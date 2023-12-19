@@ -1,7 +1,6 @@
 export default class MenuDias extends Phaser.Scene{
     constructor() {
         super({ key: 'menuDias' });
-        this.monedas = 1000;
         this.textoMonedas;
         this.level = 1;
         this.dia1;
@@ -15,7 +14,7 @@ export default class MenuDias extends Phaser.Scene{
         background.play(true); // Reproduce el video en bucle
 
       this.add.image(850, 420, 'Moneda').setScale(1.5);
-        this.textoMonedas = this.add.text(748, 385, this.monedas, {
+        this.textoMonedas = this.add.text(748, 385, this.puntos, {
         fontSize: '70px',
         fontFamily: "VT323",
         fill: '#fff',
@@ -47,7 +46,7 @@ export default class MenuDias extends Phaser.Scene{
         ButtonClicked.play();
         this.scene.stop('menuDias');
         this.scene.start('Shop', {
-           monedas : this.monedas,
+          puntos : this.puntos,
            menuDiasScene: this,
            levelCompletado: this.levelCompletado
         });}
@@ -67,10 +66,10 @@ export default class MenuDias extends Phaser.Scene{
       })*/
     }
 
-    actualizarMonedas(monedas) {
+    /*actualizarMonedas(monedas) {
         this.monedas = monedas;
         this.textoMonedas.setText(this.monedas);
-    }
+    }*/
 
     botonDia1(){
       this.dia1 = this.add.image(200, 250, 'diasBotones').setInteractive();
