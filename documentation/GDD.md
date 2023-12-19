@@ -53,7 +53,7 @@ La moneda principal del juego son años de vida. Para ganar monedas, la Muerte t
   - Si era culpable y se le deja vivo. Habrá consecuencias al día siguiente, ya que el culpable seguirá matando (enviando más trabajo al cielo/infierno) y por ello penalización de -10 monedas por gastos de gestión.
   - Si era víctima y se le deja vivo. Habrá consecuencias al día siguiente, ya que por su trauma, se suicidará (enviando más trabajo al cielo/infierno) y por ello penalización de -5 monedas por gastos de gestión.
 
-El precio del alquiler será de 100 años de vida. Se pagará cada día con el dinero acumulado o con las ganancias.
+El precio del alquiler será de 100 años de vida. Se pagará al final de la semana, es decir, al haber superado todos los días. Si no se consigue pagar el alquiler, se habrá perdido el juego. Pero en cambio, si se consigue pagar, el jugador lo habrá completado con éxito.
 
 ### Tienda
 El juego tiene implementadas mejoras para el modo de conducción. Para conseguirlas se podrán comprar en la tienda con la moneda del juego.
@@ -105,18 +105,13 @@ que no está implicado.
 Pasamos la vista desde arriba de la ciudad. Se buscan posibles clientes por el mapa. Habrá que colisionar con el cliente para poder recogerlo y continuar a la parte conversacional. Podremos colisionar con elementos de la ciudad o atropellar gente.
 3. Cuando se suba un cliente, entraremos en el minijuego conversacional. En él el jugador tendrá que juzgar si su cliente es un posible culpable o víctima del crimen a través del diálogo y lo que conoce sobre el crimen que ha contado la radio. Al final de la conversación, el jugador tendrá que decidir si el cliente es una víctima, un culpable o nada. Así acabará en el cielo, infierno o se le dejará vivir, respectivamente.
 4. Volveremos a la conducción en búsqueda de otros clientes. Se repetirán los pasos 2, 3 y 4 hasta pasar el número de personas del nivel.
-5. Al final de cada día, se nos presentará el resumen del día. En este el jugador
-conocerá las ganancias que ha obtenido, pérdidas, y si puede o no pasar al
-siguiente día (si podemos pagar el alquiler).
+5. Al pasarse un nivel, se vuelve al menú de días, y se habrá desbloqueado el siguiente. Se repetirán entonces todos los pasos hasta que se hayan completado todos los niveles.
+6. Al acabar toda la semana, se hará un recuento de todas las ganancias y pérdidas. Se pedirá pagar el alquiler.
 
-   5.1. En el caso de que sea el quinto y último día, la Muerte se cansará de las
-aburridas personalidades de la gente del día a día y por ello, dimitirá para
-buscarse otro trabajo. Se mostrarán los créditos y se habrá superado el
-juego.
+    6.1 Si no se puede pagar, se habrá perdido el juego y habrá que volver a jugarlo desde el principio.
+  
+    6.2 Si se puede pagar, se habrá completado el juego con éxito.
 
-    5.2. En el caso de no poder pagar el alquiler, la Muerte será desterrada del
-inframundo, y por ende, no se habrá superado el juego. Se tendrá que jugar
-de nuevo, desde el día 1.
 
 ## 5. Estética
 
