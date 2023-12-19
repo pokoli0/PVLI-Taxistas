@@ -12,6 +12,7 @@ export default class Shop extends Phaser.Scene{
     init(data){
         this.monedas = data.monedas;
         this.menuDiasScene = data.menuDiasScene;
+        this.levelCompletado = data.levelCompletado;
     }
 
     create() {
@@ -52,6 +53,7 @@ export default class Shop extends Phaser.Scene{
             gpsActivado: this.gpsActivado,
             aceleracionActivada: this.aceleracionActivada,
             tiempoActivado: this.tiempoActivado,
+            levelCompletado: this.levelCompletado
         });
     }
 

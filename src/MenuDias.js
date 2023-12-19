@@ -48,7 +48,8 @@ export default class MenuDias extends Phaser.Scene{
         this.scene.stop('menuDias');
         this.scene.start('Shop', {
            monedas : this.monedas,
-           menuDiasScene: this
+           menuDiasScene: this,
+           levelCompletado: this.levelCompletado
         });}
       );   
       botonTienda.on('pointerover', () => {
@@ -79,7 +80,7 @@ export default class MenuDias extends Phaser.Scene{
             gpsActivado: this.gpsActivado,
             aceleracionActivada: this.aceleracionActivada,
             tiempoActivado: this.tiempoActivado,
-            puntos: this.puntos
+            puntos: this.puntos,
         });
     });
       this.add.text(153, 170, //Posicion de las preguntas (CAMBIAR ESTO)

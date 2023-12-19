@@ -9,7 +9,6 @@ export default class Boot extends Phaser.Scene{
 
         //SPRITES
         this.load.image('fondoMenu', 'assets/Imagenes/fondo.png');
-        this.load.image('playButton', 'assets/Imagenes/Botones/playButton.png');
         this.load.image('diasBotones', 'assets/Imagenes/Botones/Dias.png');
         this.load.image('candado', 'assets/Imagenes/imagenesPrueba/candado.png');
         this.load.image('moneda', 'assets/Imagenes/imagenesPrueba/moneda.png');
