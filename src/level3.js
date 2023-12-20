@@ -42,14 +42,14 @@ export default class Level2 extends Phaser.Scene {
     const moneda = this.add.sprite(40, 40, 'moneda');
     moneda.setScale(0.15);
     moneda.setScrollFactor(0);
-    moneda.setDepth(4);
+    moneda.setDepth(7);
     // Crear objeto de texto para los puntos
 
     this.textoPuntos = this.add.text(moneda.x,
       moneda.y, this.puntos, { fontSize: '48px', fill: '#000', align: 'center', });
     this.textoPuntos.setOrigin(0.5);
     this.textoPuntos.setScrollFactor(0);
-    this.textoPuntos.setDepth(5);
+    this.textoPuntos.setDepth(8);
 
     // Establece los límites de la cámara para que se ajusten al tamaño del mapa
     this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
@@ -187,6 +187,7 @@ export default class Level2 extends Phaser.Scene {
     this.carretera = this.map.createLayer('carretera', tileset1);
     this.asfalto = this.map.createLayer('asfalto', tileset1);
     this.cesped = this.map.createLayer('cesped', tileset1);
+    this.adicionales = this.map.createLayer('adicionales', tileset1);
     this.casas = this.map.createLayer('casas', tileset1);
     this.casas.setDepth(4);
     this.hierba = this.map.createLayer('hierba', tileset1);
