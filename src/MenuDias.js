@@ -18,8 +18,8 @@ export default class MenuDias extends Phaser.Scene{
       create() {
         //Ponemos imagenes:
         const background = this.add.video(500, 250, 'FondoMenu');
-        this.ButtonClicked = this.sound.add('Button');
-        this.CursorOnButton = this.sound.add('CursorOnButton');
+        const ButtonClicked = this.sound.add('Button');
+        const CursorOnButton = this.sound.add('CursorOnButton');
 
         const backButton = this.add.image(this.scale.width - 925, this.scale.height - 50, 'VolverMenuDias').setInteractive().setScale(0.25);
 
@@ -36,8 +36,9 @@ export default class MenuDias extends Phaser.Scene{
 
         //Conexion con escena Main Menu
         backButton.on("pointerdown", () => {
-          this.scene.start('menuInicial');
           ButtonClicked.play(); 
+          this.scene.start('menuInicial');
+          
         });
         backButton.on('pointerover', () => {
           CursorOnButton.play();
