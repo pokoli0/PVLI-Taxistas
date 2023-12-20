@@ -107,8 +107,8 @@ export default class Level2 extends Phaser.Scene {
         this,
         1540,
         1200,
-        'personAma',
-        'personIdleAma',
+        'personMor',
+        'personIdleMor',
         'BocadilloPerson',
         personajesData.personas[this.nivelActual % this.personajes].asesino,
       );
@@ -118,8 +118,8 @@ export default class Level2 extends Phaser.Scene {
         this,
         660,
         1510,
-        'personMor',
-        'personIdleMor',
+        'personVer',
+        'personIdleVer',
         'BocadilloPerson',
         personajesData.personas[this.nivelActual % this.personajes].asesino,
       );

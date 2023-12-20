@@ -93,6 +93,14 @@ export default class MenuDias extends Phaser.Scene{
             pagado: this.pagado
           });
       });
+      alquiler.on('pointerover', () => {
+        this.CursorOnButton.play();
+        alquiler.setScale(0.35);
+  });
+  
+  alquiler.on('pointerout', () => {
+    alquiler.setScale(0.3);
+  });
       }
       else if(this.levelCompletado && this.level > 3 && this.puntos < 100){
         this.pagado = true;
@@ -105,6 +113,14 @@ export default class MenuDias extends Phaser.Scene{
             pagado: this.pagado
           });
       });
+      alquiler.on('pointerover', () => {
+        this.CursorOnButton.play();
+        alquiler.setScale(0.35);
+  });
+  
+  alquiler.on('pointerout', () => {
+    alquiler.setScale(0.3);
+  });
       }
       else
         alquiler.setAlpha(0.7);
@@ -141,6 +157,7 @@ this.dia1.on('pointerout', () => {
                   });
       if(this.levelCompletado){
         const candado = this.add.image(200, 300, 'candado');
+        this.dia1.disableInteractive();
       }
     }
 
@@ -156,7 +173,6 @@ this.dia1.on('pointerout', () => {
       const candado = this.add.image(500, 300, 'candado');
       if(this.levelCompletado  && this.level == 2){
         this.dia2.setInteractive();
-        this.dia1.disableInteractive();
         candado.setVisible(false);
         this.dia2.on("pointerdown", () => {
           this.ButtonClicked.play();
