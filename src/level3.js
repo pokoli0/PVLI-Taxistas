@@ -87,10 +87,11 @@ export default class Level2 extends Phaser.Scene {
       this.initialTime = 180;  // Ajusta el tiempo inicial si el tiempo está activado
     }
     this.timerText = this.add.text(850, 25, this.formatTime(this.initialTime), {
-      fontSize: '40px',
+      fontFamily: 'VT323',
+      fontSize: '60px',
       fill: '#FFF',
     });
-    this.timerText.setDepth(4).setScrollFactor(0);
+    this.timerText.setDepth(8).setScrollFactor(0);
     this.timer = this.time.addEvent({
       delay: 1000,
       callback: this.updateTimer,
