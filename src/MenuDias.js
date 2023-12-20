@@ -103,23 +103,24 @@ export default class MenuDias extends Phaser.Scene{
   });
       }
       else if(this.levelCompletado && this.level > 3 && this.puntos < 100){
-        this.pagado = true;
+        this.pagado = false;
         alquiler.setVisible(false);
         const sinDinero = this.add.image(500, 50, 'NoTienesDinero');
         sinDinero.setScale(0.3);
-        alquiler.on("pointerdown", () => {
+        sinDinero.setInteractive();
+        sinDinero.on("pointerdown", () => {
           this.ButtonClicked.play();
           this.scene.start('escenaFinal', {
             pagado: this.pagado
           });
       });
-      alquiler.on('pointerover', () => {
+      sinDinero.on('pointerover', () => {
         this.CursorOnButton.play();
-        alquiler.setScale(0.35);
+        sinDinero.setScale(0.35);
   });
   
-  alquiler.on('pointerout', () => {
-    alquiler.setScale(0.3);
+  sinDinero.on('pointerout', () => {
+    sinDinero.setScale(0.3);
   });
       }
       else
