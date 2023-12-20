@@ -38,7 +38,6 @@ export default class Level1 extends Phaser.Scene {
   }
   create() {
     this.createTileMap();
-
     this.Level1Music = this.sound.add('Level1');
         this.Level1Music.play({
             loop: true 
@@ -77,6 +76,7 @@ export default class Level1 extends Phaser.Scene {
 
     this.events.on('cambiarEscena', (nuevaEscena, asesino) => {
       this.Level1Music.stop();
+
       this.car.StopCarSounds();
       this.scene.start('LoadConversacionScene', { asesino: asesino, puntos: this.puntos, nivel: this.nivel });
     });
@@ -107,8 +107,8 @@ export default class Level1 extends Phaser.Scene {
     if (this.nivelActual == 0) {
       this.person = new Person(
         this,
-        1540,
-        1200,
+        1250,
+        180,
         'personVer',
         'personIdleVer',
         'BocadilloPerson',
@@ -118,8 +118,8 @@ export default class Level1 extends Phaser.Scene {
     else if (this.nivelActual == 1) {
       this.person = new Person(
         this,
-        660,
-        1510,
+        1800,
+        1680,
         'personMor',
         'personIdleMor',
         'BocadilloPerson',
@@ -129,8 +129,8 @@ export default class Level1 extends Phaser.Scene {
     else if (this.nivelActual == 2) {
       this.person = new Person(
         this,
-        1810,
-        450,
+        1400,
+        600,
         'personAz',
         'personIdleAz',
         'BocadilloPerson',
@@ -231,6 +231,7 @@ export default class Level1 extends Phaser.Scene {
         const remainingTime = Math.ceil(this.initialTime);
         this.timerText.setText(this.formatTime(remainingTime));
     } else {
+      this.Music.stop();
         this.scene.pause();
         const centerX = this.cameras.main.worldView.x + this.cameras.main.width / 2;
         const centerY = this.cameras.main.worldView.y + this.cameras.main.height / 2;
