@@ -18,12 +18,14 @@ export default class MenuDias extends Phaser.Scene{
       create() {
         //Ponemos imagenes:
         const background = this.add.video(500, 250, 'FondoMenu');
-        this.ButtonClicked = this.sound.add('Button');
-        this.CursorOnButton = this.sound.add('CursorOnButton');
+        const ButtonClicked = this.sound.add('Button');
+        const CursorOnButton = this.sound.add('CursorOnButton');
+
+        const backButton = this.add.image(this.scale.width - 925, this.scale.height - 50, 'VolverMenuDias').setInteractive().setScale(0.25);
 
         background.play(true); // Reproduce el video en bucle
 
-      this.add.image(850, 420, 'Moneda').setScale(1.5);
+        this.add.image(850, 420, 'Moneda').setScale(1.5);
         this.textoMonedas = this.add.text(748, 385, this.puntos, {
         fontSize: '70px',
         fontFamily: "VT323",
@@ -31,7 +33,20 @@ export default class MenuDias extends Phaser.Scene{
         align: 'center',
         });
         this.createBotones();
-        
+
+        //Conexion con escena Main Menu
+        backButton.on("pointerdown", () => {
+          ButtonClicked.play(); 
+          this.scene.start('menuInicial');
+          
+        });
+        backButton.on('pointerover', () => {
+          CursorOnButton.play();
+          backButton.setScale(0.3);
+        });
+        backButton.on('pointerout', () => {
+          backButton.setScale(0.25);
+        });
     }
 
     init(data) {
