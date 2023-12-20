@@ -49,7 +49,7 @@ export default class Level1 extends Phaser.Scene {
     // Crear objeto de texto para los puntos
 
     this.textoPuntos = this.add.text(moneda.x,
-      moneda.y, this.puntos, { fontSize: '48px', fill: '#000', align: 'center', });
+      moneda.y, this.puntos, { fontSize: '48px', fontFamily: "VT323", fill: '#fff', align: 'center', });
     this.textoPuntos.setOrigin(0.5);
     this.textoPuntos.setScrollFactor(0);
     this.textoPuntos.setDepth(8);

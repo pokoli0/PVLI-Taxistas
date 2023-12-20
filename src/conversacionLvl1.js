@@ -35,7 +35,7 @@ export default class conversacionLvl1 extends Phaser.Scene{
             const moneda = this.add.sprite(40, 40, 'moneda');
             moneda.setScale(0.15);
 
-            this.textoPuntos = this.add.text(moneda.x, moneda.y, this.puntos, { fontSize: '48px', fill: '#000' , align: 'center',});
+            this.textoPuntos = this.add.text(moneda.x, moneda.y, this.puntos, { fontSize: '48px', fontFamily: "VT323", fill: '#fff' , align: 'center',});
             this.textoPuntos.setOrigin(0.5);
 
             // Cargar el archivo de texto

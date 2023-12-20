@@ -51,7 +51,7 @@ export default class escenaDecision extends Phaser.Scene{
                 this.actualizarPuntos(); // Actualiza el objeto de texto
                 this.add.text(230, 170, //Posicion de las preguntas (CAMBIAR ESTO)
                 "Has enviado a un ángel al cielo, felicidades.", 
-                { 
+                {           
                     fill: '#ffffff',  //Color del texto de las preguntas
                     fontFamily: "VT323",
                     fontSize: '30px'
