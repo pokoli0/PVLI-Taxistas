@@ -5,12 +5,17 @@ export default class escenaDecision extends Phaser.Scene{
         this.puntos; // Inicializa los puntos
         this.textoPuntos; // Variable para almacenar el objeto de texto de los puntos
         this.time = 0;
+        this.ButtonClicked;
+        this.CursorOnButton; 
     }
     preload(){
     }
     create(){
 
         this.add.image(500, 250, 'fondo').setAlpha(0.5);
+
+        this.ButtonClicked = this.sound.add('Button');
+        this.CursorOnButton = this.sound.add('CursorOnButton');
         
         this.asesino = this.sys.settings.data.asesino;
         this.puntos = this.sys.settings.data.puntos;
@@ -31,6 +36,7 @@ export default class escenaDecision extends Phaser.Scene{
         const botonCielo= this.add.sprite(250, 400, 'botonCielo').setInteractive();
         botonCielo.setScale(0.3);
         botonCielo.on('pointerdown', () => {
+            this.ButtonClicked.play();
             if (!this.asesino) {
                 this.puntos += 25; // Incrementa los puntos en 50
                 this.actualizarPuntos(); // Actualiza el objeto de texto
@@ -64,12 +70,21 @@ export default class escenaDecision extends Phaser.Scene{
             
             
         });
+        botonCielo.on('pointerover', () => {
+            this.CursorOnButton.play();
+            botonCielo.setScale(0.35);
+    });
+    
+    botonCielo.on('pointerout', () => {
+        botonCielo.setScale(0.3);
+    }); 
         
     }
     botonInfierno(){
         const botonInf= this.add.sprite(750, 400, 'botonInf').setInteractive();
         botonInf.setScale(0.3);
         botonInf.on('pointerdown', () => {
+            this.ButtonClicked.play();
             if (this.asesino) {
                 this.puntos += 25; // Incrementa los puntos en 50
                 this.actualizarPuntos(); // Actualiza el objeto de texto
@@ -101,12 +116,20 @@ export default class escenaDecision extends Phaser.Scene{
             // Pasar los puntos a la escena de controlLevels
             });
         });
-
+        botonInf.on('pointerover', () => {
+            this.CursorOnButton.play();
+            botonInf.setScale(0.35);
+    });
+    
+    botonInf.on('pointerout', () => {
+        botonInf.setScale(0.3);
+    }); 
     }
     botonVivir(){
         const dejarVivo= this.add.sprite(500, 400, 'dejarVivo').setInteractive();
         dejarVivo.setScale(0.3);
         dejarVivo.on('pointerdown', () => {
+            this.ButtonClicked.play();
             this.add.text(200, 133, //Posicion de las preguntas (CAMBIAR ESTO)
                 "Su destino pende de un hilo.\nLa vida le ha dado una segunda oportunidad.",
                 {
@@ -124,5 +147,13 @@ export default class escenaDecision extends Phaser.Scene{
             // Pasar los puntos a la escena de controlLevels
             });
         });
+        dejarVivo.on('pointerover', () => {
+            this.CursorOnButton.play();
+            dejarVivo.setScale(0.35);
+    });
+    
+    dejarVivo.on('pointerout', () => {
+        dejarVivo.setScale(0.3);
+    }); 
     }
 }

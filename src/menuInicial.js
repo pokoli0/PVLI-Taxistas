@@ -43,6 +43,7 @@ export default class Menu extends Phaser.Scene {
 
         //Conexion con escena Controles
         controlesButton.on("pointerdown", () => {
+            ButtonClicked.play();
             this.scene.start('escenaControles');
         });
         controlesButton.on('pointerover', () => {
