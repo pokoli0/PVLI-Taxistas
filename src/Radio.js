@@ -1,11 +1,11 @@
 export default class Radio extends Phaser.Scene {
     constructor() {
         super({ key: 'Radio' });
-
         this.dialogoActual = null;
         this.jsonDialogo;
         this.dialogosText;
         this.indice = 0;
+        this.delay=0;
     }
 
     init(data){
@@ -25,6 +25,7 @@ export default class Radio extends Phaser.Scene {
     }
 
     create() {
+      //  this.keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         const radiogif = this.add.video(500, 120, 'Radio').setScale(0.5);
         radiogif.play(true); // Reproduce el video en bucle
         if (!this.dialogoActual) {
@@ -92,11 +93,11 @@ export default class Radio extends Phaser.Scene {
         
         // Configurar animación de aparición de texto
     let index = 0;
-    const delay = 20; // Puedes ajustar este valor para cambiar la velocidad de aparición
+   // Puedes ajustar este valor para cambiar la velocidad de aparición
 
     this.time.addEvent({
         repeat: texto.length - 1,
-        delay: delay,
+        delay: this.delay,
         callback: () => {
             textoDialogo.text += texto[index];
             index++;
