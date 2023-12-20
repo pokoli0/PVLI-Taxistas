@@ -103,7 +103,7 @@ export default class MenuDias extends Phaser.Scene{
   });
       }
       else if(this.levelCompletado && this.level > 3 && this.puntos < 100){
-        this.pagado = true;
+        this.pagado = false;
         alquiler.setVisible(false);
         const sinDinero = this.add.image(500, 50, 'NoTienesDinero');
         sinDinero.setScale(0.3);
