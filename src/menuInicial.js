@@ -44,5 +44,13 @@ export default class Menu extends Phaser.Scene {
         controlesButton.on("pointerdown", () => {
             this.scene.start('escenaControles');
         });
+        controlesButton.on('pointerover', () => {
+            CursorOnButton.play();
+            controlesButton.setScale(0.4);
+    });
+    
+    controlesButton.on('pointerout', () => {
+        controlesButton.setScale(0.35);
+    });
     }
   }
