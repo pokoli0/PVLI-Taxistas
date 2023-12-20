@@ -26,6 +26,9 @@ export default class conversacionLvl1 extends Phaser.Scene{
         if (!this.dialogoActual){
             this.asesino = this.sys.settings.data.asesino;
             this.puntos = this.sys.settings.data.puntos;
+
+            this.ButtonClicked = this.sound.add('Button');
+            this.CursorOnButton = this.sound.add('CursorOnButton');
         
             this.add.sprite(500, 250, 'fondo');
 
@@ -118,10 +121,18 @@ export default class conversacionLvl1 extends Phaser.Scene{
             const botonCont= this.add.sprite(325, 400, 'botonCont').setInteractive();;
             botonCont.setScale(0.3);
             botonCont.on("pointerdown", () => {
+                this.ButtonClicked.play();
                 this.indice = 0;
                 this.scene.start('escenaDecision',{asesino: this.asesino, puntos: this.puntos} );
-               //  { mapName: 'finalMap1',dash:false, click:false, middle:'one' });
               });
+              botonCont.on('pointerover', () => {
+                    this.CursorOnButton.play();
+                    botonCont.setScale(0.35);
+            });
+            
+            botonCont.on('pointerout', () => {
+                    botonCont.setScale(0.3);
+            });
         }
         else{
             if (this.jsonDialogo.includes(texto)) {
