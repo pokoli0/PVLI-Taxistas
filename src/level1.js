@@ -39,6 +39,10 @@ export default class Level1 extends Phaser.Scene {
   create() {
     this.createTileMap();
 
+    this.ShopMusic = this.sound.add('Level1');
+        this.ShopMusic.play({
+            loop: true 
+        })
     const moneda = this.add.sprite(40, 40, 'moneda');
     moneda.setScale(0.15);
     moneda.setScrollFactor(0);

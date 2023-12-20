@@ -66,6 +66,11 @@ export default class Boot extends Phaser.Scene{
         this.load.audio('Coche', 'assets/Sonido_Musica/CarSound.mp3');
         this.load.audio('RadioSound', 'assets/Sonido_Musica/RadioSound.mp3');
         this.load.audio('MuscicaMenus', 'assets/Sonido_Musica/RadioSound.mp3');
+        this.load.audio('Level1', 'assets/Sonido_Musica/Level1.mp3');
+        this.load.audio('Level2', 'assets/Sonido_Musica/Level2.mp3');
+        this.load.audio('Level3', 'assets/Sonido_Musica/Level3.mp3');
+
+
 
         //ANIMACIONS
         this.load.spritesheet( 'personIdleVer', 'assets/Imagenes/Personajes/VerdeDia1.png',{ frameWidth: 17.25, frameHeight: 24 });
