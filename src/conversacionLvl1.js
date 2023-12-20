@@ -23,6 +23,10 @@ export default class conversacionLvl1 extends Phaser.Scene{
     }
 
     create(){
+        this.Music = this.sound.add('dialogo');
+        this.Music.play({
+            loop: true 
+        })
         if (!this.dialogoActual){
             this.asesino = this.sys.settings.data.asesino;
             this.puntos = this.sys.settings.data.puntos;

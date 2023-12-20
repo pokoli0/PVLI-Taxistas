@@ -11,7 +11,6 @@ export default class escenaDecision extends Phaser.Scene{
     preload(){
     }
     create(){
-
         this.add.image(500, 250, 'fondo').setAlpha(0.5);
 
         this.ButtonClicked = this.sound.add('Button');
@@ -74,6 +73,7 @@ export default class escenaDecision extends Phaser.Scene{
             controlLevelsScene.avanzarAlSiguienteNivel(this.puntos);
             // Detener la escena actual
             this.scene.stop('escenaDecision');
+            this.sound.stopAll();
             // Pasar los puntos a la escena de controlLevels
             });
             
@@ -123,6 +123,7 @@ export default class escenaDecision extends Phaser.Scene{
             controlLevelsScene.avanzarAlSiguienteNivel(this.puntos);
             // Detener la escena actual
             this.scene.stop('escenaDecision');
+            this.sound.stopAll();
             // Pasar los puntos a la escena de controlLevels
             });
         });
@@ -155,6 +156,7 @@ export default class escenaDecision extends Phaser.Scene{
             controlLevelsScene.avanzarAlSiguienteNivel(this.puntos);
             // Detener la escena actual
             this.scene.stop('escenaDecision');
+            this.sound.stopAll();
             // Pasar los puntos a la escena de controlLevels
             });
         });
