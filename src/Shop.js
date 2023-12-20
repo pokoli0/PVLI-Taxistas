@@ -24,7 +24,7 @@ export default class Shop extends Phaser.Scene{
     }
 
     botonGPSPresionado(textoMonedas){
-        if(this.puntos > 100 && !this.gpsActivado){
+        if(this.puntos >= 100 && !this.gpsActivado){
             this.gpsActivado = true;
             this.puntos -= 100;
             textoMonedas.setText(this.puntos);
@@ -32,7 +32,7 @@ export default class Shop extends Phaser.Scene{
     }
 
     botonAceleracionPresionado(textoMonedas){
-        if(this.puntos > 75 && !this.aceleracionActivada){
+        if(this.puntos >= 75 && !this.aceleracionActivada){
         this.aceleracionActivada = true;
         this.puntos -= 75;
         textoMonedas.setText(this.puntos);
@@ -40,7 +40,7 @@ export default class Shop extends Phaser.Scene{
     }
 
     botonTiempoPresionado(textoMonedas){
-        if(this.puntos > 50 && !this.tiempoActivado){
+        if(this.puntos >= 50 && !this.tiempoActivado){
         this.tiempoActivado = true;
         this.puntos -= 50;
         textoMonedas.setText(this.puntos);

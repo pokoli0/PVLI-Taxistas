@@ -12,6 +12,7 @@ export default class MenuDias extends Phaser.Scene{
         this.dia1;
         this.dia2;
         this.dia3;
+        this.pagado = false;
       }
 
       create() {
@@ -43,7 +44,7 @@ export default class MenuDias extends Phaser.Scene{
     }
 
     createBotones(){
-              
+    this.dineroAlquiler();
     this.botonDia1();
     this.botonDia2();
     this.botonDia3();
@@ -80,6 +81,37 @@ export default class MenuDias extends Phaser.Scene{
         this.textoMonedas.setText(this.monedas);
     }*/
 
+    dineroAlquiler(){
+      const alquiler = this.add.image(500, 50, 'PagarAlquiler');
+      alquiler.setScale(0.3);
+      if(this.levelCompletado && this.level > 3 && this.puntos >= 100){
+        this.pagado = true;
+        alquiler.setAlpha(1);
+        alquiler.setInteractive();
+        alquiler.on("pointerdown", () => {
+          this.ButtonClicked.play();
+          this.scene.start('escenaFinal', {
+            pagado: this.pagado
+          });
+      });
+      }
+      else if(this.levelCompletado && this.level > 3 && this.puntos < 100){
+        this.pagado = true;
+        alquiler.setVisible(false);
+        const sinDinero = this.add.image(500, 50, 'NoTienesDinero');
+        sinDinero.setScale(0.3);
+        alquiler.on("pointerdown", () => {
+          this.ButtonClicked.play();
+          this.scene.start('escenaFinal', {
+            pagado: this.pagado
+          });
+      });
+      }
+      else
+        alquiler.setAlpha(0.7);
+      
+    }
+
     botonDia1(){
       this.dia1 = this.add.image(200, 250, 'diasBotones').setInteractive();
       this.dia1.on("pointerdown", () => {
@@ -108,6 +140,9 @@ this.dia1.on('pointerout', () => {
                       fontFamily: "VT323",
                       fontSize: '50px'
                   });
+      if(this.levelCompletado){
+        const candado = this.add.image(200, 300, 'candado');
+      }
     }
 
     botonDia2(){
