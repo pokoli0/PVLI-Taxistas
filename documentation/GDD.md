@@ -224,6 +224,6 @@ inspiración y de referencia:
 pasar o no a un viajero.
 - Crazy Taxi. SEGA. La recogida de los clientes y la caótica conducción del juego.
 - Grand Theft Auto 2. Rockstar Games. El caos de la conducción, la conducción en la
-ciudad, la vida desde arriba.
+ciudad, la vista desde arriba.
 - Phoenix Wright: Ace Attorney. Capcom. Interrogaciones a los clientes para juzgar si
 es víctima o culpable.
