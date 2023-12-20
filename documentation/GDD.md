@@ -141,16 +141,35 @@ Hablando de la UI, no es muy cansada para la vista. Aparecen botones que destaca
 ![botonPlay](/assets/Imagenes/capturas/capturaBoton.png)
 ![botonOpciones](/assets/Imagenes/capturas/capturaOpciones.png)
 
-En el **menú inicial** será un menú intuitivo con dos únicos botones: PLAY y CONTROLES. El primero para acceder al menú de Días, y el segundo para aprender los controles básicos del juego.
+En **menú inicial** será un menú intuitivo con dos únicos botones: PLAY y CONTROLES. El primero para acceder al menú de Días, y el segundo para aprender los controles básicos del juego.
 
-En el **menú de días** se podrá acceder a cada nivel desbloqueado, y a la tienda.
+![capturaInicio](/assets/Imagenes/capturas/capturaInicio.png)
+
+En el **menú de días**, se podrá elegir el nivel que esté desbloqueado. Al acabar todos los niveles, se dará acceso al botón PAGAR EL ALQUILER. Con el que se podrá o no superar el juego. 
+Desde aquí se podrá acceder a la TIENDA.
+
+![capturaInicio](/assets/Imagenes/capturas/capturaMenuDias.png)
 
 La **tienda** mostrará las monedas de las que dispones abajo a la derecha. Cada vez que se haga una compra, al pulsar uno de los botones (GPS, ACELERADOR ó TIEMPO EXTRA), se reproducirá un sonido de cajero para dar a entender al usuario que ha realizado una compra. Debajo de cada botón se incluye una descripción de la mejora que se consigue, tal y como se muestra en la imagen. También se incluye un botón para regresar al menú de días (ATRÁS).
 
 ![capturaTienda](/assets/Imagenes/capturas/capturaTienda.png)
 
+En la **parte de conducción**, se mostrarán las monedas que tiene el jugador arriba a la derecha. Arriba a la izquierda, tendrá el contador de tiempo.
+
+![capturaTienda](/assets/Imagenes/capturas/capturaJuego.png)
+
 ### Narrativa visual
 Es importante la narrativa visual en el juego. Los textos son lo suficientemente grandes para que cualquier jugador sea capaz de leer. Se separan los textos grandes en distintas secuencias para no cansar al jugador, podrá pasar cuando se realice el click en la pantalla, haciendo que pueda tomarse su tiempo para leer.
+
+La escena de la **radio** toma importancia aquí. Comienza antes de empezar cada nivel. Se muestra texto en blanco con un fondo negro, y con un sonido de radio con alguna voz indistinguible, ya que se comenta un crimen y se pretende dar sensación de estrés. 
+
+Finalmente, la **parte conversacional**, con un fondo desde el punto de vista del asiento de atrás del taxi. Da un ambiente muy tenebroso que aporta mucha inseguridad al jugador. Aquí se puede elegir las opciones para hablar con el cliente.
+
+![capturaJuegoConver](/assets/Imagenes/capturas/capturaJuegoConver.png)
+
+Una vez terminada la conversación se dará a elegir la opción final, tal y como se muestra en la imagen.
+
+![capDecision](/assets/Imagenes/capturas/capturaDecision.png)
 
 ### Sonidos
 Destacamos algunos sonidos en el juego para hacerlo más inmersivo. Algunos de estos sonidos se han exagerado para producir en el jugador sensación de ironía.
