@@ -2,7 +2,7 @@
 export default class Menu extends Phaser.Scene {
     constructor() {
       super({ key: 'menuInicial' });
-    this.puntos = 175;
+    this.puntos = 0;
     }
     preload() {
     }
