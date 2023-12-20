@@ -231,7 +231,7 @@ export default class Level1 extends Phaser.Scene {
         const remainingTime = Math.ceil(this.initialTime);
         this.timerText.setText(this.formatTime(remainingTime));
     } else {
-      this.Music.stop();
+      this.Level1Music.stop();
         this.scene.pause();
         const centerX = this.cameras.main.worldView.x + this.cameras.main.width / 2;
         const centerY = this.cameras.main.worldView.y + this.cameras.main.height / 2;
