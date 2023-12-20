@@ -39,8 +39,8 @@ export default class Level2 extends Phaser.Scene {
   create() {
     this.createTileMap();
 
-    this.ShopMusic = this.sound.add('Level2');
-        this.ShopMusic.play({
+    this.Level2Music = this.sound.add('Level2');
+        this.Level2Music.play({
             loop: true 
         })
     const moneda = this.add.sprite(40, 40, 'moneda');
@@ -76,6 +76,7 @@ export default class Level2 extends Phaser.Scene {
     this.physics.add.collider(this.car, this.colisiones, () => this.car.cocheExplota());
 
     this.events.on('cambiarEscena', (nuevaEscena, asesino) => {
+      this.Level2Music.stop();
       this.car.StopCarSounds();
       this.scene.start('LoadConversacionScene', { asesino: asesino, puntos: this.puntos, nivel: this.nivel });
     });
@@ -171,7 +172,7 @@ export default class Level2 extends Phaser.Scene {
 
   cargarNivelSiguiente() {
     // Llama al control de niveles para avanzar al siguiente nivel
-
+    this.Level2Music.stop();
     this.scene.get('controlLevels').avanzarAlSiguienteNivel();
   }
 
@@ -244,6 +245,7 @@ export default class Level2 extends Phaser.Scene {
         Alarma.play();
         Alarma.once('complete', () => {
             this.car.StopCarSounds();
+            this.Level2Music.stop();
             message.destroy();
             this.scene.resume();
             this.scene.start('menuDias');
